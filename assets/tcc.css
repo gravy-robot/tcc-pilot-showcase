@@ -1,0 +1,223 @@
+/* =========================================================
+   TCC pilot showcase: shared styles for TCC-owned pages
+   (hub, audit, and later the TCC-owned mockups).
+
+   Source: TCC design system, design-system/tcc-style-tiles.html
+   ("CSS tokens for web pages" in Setup, plus the masthead,
+   tile, button, stat box, speech-bubble and footer components).
+   Anything not in the design system is marked LOCAL below.
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Ubuntu:wght@400;500;700&display=swap");
+
+/* ---------- Tokens (design system v1.0) ---------- */
+:root{
+  --tcc-navy:#1B2D5B; --tcc-pumpkin:#F28030; --tcc-cerulean:#33C6F5; --tcc-cream:#F0E0B0;
+  --tcc-slate:#2C3A4A; --tcc-muted:#5E6380; --tcc-sand:#E8E6DF; --tcc-offwhite:#F7F6F2; --tcc-sienna:#D4935A;
+  --tcc-linen:#F5EEDC; --tcc-peach:#F2E0CE; --tcc-apricot:#ECCFAF; --tcc-mist:#DDE4F6; --tcc-sky:#E1F4FB; --tcc-navy-2:#2C3D6B;
+  --tcc-pumpkin-ink:#A3470E; --tcc-cerulean-ink:#08688A;
+  --tcc-font-head:"Nunito","Ubuntu",system-ui,sans-serif;
+  --tcc-font-ui:"Ubuntu",system-ui,sans-serif;
+  --tcc-radius-card:12px; --tcc-radius-pill:999px;
+  --tcc-shadow:0 1px 2px rgba(27,45,91,.06), 0 8px 24px rgba(27,45,91,.08);
+  /* LOCAL: status inks for audit verdicts and grades. The design system
+     has do/don't label greens and reds (#2E6B3A, #A3311E) but no status
+     tokens; these reuse them. All pass AA as text on white. */
+  --local-good:#2E6B3A; --local-good-bg:#E4F1E6;
+  --local-bad:#A3311E;  --local-bad-bg:#F8E3DF;
+}
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--tcc-offwhite);color:var(--tcc-slate);font:400 17px/1.6 var(--tcc-font-head);overflow-wrap:break-word}
+img,svg{max-width:100%}
+a{color:var(--tcc-cerulean-ink);text-underline-offset:3px}
+a:hover{color:var(--tcc-navy)}
+:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+.small{font-size:15px;line-height:1.55}
+.muted{color:var(--tcc-muted)}
+/* LOCAL: screen-reader-only text and skip link (not in the design system). */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;background:var(--tcc-pumpkin);color:var(--tcc-navy);font:700 15px/1 var(--tcc-font-ui);padding:12px 18px;border-radius:var(--tcc-radius-pill);z-index:20;text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- Type ---------- */
+.eyebrow{font:700 12px/1.3 var(--tcc-font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--tcc-pumpkin-ink);margin:0 0 8px}
+.on-navy .eyebrow{color:var(--tcc-cerulean)}
+h1,h2,h3{font-family:var(--tcc-font-head);color:var(--tcc-navy);line-height:1.1}
+h2{font-weight:800;font-size:clamp(28px,4vw,40px);margin:0}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--tcc-pumpkin);margin-top:16px}
+h3{font-weight:800;font-size:20px;line-height:1.25;margin:0 0 8px}
+p{margin:0 0 12px}
+
+/* ---------- Masthead (design system "masthead" + overlapping circles) ---------- */
+.masthead{background:var(--tcc-navy);color:#fff;position:relative;overflow:hidden}
+.masthead .wrap{position:relative;z-index:1;padding-top:40px;padding-bottom:56px}
+.circle{position:absolute;border-radius:50%;pointer-events:none}
+.masthead h1{font-weight:900;font-size:clamp(34px,5.6vw,64px);line-height:1.04;letter-spacing:-.01em;color:#fff;margin:24px 0 16px;max-width:22ch}
+.masthead h1 em{font-style:normal;color:var(--tcc-pumpkin)}
+.masthead .lede{font-size:clamp(18px,2.2vw,21px);line-height:1.5;max-width:52ch;color:rgba(255,255,255,.9);margin:0}
+
+/* Logo: the design system ships 800 px square PNGs with lots of padding
+   and crops them with a background-size trick that clips the bracket and
+   the bubble tail. Here the PNGs are cropped to the logo itself (with clear
+   space), so it's a plain <img>. No SVG master exists yet. */
+.logo{display:block;height:auto}
+.masthead .logo{width:190px}
+
+/* ---------- Sections and tiles ---------- */
+section.block{padding:64px 0 8px}
+@media (max-width:640px){section.block{padding-top:48px}}
+/* Section heads: eyebrow, title, then intro text under the title.
+   (The design system puts the text in a right-hand column; review asked
+   for it under the title.) */
+.sec-head{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:28px;max-width:66ch}
+.sec-head p{margin:0}
+.sec-head > div + p,.sec-head > div + div{margin-top:4px}
+.tile{background:#fff;border-radius:16px;padding:28px;box-shadow:var(--tcc-shadow);min-width:0}
+@media (max-width:640px){.tile{padding:20px}}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.g3{grid-template-columns:1fr}}
+@media (max-width:640px){.g2{grid-template-columns:1fr}}
+
+/* Stat box (design system) */
+.stat{border-radius:var(--tcc-radius-card);padding:20px 22px;background:var(--tcc-mist);position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;left:12%;right:12%;top:0;height:4px;background:var(--tcc-cerulean);border-radius:0 0 3px 3px}
+.stat .n{font:800 40px/1.1 var(--tcc-font-head);color:var(--tcc-navy)}
+.stat .d{font-size:15px;line-height:1.45;color:var(--tcc-slate);margin-top:4px}
+
+/* Buttons and links (design system) */
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:var(--tcc-radius-pill);font:700 15px/1 var(--tcc-font-ui);padding:12px 22px;text-decoration:none;cursor:pointer}
+.btn-primary{background:var(--tcc-pumpkin);color:var(--tcc-navy)}
+.btn-primary:hover{background:#F59552;color:var(--tcc-navy)}
+.btn-ghost{background:transparent;color:var(--tcc-navy);box-shadow:inset 0 0 0 2px var(--tcc-navy)}
+.btn:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:3px}
+.textlink{color:var(--tcc-cerulean-ink);font-weight:700;text-underline-offset:3px}
+
+/* Note (design system) */
+.note{border-left:4px solid var(--tcc-cerulean);background:var(--tcc-sky);padding:14px 16px;border-radius:0 10px 10px 0;font-size:15px}
+
+/* ---------- LOCAL: pills and tags ----------
+   The design system has pill buttons and "adjective" pills but no tag or
+   chip component. These use its pill radius, UI font and tints. */
+.tag{display:inline-flex;align-items:center;gap:6px;font:700 12px/1.2 var(--tcc-font-ui);letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:var(--tcc-radius-pill);background:var(--tcc-sand);color:var(--tcc-navy)}
+.tag--tcc{background:var(--tcc-sky);color:var(--tcc-cerulean-ink)}
+.tag--own{background:var(--tcc-peach);color:var(--tcc-pumpkin-ink)}
+.tag--stage{background:var(--tcc-navy);color:#fff}
+.tag i{width:8px;height:8px;border-radius:50%;background:currentColor;display:inline-block}
+
+/* ---------- LOCAL: persona avatar (illustrated initial, no photo) ---------- */
+.avatar{flex:none;width:88px;height:88px}
+.avatar svg{display:block;width:100%;height:100%}
+
+/* ---------- LOCAL: hub, who-this-is-for ---------- */
+.persona{display:flex;gap:20px;align-items:flex-start}
+@media (max-width:420px){.persona{flex-direction:column}}
+.persona ul{margin:8px 0 0;padding-left:20px}
+.persona li{margin:2px 0}
+
+/* ---------- LOCAL: hub, stage tabs ----------
+   Seven equal stage buttons; the selected one shows its card below at full
+   width. Works without JS: the rail is a list of anchor links and all seven
+   panels show in order. assets/stage-tabs.js turns it into ARIA tabs. */
+.rail{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.rail a{position:relative;display:flex;flex-direction:column;gap:2px;height:100%;border-radius:10px;padding:10px 12px;
+  background:var(--tcc-navy);color:#fff;text-decoration:none;font:500 12px/1.3 var(--tcc-font-ui);color:rgba(255,255,255,.82)}
+.rail a b{display:block;font:800 16px/1.2 var(--tcc-font-head);color:#fff}
+.rail a:hover{background:var(--tcc-navy-2)}
+.rail a:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:3px}
+.rail a[aria-selected="true"]{background:var(--tcc-pumpkin);color:var(--tcc-navy)}
+.rail a[aria-selected="true"] b{color:var(--tcc-navy)}
+/* small pointer from the selected stage down to its card */
+.rail a[aria-selected="true"]::after{content:"";position:absolute;left:50%;bottom:-9px;width:16px;height:16px;transform:translateX(-50%) rotate(45deg);background:var(--tcc-pumpkin);border-radius:2px;z-index:-1}
+@media (max-width:860px){.rail{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:480px){.rail{grid-template-columns:repeat(2,minmax(0,1fr))}.rail li:last-child{grid-column:span 2}.rail a[aria-selected="true"]::after{display:none}}
+
+.panels{margin-top:16px;display:grid;gap:16px}
+.js-tabs .panels{margin-top:18px}
+.panel{background:#fff;border-radius:16px;box-shadow:var(--tcc-shadow);padding:28px;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px 40px;scroll-margin-top:16px}
+.js-tabs .panel{border-top:4px solid var(--tcc-pumpkin)}
+.panel[hidden]{display:none}
+.panel:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:3px}
+@media (max-width:860px){.panel{grid-template-columns:1fr;padding:20px}}
+.panel .kicker{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.panel h3{font-size:clamp(22px,2.6vw,28px);margin:0 0 8px}
+.panel .purpose{font-size:17px;margin:0 0 14px}
+.panel .uses{font-size:15px;line-height:1.5;background:var(--tcc-linen);border-radius:10px;padding:12px 14px;margin:0 0 16px}
+.panel .uses b{display:block;font:700 11px/1.3 var(--tcc-font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--tcc-pumpkin-ink);margin-bottom:2px}
+.panel .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.panel .next{font-size:14px;color:var(--tcc-muted);margin:14px 0 0}
+.panel .next a{font-weight:700}
+.her{background:var(--tcc-offwhite);border-radius:12px;padding:18px 20px;margin:0;align-self:start}
+.her .eyebrow{margin-bottom:10px}
+.her dt{font:700 11px/1.3 var(--tcc-font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--tcc-muted);margin:12px 0 2px}
+.her dl{margin:0}
+.her dt:first-of-type{margin-top:0}
+.her dd{margin:0;font-size:15px;line-height:1.5}
+.her dd q{font-style:italic;color:var(--tcc-navy)}
+/* "Coming next" state for mockups that aren't built yet. Not a link. */
+.soon{display:inline-flex;flex-direction:column;align-items:flex-start;gap:4px;font:700 14px/1.2 var(--tcc-font-ui);color:var(--tcc-muted);padding:9px 16px;border-radius:12px;border:2px dashed #B9B6AC;background:var(--tcc-offwhite)}
+.soon small{font:500 12px/1.2 var(--tcc-font-ui);overflow-wrap:anywhere}
+
+/* ---------- LOCAL: research link cards ---------- */
+.linkcard{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--tcc-slate);transition:transform .15s ease, box-shadow .15s ease}
+.linkcard:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(27,45,91,.08),0 14px 32px rgba(27,45,91,.12);color:var(--tcc-slate)}
+.linkcard h3{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.linkcard h3 span{color:var(--tcc-pumpkin-ink)}
+.linkcard p{margin:0;font-size:15px}
+.linkcard .more{margin-top:auto;font:700 14px/1 var(--tcc-font-ui);color:var(--tcc-cerulean-ink);text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.linkcard{transition:none}.linkcard:hover{transform:none}}
+
+/* ---------- Footer (design system "footer.site") ---------- */
+footer.site{background:var(--tcc-navy);color:rgba(255,255,255,.82);margin-top:80px;position:relative;overflow:hidden}
+footer.site .wrap{padding-top:40px;padding-bottom:40px;display:flex;flex-wrap:wrap;gap:20px 48px;align-items:center;justify-content:space-between;position:relative;z-index:1}
+footer.site .logo{width:150px}
+footer.site p{margin:0 0 6px;font-size:14px;max-width:70ch}
+footer.site a{color:#fff}
+
+/* ---------- LOCAL: audit page ---------- */
+.prose{max-width:72ch}
+.prose ul{padding-left:20px}
+.prose li{margin:6px 0}
+.key{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:16px 0 0;padding:0;list-style:none}
+.key li{display:flex;gap:12px;align-items:center;background:#fff;border-radius:10px;padding:10px 12px;box-shadow:inset 0 0 0 1px var(--tcc-sand);font-size:15px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+.table-scroll{position:relative;overflow-x:auto;background:#fff;border-radius:14px;box-shadow:var(--tcc-shadow);margin:20px 0}
+.table-scroll:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:3px}
+.scroll-hint{display:none;font:500 13px/1.3 var(--tcc-font-ui);color:var(--tcc-muted);margin:12px 0 -8px}
+@media (max-width:980px){.scroll-hint{display:block}}
+table.audit,table.plain{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45}
+table.audit th,table.audit td,table.plain th,table.plain td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--tcc-sand);vertical-align:top}
+table.audit thead th,table.plain thead th{font:700 11px/1.2 var(--tcc-font-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--tcc-muted);border-bottom:2px solid var(--tcc-sand);white-space:nowrap;background:#fff}
+table.audit tbody tr:last-child td,table.plain tbody tr:last-child td{border-bottom:0}
+table.audit .ex{min-width:240px}
+table.audit .ex a{font-weight:700}
+table.audit .ex small{display:block;color:var(--tcc-muted)}
+table.audit td.type,table.audit td.who{min-width:150px}
+table.audit td.date{white-space:nowrap}
+table.audit th.p,table.audit td.g{text-align:center;padding-left:4px;padding-right:4px;width:40px}
+table.audit th.p abbr{text-decoration:none;cursor:help}
+table.plain{min-width:760px}
+table.plain th[scope=row]{font-weight:700;color:var(--tcc-navy)}
+.g span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;font:800 17px/1 var(--tcc-font-head)}
+.g-strong span{background:var(--local-good-bg);color:var(--local-good)}
+.g-mixed span{background:var(--tcc-linen);color:var(--tcc-pumpkin-ink)}
+.g-weak span{background:var(--local-bad-bg);color:var(--local-bad)}
+.g-na span{color:var(--tcc-muted)}
+.g-blank span{color:var(--tcc-muted);font-size:13px}
+.verdict{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font:700 13px/1.2 var(--tcc-font-ui);padding:6px 10px;border-radius:var(--tcc-radius-pill)}
+.verdict svg{flex:none}
+.v-good{background:var(--local-good-bg);color:var(--local-good)}
+.v-soso{background:var(--tcc-linen);color:var(--tcc-pumpkin-ink)}
+.v-not{background:var(--tcc-sand);color:var(--tcc-slate)}
+.notes{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.notes li{background:#FBF8F4;border-radius:10px;padding:14px 16px 14px 22px;position:relative;font-size:15px;line-height:1.55}
+.notes li::before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:3px;border-radius:2px;background:var(--tcc-pumpkin)}
+.notes-wrap{background:var(--tcc-peach);border-radius:16px;padding:14px}
+h3.sub{font-size:17px;margin:28px 0 12px}
+.anchor-target{scroll-margin-top:16px}
+

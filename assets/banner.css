@@ -1,0 +1,83 @@
+/* =========================================================
+   Shared top banner: every page except the hub.
+   Self-contained so the two map pages (which keep their own
+   research palette) can load it without the full TCC stylesheet.
+   Colors and type come from the TCC design system
+   (design-system/tcc-style-tiles.html): navy bar, white text,
+   cerulean back link (6.7:1 on navy), Ubuntu UI font.
+
+   ---- Copy-paste snippet --------------------------------
+   In <head>:
+     <link rel="stylesheet" href="../assets/banner.css">
+
+   First thing inside <body>, for a mockup:
+     <nav class="tcc-banner" aria-label="Where you are">
+       <div class="tcc-banner__inner">
+         <p class="tcc-banner__trail">
+           <span class="tcc-banner__kind">Mockup</span>
+           <span>TCC social post</span>
+           <span>Stage 1 Notice</span>
+           <span>TCC's own channel</span>
+         </p>
+         <a class="tcc-banner__back" href="../index.html">← Back to hub</a>
+       </div>
+     </nav>
+
+   For a reference page (maps, audit):
+     <nav class="tcc-banner" aria-label="Where you are">
+       <div class="tcc-banner__inner">
+         <p class="tcc-banner__trail">
+           <span class="tcc-banner__kind">Reference</span>
+           <span>Journey map</span>
+         </p>
+         <a class="tcc-banner__back" href="../index.html">← Back to hub</a>
+       </div>
+     </nav>
+
+   The "·" separators are drawn by CSS. Don't type them.
+   A file-based copy of the snippet is in assets/banner.html.
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+.tcc-banner{
+  background:#1B2D5B;            /* --tcc-navy */
+  color:#FFFFFF;
+  font:500 13px/1.4 "Ubuntu", system-ui, sans-serif;
+  position:relative;
+  z-index:10;
+}
+.tcc-banner__inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:8px 24px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:4px 24px;
+}
+@media (max-width:640px){ .tcc-banner__inner{ padding:8px 16px; } }
+.tcc-banner__trail{ margin:0; display:flex; flex-wrap:wrap; gap:0 0; min-width:0; }
+.tcc-banner__trail > span + span::before{
+  content:"·";
+  margin:0 8px;
+  color:rgba(255,255,255,.6);
+}
+.tcc-banner__kind{
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-size:11px;
+  line-height:19px;
+  color:#33C6F5;                 /* --tcc-cerulean, 6.7:1 on navy */
+}
+.tcc-banner__back{
+  color:#FFFFFF;
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  white-space:nowrap;
+  border-radius:4px;
+}
+.tcc-banner__back:hover{ color:#33C6F5; }
+.tcc-banner__back:focus-visible{ outline:3px solid #33C6F5; outline-offset:3px; }

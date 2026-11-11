@@ -1,0 +1,3201 @@
+{
+  "generated_by": "tools/build_content_example.py",
+  "source": "reference/audit.md",
+  "audit_date": "2026-11-06",
+  "note": "Prototype dataset. Fields the audit doesn't support are null. prototype_curation marks TCC draft curation.",
+  "pairs": [
+    {
+      "id": "pair-heat-dome",
+      "title": "The 2021 heat dome: a speech and an op-ed",
+      "strong": "lawson-heat-dome-speech",
+      "weak": "seattle-times-heat-oped",
+      "lesson": "Same event, same region. One patient story and one ask lands better than a list of disasters and ten asks."
+    },
+    {
+      "id": "pair-smoke-and-heat",
+      "title": "Doctors on smoke and heat: practical or partisan",
+      "strong": "howard-wildfire-smoke",
+      "weak": "vossler-psr-post",
+      "lesson": "Both start from health. One ends with three steps for today; the other turns into a fight about the President."
+    },
+    {
+      "id": "pair-make-it-normal",
+      "title": "Making action feel normal (Principle 6)",
+      "strong": "suter-outrider-oped",
+      "weak": "diggins-i-voted",
+      "lesson": "Suter shows teammates already changing habits. The “I voted” post leads with millions who don't vote, which makes voting sound rare."
+    }
+  ],
+  "examples": [
+    {
+      "id": "lawson-heat-dome-speech",
+      "title": "Remembering the 2021 BC heat dome",
+      "source_url": "https://www.youtube.com/watch?v=3SnN9aQxQpE",
+      "venue": "CAPE (Canadian Association of Physicians for the Environment)",
+      "platform": "YouTube",
+      "published_date": "Aug 2026",
+      "published_iso": "2026-08",
+      "content_type": "Long video",
+      "content_type_slug": "long-video",
+      "content_type_audit": "YouTube video, event speech",
+      "standin_format": "long-video",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": {
+        "platform": "YouTube",
+        "url": "https://www.youtube.com/watch?v=3SnN9aQxQpE",
+        "embed_id": "3SnN9aQxQpE",
+        "duration_s": 295,
+        "approx_mb": "about 20–40 MB at 720p (estimate)",
+        "captions": null
+      },
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "CAPE"
+      ],
+      "messenger_name": "Dr. Ashley Lawson",
+      "messenger_people": null,
+      "messenger_role": "Doctor (per the video's title on YouTube)",
+      "messenger_affiliation": "Speaking at a CAPE event",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "A"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public"
+      ],
+      "topics": [
+        "heat"
+      ],
+      "topic_labels": [
+        "Heat"
+      ],
+      "geography": {
+        "place": "Vancouver, BC, Canada",
+        "scope": "regional"
+      },
+      "timeliness": "Anniversary of the 2021 BC heat dome",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "~",
+        "P3": "+",
+        "P4": "+",
+        "P5": "+",
+        "P6": "~",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Opens with what she saw at work during the heat dome.",
+          "anchor": "opening"
+        },
+        {
+          "n": 2,
+          "principle": "P3",
+          "principle_name": "Empowering",
+          "type": "working",
+          "note": "Moves from grief to a hopeful turn: cheaper, cleaner energy.",
+          "anchor": "turn"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "Ends with one step anyone can take: check on isolated seniors.",
+          "anchor": "ask"
+        },
+        {
+          "n": 4,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "could improve",
+          "note": "Could show more people already acting, so it feels normal.",
+          "anchor": "turn"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "She starts from what she saw working downtown Vancouver during the 2021 heat dome, so the story is personal and local. She moves from grief to a hopeful turn toward cheaper, cleaner energy, then asks for one thing anyone can do: check on isolated seniors.",
+      "what_to_watch": "A few phrases could be plainer (P2 mixed), and it doesn't yet show others already acting (P6 mixed). It had 20 views in our audit: strong but unseen.",
+      "contrast_pair_id": "pair-heat-dome",
+      "contrast_role": "strong",
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Hook: what she saw during the 2021 heat dome",
+        "Local link: downtown Vancouver",
+        "Feeling: grief, named honestly",
+        "Turn: cheaper, cleaner energy",
+        "One ask: check on isolated seniors"
+      ],
+      "doable_step": "Check on isolated seniors when it's hot.",
+      "for_everyone_notes": "Stays on health, neighbours and energy costs; no partisan framing.",
+      "short_quote": null,
+      "model_payload": {
+        "messenger_role": "Doctor (per the video's title on YouTube)",
+        "audience": [
+          "public"
+        ],
+        "structure": [
+          "Hook: what she saw during the 2021 heat dome",
+          "Local link: downtown Vancouver",
+          "Feeling: grief, named honestly",
+          "Turn: cheaper, cleaner energy",
+          "One ask: check on isolated seniors"
+        ],
+        "doable_step": "Check on isolated seniors when it's hot.",
+        "why_it_works": "She starts from what she saw working downtown Vancouver during the 2021 heat dome, so the story is personal and local. She moves from grief to a hopeful turn toward cheaper, cleaner energy, then asks for one thing anyone can do: check on isolated seniors.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "~",
+          "P3": "+",
+          "P4": "+",
+          "P5": "+",
+          "P6": "~",
+          "P7": "+",
+          "P8": "+"
+        },
+        "analysis": [
+          "P1 working: Opens with what she saw at work during the heat dome.",
+          "P3 working: Moves from grief to a hopeful turn: cheaper, cleaner energy.",
+          "P4 working: Ends with one step anyone can take: check on isolated seniors.",
+          "P6 could improve: Could show more people already acting, so it feels normal."
+        ],
+        "for_everyone_notes": "Stays on health, neighbours and energy costs; no partisan framing.",
+        "excerpt": null,
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": [
+        {
+          "date": "2026-11-06",
+          "views": 20,
+          "note": "In our audit"
+        }
+      ],
+      "amplify_candidate": true,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "opening",
+          "label": "Opening",
+          "text": "She recalls working in downtown Vancouver during the 2021 heat dome."
+        },
+        {
+          "key": "turn",
+          "label": "Middle",
+          "text": "From grief to hope: cheaper, cleaner energy."
+        },
+        {
+          "key": "ask",
+          "label": "Close",
+          "text": "Her ask: check on isolated seniors."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "msv-healthcare-short",
+      "title": "Climate change in the healthcare space",
+      "source_url": "https://www.youtube.com/shorts/DSOotr4ZQQk",
+      "venue": "Medical Society of Virginia",
+      "platform": "YouTube (Shorts)",
+      "published_date": "Oct 2026",
+      "published_iso": "2026-10",
+      "content_type": "Short video",
+      "content_type_slug": "short-video",
+      "content_type_audit": "YouTube Short, clinician-to-clinician",
+      "standin_format": "short-video",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": {
+        "platform": "YouTube",
+        "url": "https://www.youtube.com/shorts/DSOotr4ZQQk",
+        "embed_id": "DSOotr4ZQQk",
+        "duration_s": 54,
+        "approx_mb": "about 5–10 MB (estimate)",
+        "captions": null
+      },
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Medical Society of Virginia"
+      ],
+      "messenger_name": "Unnamed MSV physician",
+      "messenger_people": null,
+      "messenger_role": "Physician (name not given)",
+      "messenger_affiliation": "Medical Society of Virginia",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "M"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "peers"
+      ],
+      "topics": [
+        "heat",
+        "wildfire-smoke",
+        "clinical-care"
+      ],
+      "topic_labels": [
+        "Heat",
+        "Wildfire smoke",
+        "Clinical care"
+      ],
+      "geography": {
+        "place": "Virginia, US",
+        "scope": "regional"
+      },
+      "timeliness": "Evergreen",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "~",
+        "P3": "·",
+        "P4": "+",
+        "P5": "~",
+        "P6": "~",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P7",
+          "principle_name": "Trustworthy",
+          "type": "working",
+          "note": "A physician speaking to peers: a trusted messenger for this audience.",
+          "anchor": "opening"
+        },
+        {
+          "n": 2,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "Two screening questions a clinician can add tomorrow.",
+          "anchor": "ask"
+        },
+        {
+          "n": 3,
+          "principle": "P5",
+          "principle_name": "Collective",
+          "type": "could improve",
+          "note": "Could show other practices already asking these questions.",
+          "anchor": "ask"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "A physician talks to other clinicians about routine care, not politics. The asks are small and clinical: ask older patients about heat, and ask parents of kids with asthma about smoky air.",
+      "what_to_watch": "The speaker isn't named, and it doesn't show other practices already doing this (P5, P6 mixed). It had 55 views in our audit.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Frame: one clinician to another",
+        "Health link: heat and older patients; smoke and asthma",
+        "Step: one screening question per patient group"
+      ],
+      "doable_step": "Ask older patients about heat, and parents of kids with asthma about smoky air.",
+      "for_everyone_notes": "Framed as routine clinical care, which keeps it out of politics.",
+      "short_quote": null,
+      "model_payload": {
+        "messenger_role": "Physician (name not given)",
+        "audience": [
+          "peers"
+        ],
+        "structure": [
+          "Frame: one clinician to another",
+          "Health link: heat and older patients; smoke and asthma",
+          "Step: one screening question per patient group"
+        ],
+        "doable_step": "Ask older patients about heat, and parents of kids with asthma about smoky air.",
+        "why_it_works": "A physician talks to other clinicians about routine care, not politics. The asks are small and clinical: ask older patients about heat, and ask parents of kids with asthma about smoky air.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "~",
+          "P3": "·",
+          "P4": "+",
+          "P5": "~",
+          "P6": "~",
+          "P7": "+",
+          "P8": "+"
+        },
+        "analysis": [
+          "P7 working: A physician speaking to peers: a trusted messenger for this audience.",
+          "P4 working: Two screening questions a clinician can add tomorrow.",
+          "P5 could improve: Could show other practices already asking these questions."
+        ],
+        "for_everyone_notes": "Framed as routine clinical care, which keeps it out of politics.",
+        "excerpt": null,
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": "Medical Society of Virginia (state medical society)",
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": [
+        {
+          "date": "2026-11-06",
+          "views": 55,
+          "note": "In our audit"
+        }
+      ],
+      "amplify_candidate": true,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "opening",
+          "label": "Opening",
+          "text": "A physician speaks to fellow clinicians about routine care."
+        },
+        {
+          "key": "ask",
+          "label": "Tip",
+          "text": "Ask older patients about heat, and parents of kids with asthma about smoky air."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "howard-wildfire-smoke",
+      "title": "Why doctors say take wildfire smoke seriously",
+      "source_url": "https://www.cp24.com/news/canada/2026/07/11/one-of-the-biggest-public-health-threats-why-doctors-say-you-need-to-take-wildfire-smoke-seriously/",
+      "venue": "CP24",
+      "platform": "News website",
+      "published_date": "Jul 2026",
+      "published_iso": "2026-07",
+      "content_type": "News article",
+      "content_type_slug": "news-article",
+      "content_type_audit": "News article, expert interview",
+      "standin_format": "article",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "CP24"
+      ],
+      "messenger_name": "Dr. Courtney Howard",
+      "messenger_people": null,
+      "messenger_role": "Emergency physician",
+      "messenger_affiliation": "CMA president-elect",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "C"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public"
+      ],
+      "topics": [
+        "wildfire-smoke",
+        "air-quality"
+      ],
+      "topic_labels": [
+        "Wildfire smoke",
+        "Air quality"
+      ],
+      "geography": {
+        "place": "Canada",
+        "scope": "national"
+      },
+      "timeliness": "Wildfire-smoke season",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "~",
+        "P3": "~",
+        "P4": "+",
+        "P5": "·",
+        "P6": "+",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Names local towns, so readers see their own place.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P7",
+          "principle_name": "Trustworthy",
+          "type": "working",
+          "note": "Admits her own home runs four air filters: she walks the talk.",
+          "anchor": "p1"
+        },
+        {
+          "n": 3,
+          "principle": "P2",
+          "principle_name": "Accessible",
+          "type": "could improve",
+          "note": "Jargon about particle size in microns. Say “tiny particles” instead.",
+          "anchor": "p2"
+        },
+        {
+          "n": 4,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "Ends with three steps anyone can take today.",
+          "anchor": "ask"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "She names local towns and admits her own home runs four air filters, so it feels personal, not preachy. Then she gives three steps anyone can take today.",
+      "what_to_watch": "One slip: jargon about particle size in microns. Try “tiny particles that reach deep into the lungs.”",
+      "contrast_pair_id": "pair-smoke-and-heat",
+      "contrast_role": "strong",
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Hook: local towns under smoke",
+        "Personal: her own home runs four air filters",
+        "Health effect, in plain words",
+        "Three steps for today"
+      ],
+      "doable_step": "Take one of the three smoke-day steps she lists (read the original for the list).",
+      "for_everyone_notes": "Practical and non-partisan: it's about protecting your lungs, not about blame.",
+      "short_quote": null,
+      "model_payload": {
+        "messenger_role": "Emergency physician",
+        "audience": [
+          "public"
+        ],
+        "structure": [
+          "Hook: local towns under smoke",
+          "Personal: her own home runs four air filters",
+          "Health effect, in plain words",
+          "Three steps for today"
+        ],
+        "doable_step": "Take one of the three smoke-day steps she lists (read the original for the list).",
+        "why_it_works": "She names local towns and admits her own home runs four air filters, so it feels personal, not preachy. Then she gives three steps anyone can take today.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "~",
+          "P3": "~",
+          "P4": "+",
+          "P5": "·",
+          "P6": "+",
+          "P7": "+",
+          "P8": "+"
+        },
+        "analysis": [
+          "P1 working: Names local towns, so readers see their own place.",
+          "P7 working: Admits her own home runs four air filters: she walks the talk.",
+          "P2 could improve: Jargon about particle size in microns. Say “tiny particles” instead.",
+          "P4 working: Ends with three steps anyone can take today."
+        ],
+        "for_everyone_notes": "Practical and non-partisan: it's about protecting your lungs, not about blame.",
+        "excerpt": null,
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "An emergency physician links wildfire smoke to health and names local towns."
+        },
+        {
+          "key": "p1",
+          "label": "Paragraph",
+          "text": "She mentions that her own home runs four air filters."
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "A passage explains smoke particle size in microns."
+        },
+        {
+          "key": "ask",
+          "label": "The ask",
+          "text": "Three steps readers can take today."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "merritt-climate-diagnosis",
+      "title": "Doctor writes “climate change” in patient chart",
+      "source_url": "https://globalnews.ca/news/8366001/bc-doctor-climate-change-diagnosis",
+      "venue": "Global News",
+      "platform": "News website",
+      "published_date": "Nov 2021",
+      "published_iso": "2021-11",
+      "content_type": "News article",
+      "content_type_slug": "news-article",
+      "content_type_audit": "News article, patient story",
+      "standin_format": "article",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Global News"
+      ],
+      "messenger_name": "Dr. Kyle Merritt",
+      "messenger_people": null,
+      "messenger_role": "Family physician",
+      "messenger_affiliation": "Nelson, BC",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "K"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public",
+        "peers"
+      ],
+      "topics": [
+        "heat",
+        "clinical-care"
+      ],
+      "topic_labels": [
+        "Heat",
+        "Clinical care"
+      ],
+      "geography": {
+        "place": "Nelson, BC, Canada",
+        "scope": "local"
+      },
+      "timeliness": "2021 BC heat dome",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "~",
+        "P4": "~",
+        "P5": "+",
+        "P6": "~",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Opens with a patient in her 70s during the heat dome.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P7",
+          "principle_name": "Trustworthy",
+          "type": "working",
+          "note": "Says plainly he's a doctor, not an activist.",
+          "anchor": "p1"
+        },
+        {
+          "n": 3,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "could improve",
+          "note": "“First time” framing makes the practice sound rare.",
+          "anchor": "p2"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "He opens with a patient in her 70s during the heat dome and says plainly he is a doctor, not an activist. That protects his standing and shows climate as something he sees in clinic.",
+      "what_to_watch": "He calls it the first time he wrote the term, which makes the practice sound rare (P6). Frame it as something more doctors are starting to do.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Hook: one patient during the heat dome",
+        "Role: a doctor, not an activist",
+        "Health link in plain words",
+        "The practice: naming climate in the chart"
+      ],
+      "doable_step": "When it applies, name climate as a factor in a patient's chart.",
+      "for_everyone_notes": "He separates his clinical role from activism, which keeps it cross-audience.",
+      "short_quote": null,
+      "model_payload": {
+        "messenger_role": "Family physician",
+        "audience": [
+          "public",
+          "peers"
+        ],
+        "structure": [
+          "Hook: one patient during the heat dome",
+          "Role: a doctor, not an activist",
+          "Health link in plain words",
+          "The practice: naming climate in the chart"
+        ],
+        "doable_step": "When it applies, name climate as a factor in a patient's chart.",
+        "why_it_works": "He opens with a patient in her 70s during the heat dome and says plainly he is a doctor, not an activist. That protects his standing and shows climate as something he sees in clinic.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "+",
+          "P3": "~",
+          "P4": "~",
+          "P5": "+",
+          "P6": "~",
+          "P7": "+",
+          "P8": "+"
+        },
+        "analysis": [
+          "P1 working: Opens with a patient in her 70s during the heat dome.",
+          "P7 working: Says plainly he's a doctor, not an activist.",
+          "P6 could improve: “First time” framing makes the practice sound rare."
+        ],
+        "for_everyone_notes": "He separates his clinical role from activism, which keeps it cross-audience.",
+        "excerpt": null,
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "A patient in her 70s, during the 2021 heat dome, leads the story."
+        },
+        {
+          "key": "p1",
+          "label": "Paragraph",
+          "text": "He says plainly that he is a doctor, not an activist."
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "He calls it the first time he wrote the term in a chart."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "dresser-climate-patient-care",
+      "title": "Doctors bring climate into patient care",
+      "source_url": "https://www.turnto23.com/news/health/doctors-are-starting-to-incorporate-climate-change-into-their-patient-care",
+      "venue": "Turn to 23 (local TV)",
+      "platform": "TV station website",
+      "published_date": "Dec 2021",
+      "published_iso": "2021-12",
+      "content_type": "News article",
+      "content_type_slug": "news-article",
+      "content_type_audit": "Local TV news story",
+      "standin_format": "tv-story",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Turn to 23"
+      ],
+      "messenger_name": "Dr. Caleb Dresser",
+      "messenger_people": null,
+      "messenger_role": "Emergency physician",
+      "messenger_affiliation": "Harvard Chan C-CHANGE",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "C"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public",
+        "peers"
+      ],
+      "topics": [
+        "heat",
+        "clinical-care"
+      ],
+      "topic_labels": [
+        "Heat",
+        "Clinical care"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "local"
+      },
+      "timeliness": "Evergreen",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "+",
+        "P4": "+",
+        "P5": "~",
+        "P6": "~",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P2",
+          "principle_name": "Accessible",
+          "type": "working",
+          "note": "Plain, clinical language; no jargon.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "“What's your plan?” is a step any clinician can use.",
+          "anchor": "quote"
+        },
+        {
+          "n": 3,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "could improve",
+          "note": "Could show how many clinicians already ask this.",
+          "anchor": "p2"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "He turns climate into a clinical question: “What's your plan?” for a hot day. It's the clearest doable step in the set, and it sounds like normal care, not advocacy.",
+      "what_to_watch": "It dates from 2021, so pair it with something current. It could show more clinicians already asking (P5, P6 mixed).",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Frame: climate as a clinical question",
+        "Ask the patient: what's your plan for a hot day?",
+        "Why it matters for their health"
+      ],
+      "doable_step": "Ask patients: “What's your plan?” for a hot day.",
+      "for_everyone_notes": "Clinical framing keeps it out of politics.",
+      "short_quote": "What's your plan?",
+      "model_payload": {
+        "messenger_role": "Emergency physician",
+        "audience": [
+          "public",
+          "peers"
+        ],
+        "structure": [
+          "Frame: climate as a clinical question",
+          "Ask the patient: what's your plan for a hot day?",
+          "Why it matters for their health"
+        ],
+        "doable_step": "Ask patients: “What's your plan?” for a hot day.",
+        "why_it_works": "He turns climate into a clinical question: “What's your plan?” for a hot day. It's the clearest doable step in the set, and it sounds like normal care, not advocacy.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "+",
+          "P3": "+",
+          "P4": "+",
+          "P5": "~",
+          "P6": "~",
+          "P7": "+",
+          "P8": "+"
+        },
+        "analysis": [
+          "P2 working: Plain, clinical language; no jargon.",
+          "P4 working: “What's your plan?” is a step any clinician can use.",
+          "P6 could improve: Could show how many clinicians already ask this."
+        ],
+        "for_everyone_notes": "Clinical framing keeps it out of politics.",
+        "excerpt": "What's your plan?",
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "clip",
+          "label": "Broadcast clip",
+          "text": "Broadcast segment (not shown in this prototype)."
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "Doctors describe bringing climate into patient visits."
+        },
+        {
+          "key": "quote",
+          "label": "Key line",
+          "text": "The clinical question for a hot day: “What's your plan?”"
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "The story centers one physician; few others are shown."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "seattle-times-heat-oped",
+      "title": "Extreme heat’s impact on our health demands we take action",
+      "source_url": "https://www.seattletimes.com/opinion/extreme-heats-impact-on-our-health-demands-we-take-action/",
+      "venue": "The Seattle Times",
+      "platform": "News website",
+      "published_date": "Jul 2023",
+      "published_iso": "2023-07",
+      "content_type": "Op-ed",
+      "content_type_slug": "op-ed",
+      "content_type_audit": "Newspaper op-ed",
+      "standin_format": "op-ed",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Breck Lebegue",
+        "Chris Covert-Bowlds",
+        "Michael Soman"
+      ],
+      "messenger_name": "Breck Lebegue, Chris Covert-Bowlds, Michael Soman (WA PSR)",
+      "messenger_people": null,
+      "messenger_role": "Physicians",
+      "messenger_affiliation": "Washington Physicians for Social Responsibility (WA PSR)",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "B"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public",
+        "policymakers"
+      ],
+      "topics": [
+        "heat"
+      ],
+      "topic_labels": [
+        "Heat"
+      ],
+      "geography": {
+        "place": "Washington State, US",
+        "scope": "regional"
+      },
+      "timeliness": "2021 heat dome, written in 2023",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "~",
+        "P3": "~",
+        "P4": "~",
+        "P5": "+",
+        "P6": "~",
+        "P7": "+",
+        "P8": "~"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P3",
+          "principle_name": "Empowering",
+          "type": "could improve",
+          "note": "Opens with a long list of disasters and despair. Lead with the patient instead.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Vivid patient story: a heart attack while waiting for help on I-5.",
+          "anchor": "p1"
+        },
+        {
+          "n": 3,
+          "principle": "P8",
+          "principle_name": "For everyone",
+          "type": "could improve",
+          "note": "“No longer a matter of debate” spotlights the debate. Skip it.",
+          "anchor": "p2"
+        },
+        {
+          "n": 4,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "could improve",
+          "note": "More than ten asks at once. Pick one.",
+          "anchor": "ask"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "Some of the most vivid patient stories in the set, such as a man who had a heart attack waiting for roadside help on I-5.",
+      "what_to_watch": "It opens with a long list of disasters and despair, calls the science “no longer a matter of debate,” and ends with more than ten asks at once. Fix: lead with one patient, drop the debate, end with one ask.",
+      "contrast_pair_id": "pair-heat-dome",
+      "contrast_role": "learning case",
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) Opening list of disasters",
+        "Patient stories",
+        "Debate framing",
+        "Ten-plus asks"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": "Calling the science settled spotlights the debate it means to close (P8 mixed).",
+      "short_quote": "no longer a matter of debate",
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Opening",
+          "text": "Opens with a long list of disasters and feelings of despair."
+        },
+        {
+          "key": "p1",
+          "label": "Paragraph",
+          "text": "Patient story: a man had a heart attack while waiting for roadside help on I-5."
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "A passage says the science is “no longer a matter of debate.”"
+        },
+        {
+          "key": "ask",
+          "label": "Close",
+          "text": "Ends with more than ten asks at once."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "vossler-psr-post",
+      "title": "As doctors see the costs, Trump plays a deadly game of denial",
+      "source_url": "https://psr.org/as-doctors-see-the-costs-of-climate-change-trump-plays-a-deadly-game-of-denial/",
+      "venue": "PSR / Earthjustice",
+      "platform": "Organization website",
+      "published_date": "Mar 2026",
+      "published_iso": "2026-03",
+      "content_type": "Blog post",
+      "content_type_slug": "blog-post",
+      "content_type_audit": "Advocacy blog post",
+      "standin_format": "blog",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Mark Vossler"
+      ],
+      "messenger_name": "Dr. Mark Vossler",
+      "messenger_people": null,
+      "messenger_role": "Retired cardiologist",
+      "messenger_affiliation": "Physicians for Social Responsibility (PSR)",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "M"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public"
+      ],
+      "topics": [
+        "heat",
+        "policy"
+      ],
+      "topic_labels": [
+        "Heat",
+        "Policy"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "2026 federal policy debate",
+      "partisan_framing": "The headline frames the piece as a fight about the President.",
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "–",
+        "P4": "–",
+        "P5": "~",
+        "P6": "·",
+        "P7": "~",
+        "P8": "–"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P8",
+          "principle_name": "For everyone",
+          "type": "could improve",
+          "note": "Headline frames a partisan fight; many readers stop here.",
+          "anchor": "headline"
+        },
+        {
+          "n": 2,
+          "principle": "P3",
+          "principle_name": "Empowering",
+          "type": "could improve",
+          "note": "Anger is aimed at a person, not at a solution.",
+          "anchor": "lede"
+        },
+        {
+          "n": 3,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "A powerful patient story.",
+          "anchor": "p1"
+        },
+        {
+          "n": 4,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "could improve",
+          "note": "No step for readers in the excerpt we saw.",
+          "anchor": "close"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "A powerful patient story from a cardiologist's practice.",
+      "what_to_watch": "The headline turns the story into a fight about the President, so readers who don't share that view stop reading. The excerpt we saw offers no path forward. Fix: keep the patient story, drop the partisan headline, add one step.",
+      "contrast_pair_id": "pair-smoke-and-heat",
+      "contrast_role": "learning case",
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) Partisan headline",
+        "Patient story",
+        "No step"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": "Partisan headline limits reach with cross-party readers (P8 weak).",
+      "short_quote": null,
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "A retired cardiologist describes the costs doctors see, set against a political fight."
+        },
+        {
+          "key": "p1",
+          "label": "Paragraph",
+          "text": "A powerful patient story."
+        },
+        {
+          "key": "close",
+          "label": "Close",
+          "text": "The excerpt ends without a step for readers."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "napnap-nursing-heat",
+      "title": "Nursing leaders taking action on extreme heat",
+      "source_url": "https://www.napnap.org/nursing-leaders-taking-action-on-extreme-heat/",
+      "venue": "NAPNAP / ANHE",
+      "platform": "Organization website",
+      "published_date": "Sep 2024",
+      "published_iso": "2024-09",
+      "content_type": "News release",
+      "content_type_slug": "news-release",
+      "content_type_audit": "Organizational news release",
+      "standin_format": "release",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "NAPNAP",
+        "ANHE"
+      ],
+      "messenger_name": "Nursing organizations",
+      "messenger_people": null,
+      "messenger_role": "Nursing organizations",
+      "messenger_affiliation": "NAPNAP and the Alliance of Nurses for Healthy Environments (ANHE)",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "N"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "peers",
+        "policymakers"
+      ],
+      "topics": [
+        "heat",
+        "policy"
+      ],
+      "topic_labels": [
+        "Heat",
+        "Policy"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "Heat season",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "~",
+        "P2": "–",
+        "P3": "~",
+        "P4": "~",
+        "P5": "+",
+        "P6": "+",
+        "P7": "+",
+        "P8": "~"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P5",
+          "principle_name": "Collective",
+          "type": "working",
+          "note": "26 organizations, 5 million nurses: a strong collective signal.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P2",
+          "principle_name": "Accessible",
+          "type": "could improve",
+          "note": "Agency acronyms bury the message.",
+          "anchor": "p1"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "could improve",
+          "note": "A long list of asks with no first step.",
+          "anchor": "ask"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "Real collective momentum: 26 organizations representing 5 million nurses, acting together on heat.",
+      "what_to_watch": "It is buried in agency acronyms and a long list of asks with no first step. Fix: spell out names, lead with one nurse's story, and give one first step.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) Coalition announcement",
+        "Agency acronyms",
+        "Long list of asks"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": null,
+      "short_quote": null,
+      "model_payload": null,
+      "institutional_backing": "National nursing organizations",
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "26 organizations representing 5 million nurses announce joint action on heat."
+        },
+        {
+          "key": "p1",
+          "label": "Body",
+          "text": "The body names programs by agency acronyms."
+        },
+        {
+          "key": "ask",
+          "label": "Asks",
+          "text": "A long list of asks, with no first step."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "pow-signs-everywhere",
+      "title": "“The signs are everywhere” vote post",
+      "source_url": "https://www.instagram.com/p/DfQUuJvEgdL/",
+      "venue": "Protect Our Winters",
+      "platform": "Instagram",
+      "published_date": "Nov 3, 2026",
+      "published_iso": "2026-11-03",
+      "content_type": "Social post",
+      "content_type_slug": "social-post",
+      "content_type_audit": "Instagram carousel post",
+      "standin_format": "carousel",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Protect Our Winters"
+      ],
+      "messenger_name": "Protect Our Winters",
+      "messenger_people": null,
+      "messenger_role": "Outdoor advocacy organization",
+      "messenger_affiliation": "Protect Our Winters (POW)",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "P"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "voting"
+      ],
+      "topic_labels": [
+        "Voting"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "2026 election",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "~",
+        "P2": "+",
+        "P3": "+",
+        "P4": "+",
+        "P5": "+",
+        "P6": "+",
+        "P7": "~",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "could improve",
+          "note": "Could add one person's own reason.",
+          "anchor": "s1"
+        },
+        {
+          "n": 2,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "working",
+          "note": "Framed as what everyone is already doing.",
+          "anchor": "s2"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "One small step: text three friends.",
+          "anchor": "s3"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "It asks followers to text three friends: a small, specific step, framed as what everyone is already doing.",
+      "what_to_watch": "Little personal story (P1 mixed), and as an organization account it speaks more as an authority than a peer (P7 mixed).",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Hook: the signs are everywhere",
+        "Norm: people like you are already doing this",
+        "One small step: text three friends"
+      ],
+      "doable_step": "Text three friends.",
+      "for_everyone_notes": "Asks people to vote without telling them how; graded + for P8 in our audit.",
+      "short_quote": "The signs are everywhere",
+      "model_payload": {
+        "messenger_role": "Outdoor advocacy organization",
+        "audience": [
+          "fans"
+        ],
+        "structure": [
+          "Hook: the signs are everywhere",
+          "Norm: people like you are already doing this",
+          "One small step: text three friends"
+        ],
+        "doable_step": "Text three friends.",
+        "why_it_works": "It asks followers to text three friends: a small, specific step, framed as what everyone is already doing.",
+        "principle_grades": {
+          "P1": "~",
+          "P2": "+",
+          "P3": "+",
+          "P4": "+",
+          "P5": "+",
+          "P6": "+",
+          "P7": "~",
+          "P8": "+"
+        },
+        "analysis": [
+          "P1 could improve: Could add one person's own reason.",
+          "P6 working: Framed as what everyone is already doing.",
+          "P4 working: One small step: text three friends."
+        ],
+        "for_everyone_notes": "Asks people to vote without telling them how; graded + for P8 in our audit.",
+        "excerpt": "The signs are everywhere",
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "s1",
+          "label": "Slide 1",
+          "text": "“The signs are everywhere.”"
+        },
+        {
+          "key": "s2",
+          "label": "Slide 2",
+          "text": "Voting framed as what everyone is already doing."
+        },
+        {
+          "key": "s3",
+          "label": "Slide 3",
+          "text": "The ask: text three friends."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "diggins-50-mile-race",
+      "title": "50-mile race announcement",
+      "source_url": "https://www.instagram.com/p/DfNuQRAti1T/",
+      "venue": "Jessie Diggins",
+      "platform": "Instagram",
+      "published_date": "Nov 1, 2026",
+      "published_iso": "2026-11-01",
+      "content_type": "Social post",
+      "content_type_slug": "social-post",
+      "content_type_audit": "Instagram photo post (sponsored)",
+      "standin_format": "photo-post",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": "Sponsored post (Toyota)",
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Jessie Diggins"
+      ],
+      "messenger_name": "Jessie Diggins",
+      "messenger_people": null,
+      "messenger_role": "Olympic cross-country skier",
+      "messenger_affiliation": null,
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "J"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "clean-transport"
+      ],
+      "topic_labels": [
+        "Clean transport"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "Evergreen",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "·",
+        "P4": "·",
+        "P5": "·",
+        "P6": "+",
+        "P7": "~",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "working",
+          "note": "Clean driving appears as an everyday choice, not a lecture.",
+          "anchor": "caption"
+        },
+        {
+          "n": 2,
+          "principle": "P7",
+          "principle_name": "Trustworthy",
+          "type": "could improve",
+          "note": "Sponsored by Toyota: flag it when you share.",
+          "anchor": "sponsor"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "She mentions choosing a race she can reach on electric mode, which makes clean driving feel normal without preaching.",
+      "what_to_watch": "It is a sponsored Toyota post, so say so when you share it (P7 mixed). It doesn't ask fans to do anything.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Personal news: a 50-mile race",
+        "Aside: she can get there on electric mode",
+        "No lecture"
+      ],
+      "doable_step": "None asked; it models a choice (reaching the race on electric mode).",
+      "for_everyone_notes": "Shows a choice, not an argument.",
+      "short_quote": null,
+      "model_payload": {
+        "messenger_role": "Olympic cross-country skier",
+        "audience": [
+          "fans"
+        ],
+        "structure": [
+          "Personal news: a 50-mile race",
+          "Aside: she can get there on electric mode",
+          "No lecture"
+        ],
+        "doable_step": "None asked; it models a choice (reaching the race on electric mode).",
+        "why_it_works": "She mentions choosing a race she can reach on electric mode, which makes clean driving feel normal without preaching.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "+",
+          "P3": "·",
+          "P4": "·",
+          "P5": "·",
+          "P6": "+",
+          "P7": "~",
+          "P8": "+"
+        },
+        "analysis": [
+          "P6 working: Clean driving appears as an everyday choice, not a lecture.",
+          "P7 could improve: Sponsored by Toyota: flag it when you share."
+        ],
+        "for_everyone_notes": "Shows a choice, not an argument.",
+        "excerpt": null,
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "sponsor",
+          "label": "Sponsor label",
+          "text": "Paid partnership label (Toyota)."
+        },
+        {
+          "key": "photo",
+          "label": "Photo",
+          "text": null
+        },
+        {
+          "key": "caption",
+          "label": "Caption",
+          "text": "Announces a 50-mile race she chose partly because she can reach it on electric mode."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "diggins-capitol-hill",
+      "title": "Olympians push for climate solutions on Capitol Hill",
+      "source_url": "https://www.wsls.com/news/politics/2026/06/24/in-visit-to-capitol-jessie-diggins-and-other-olympians-push-for-climate-change-solutions/",
+      "venue": "AP via WSLS",
+      "platform": "News website",
+      "published_date": "Jun 2026",
+      "published_iso": "2026-06",
+      "content_type": "News article",
+      "content_type_slug": "news-article",
+      "content_type_audit": "Wire news story",
+      "standin_format": "article",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "The Associated Press"
+      ],
+      "messenger_name": "Jessie Diggins and team",
+      "messenger_people": [
+        "Jessie Diggins",
+        "Jaelin Kauf",
+        "Brody Leven"
+      ],
+      "messenger_role": "Olympic cross-country skier, with fellow athletes",
+      "messenger_affiliation": "Protect Our Winters",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "J"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "public",
+        "policymakers"
+      ],
+      "topics": [
+        "winter",
+        "policy"
+      ],
+      "topic_labels": [
+        "Winter and snow",
+        "Policy"
+      ],
+      "geography": {
+        "place": "Washington, DC, US",
+        "scope": "national"
+      },
+      "timeliness": "2026 Capitol Hill visit",
+      "partisan_framing": "Coverage pulls the story into a dispute over the current EPA.",
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "+",
+        "P4": "·",
+        "P5": "+",
+        "P6": "~",
+        "P7": "+",
+        "P8": "~"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P5",
+          "principle_name": "Collective",
+          "type": "working",
+          "note": "A team of Olympians acting together.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Wants future kids to ski, hike and breathe clean air.",
+          "anchor": "quote"
+        },
+        {
+          "n": 3,
+          "principle": "P8",
+          "principle_name": "For everyone",
+          "type": "could improve",
+          "note": "The article shifts to a fight over the current EPA.",
+          "anchor": "p2"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "Diggins wants future kids to ski, hike and breathe clean air. The team frame and hopeful tone are strong.",
+      "what_to_watch": "The article then pulls the story into a fight over the current EPA (P8 mixed). There's no step for readers (P4 not in play).",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Hook: Olympians on Capitol Hill, as a team",
+        "Personal: future kids skiing, hiking, breathing clean air",
+        "Hope"
+      ],
+      "doable_step": "None for readers; the athletes' own step is meeting lawmakers.",
+      "for_everyone_notes": "The athletes stay hopeful; the coverage adds the partisan angle.",
+      "short_quote": "very badly",
+      "model_payload": {
+        "messenger_role": "Olympic cross-country skier, with fellow athletes",
+        "audience": [
+          "public",
+          "policymakers"
+        ],
+        "structure": [
+          "Hook: Olympians on Capitol Hill, as a team",
+          "Personal: future kids skiing, hiking, breathing clean air",
+          "Hope"
+        ],
+        "doable_step": "None for readers; the athletes' own step is meeting lawmakers.",
+        "why_it_works": "Diggins wants future kids to ski, hike and breathe clean air. The team frame and hopeful tone are strong.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "+",
+          "P3": "+",
+          "P4": "·",
+          "P5": "+",
+          "P6": "~",
+          "P7": "+",
+          "P8": "~"
+        },
+        "analysis": [
+          "P5 working: A team of Olympians acting together.",
+          "P1 working: Wants future kids to ski, hike and breathe clean air.",
+          "P8 could improve: The article shifts to a fight over the current EPA."
+        ],
+        "for_everyone_notes": "The athletes stay hopeful; the coverage adds the partisan angle.",
+        "excerpt": "very badly",
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "Olympians visit Capitol Hill as a team to push for climate solutions."
+        },
+        {
+          "key": "quote",
+          "label": "Paragraph",
+          "text": "Diggins wants future kids to ski, hike and breathe clean air, and says she wants that “very badly.”"
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "Later paragraphs turn to a dispute over the current EPA."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "suter-outrider-oped",
+      "title": "New season, same green goals",
+      "source_url": "https://outrider.org/climate-change/articles/brent-suter-new-season-same-green-goals",
+      "venue": "Outrider",
+      "platform": "Website",
+      "published_date": "Jan 2020",
+      "published_iso": "2020-01",
+      "content_type": "Op-ed",
+      "content_type_slug": "op-ed",
+      "content_type_audit": "First-person op-ed",
+      "standin_format": "op-ed",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Brent Suter"
+      ],
+      "messenger_name": "Brent Suter",
+      "messenger_people": null,
+      "messenger_role": "MLB pitcher",
+      "messenger_affiliation": "EcoAthletes champion",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "B"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "waste"
+      ],
+      "topic_labels": [
+        "Plastic and compost"
+      ],
+      "geography": {
+        "place": "Milwaukee, US",
+        "scope": "local"
+      },
+      "timeliness": "Evergreen",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "+",
+        "P4": "+",
+        "P5": "+",
+        "P6": "+",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P7",
+          "principle_name": "Trustworthy",
+          "type": "working",
+          "note": "Speaks as a learner: a beach cleanup changed his habits.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "working",
+          "note": "Teammates cut plastic use in half: a group norm.",
+          "anchor": "p2"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "One concrete step for fans: try composting, with a how-to link.",
+          "anchor": "ask"
+        },
+        {
+          "n": 4,
+          "principle": "P8",
+          "principle_name": "For everyone",
+          "type": "working",
+          "note": "Praises bipartisan action.",
+          "anchor": "close"
+        }
+      ],
+      "verdict": "Good example",
+      "verdict_slug": "good",
+      "why_it_works": "He talks about learning, not lecturing: a beach cleanup changed his habits, his household now composts, and his Brewers teammates cut plastic use in half. He gives fans one concrete step and praises bipartisan action.",
+      "what_to_watch": "It dates from 2020 and is mostly about plastic waste, with climate only at the end.",
+      "contrast_pair_id": "pair-make-it-normal",
+      "contrast_role": "strong",
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Learning moment: a beach cleanup",
+        "At home: the household composts",
+        "Team: teammates cut plastic in half",
+        "One step for fans: try composting",
+        "Close: bipartisan action"
+      ],
+      "doable_step": "Try composting (he links a how-to).",
+      "for_everyone_notes": "Praises bipartisan action and speaks as a learner.",
+      "short_quote": null,
+      "model_payload": {
+        "messenger_role": "MLB pitcher",
+        "audience": [
+          "fans"
+        ],
+        "structure": [
+          "Learning moment: a beach cleanup",
+          "At home: the household composts",
+          "Team: teammates cut plastic in half",
+          "One step for fans: try composting",
+          "Close: bipartisan action"
+        ],
+        "doable_step": "Try composting (he links a how-to).",
+        "why_it_works": "He talks about learning, not lecturing: a beach cleanup changed his habits, his household now composts, and his Brewers teammates cut plastic use in half. He gives fans one concrete step and praises bipartisan action.",
+        "principle_grades": {
+          "P1": "+",
+          "P2": "+",
+          "P3": "+",
+          "P4": "+",
+          "P5": "+",
+          "P6": "+",
+          "P7": "+",
+          "P8": "+"
+        },
+        "analysis": [
+          "P7 working: Speaks as a learner: a beach cleanup changed his habits.",
+          "P6 working: Teammates cut plastic use in half: a group norm.",
+          "P4 working: One concrete step for fans: try composting, with a how-to link.",
+          "P8 working: Praises bipartisan action."
+        ],
+        "for_everyone_notes": "Praises bipartisan action and speaks as a learner.",
+        "excerpt": null,
+        "rights_status": "link-only",
+        "instruction": "Imitate the structure and tone of this example, not its wording. Keep the user's own voice."
+      },
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Opening",
+          "text": "A beach cleanup changed his habits."
+        },
+        {
+          "key": "p1",
+          "label": "Paragraph",
+          "text": "His household now composts."
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "His Brewers teammates cut their plastic use in half."
+        },
+        {
+          "key": "ask",
+          "label": "The ask",
+          "text": "One step for fans: try composting, with a how-to link."
+        },
+        {
+          "key": "close",
+          "label": "Close",
+          "text": "He praises bipartisan action; climate appears at the end."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "pow-arctic-comment",
+      "title": "Arctic comment-period post",
+      "source_url": "https://www.instagram.com/p/DfXab0BE4Un/",
+      "venue": "Protect Our Winters",
+      "platform": "Instagram",
+      "published_date": "Nov 5, 2026",
+      "published_iso": "2026-11-05",
+      "content_type": "Social post",
+      "content_type_slug": "social-post",
+      "content_type_audit": "Instagram carousel post",
+      "standin_format": "carousel",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Protect Our Winters"
+      ],
+      "messenger_name": "Protect Our Winters",
+      "messenger_people": null,
+      "messenger_role": "Outdoor advocacy organization",
+      "messenger_affiliation": "Protect Our Winters (POW)",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "P"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "public-lands",
+        "policy"
+      ],
+      "topic_labels": [
+        "Public lands",
+        "Policy"
+      ],
+      "geography": {
+        "place": "Arctic, Alaska, US",
+        "scope": "regional"
+      },
+      "timeliness": "Public comment period, Nov 2026",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "~",
+        "P2": "~",
+        "P3": "~",
+        "P4": "+",
+        "P5": "·",
+        "P6": "–",
+        "P7": "~",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "could improve",
+          "note": "Centers a place, not people.",
+          "anchor": "s1"
+        },
+        {
+          "n": 2,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "could improve",
+          "note": "No one else is shown acting.",
+          "anchor": "s2"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "A clear action: submit a public comment.",
+          "anchor": "s3"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "It gives a clear action: submit a public comment.",
+      "what_to_watch": "It centers a place, not people, and shows no one else acting (P6 weak). Fix: show people who've already commented and say why it matters to them.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) A place",
+        "Why the comment period matters",
+        "Ask: submit a comment"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": null,
+      "short_quote": null,
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "s1",
+          "label": "Slide 1",
+          "text": "A wild Arctic landscape; no people shown."
+        },
+        {
+          "key": "s2",
+          "label": "Slide 2",
+          "text": "Why the comment period matters."
+        },
+        {
+          "key": "s3",
+          "label": "Slide 3",
+          "text": "The ask: submit a public comment."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "pow-post-election",
+      "title": "“Damn. What a feeling.” post-election post",
+      "source_url": "https://www.instagram.com/p/DfVhqjoE95S/",
+      "venue": "Protect Our Winters",
+      "platform": "Instagram",
+      "published_date": "Nov 4, 2026",
+      "published_iso": "2026-11-04",
+      "content_type": "Social post",
+      "content_type_slug": "social-post",
+      "content_type_audit": "Instagram carousel post",
+      "standin_format": "carousel",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Protect Our Winters"
+      ],
+      "messenger_name": "Protect Our Winters",
+      "messenger_people": null,
+      "messenger_role": "Outdoor advocacy organization",
+      "messenger_affiliation": "Protect Our Winters (POW)",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "P"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "voting"
+      ],
+      "topic_labels": [
+        "Voting"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "2026 election results",
+      "partisan_framing": "Reads as a partisan win; comments filled with energy and EV arguments.",
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "~",
+        "P2": "+",
+        "P3": "+",
+        "P4": "–",
+        "P5": "+",
+        "P6": "~",
+        "P7": "~",
+        "P8": "–"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P5",
+          "principle_name": "Collective",
+          "type": "working",
+          "note": "Rallies supporters as a group.",
+          "anchor": "s1"
+        },
+        {
+          "n": 2,
+          "principle": "P8",
+          "principle_name": "For everyone",
+          "type": "could improve",
+          "note": "Reads as a partisan win.",
+          "anchor": "s2"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "could improve",
+          "note": "No next step for readers.",
+          "anchor": "comments"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "It rallies supporters with real collective energy.",
+      "what_to_watch": "It reads as a partisan win, and its comments filled with arguments about energy and EVs (P8 weak). There's no next step (P4 weak).",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) Celebration",
+        "Win framed for one side",
+        "No step"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": "Comment section turned into an argument; flag before sharing.",
+      "short_quote": "Damn. What a feeling.",
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "s1",
+          "label": "Slide 1",
+          "text": "“Damn. What a feeling.”"
+        },
+        {
+          "key": "s2",
+          "label": "Slide 2",
+          "text": "Celebrates election results as a win for one side."
+        },
+        {
+          "key": "comments",
+          "label": "Comments",
+          "text": "Comment section: arguments about energy and EVs (not reproduced)."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "diggins-i-voted",
+      "title": "“I voted” post",
+      "source_url": "https://www.instagram.com/p/De7y7JpRSOm/",
+      "venue": "Jessie Diggins",
+      "platform": "Instagram",
+      "published_date": "Oct 25, 2026",
+      "published_iso": "2026-10-25",
+      "content_type": "Social post",
+      "content_type_slug": "social-post",
+      "content_type_audit": "Instagram photo post",
+      "standin_format": "photo-post",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Jessie Diggins"
+      ],
+      "messenger_name": "Jessie Diggins",
+      "messenger_people": null,
+      "messenger_role": "Olympic cross-country skier",
+      "messenger_affiliation": null,
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "J"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "voting"
+      ],
+      "topic_labels": [
+        "Voting"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "2026 election",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "+",
+        "P3": "+",
+        "P4": "+",
+        "P5": "~",
+        "P6": "–",
+        "P7": "+",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P6",
+          "principle_name": "Normal",
+          "type": "could improve",
+          "note": "Leads with 11.2 million not voting, which signals the behavior is rare.",
+          "anchor": "stat"
+        },
+        {
+          "n": 2,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "A strong personal reason to vote.",
+          "anchor": "caption"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "working",
+          "note": "An easy step: go vote.",
+          "anchor": "ask"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "A strong personal reason to vote and an easy step.",
+      "what_to_watch": "It leads with 11.2 million environmentalists not voting, which tells readers the behavior is rare (P6 weak). Fix: lead with her own reason, or with how many people do vote.",
+      "contrast_pair_id": "pair-make-it-normal",
+      "contrast_role": "learning case",
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) A stat about people who don't vote",
+        "Her personal reason",
+        "Step: vote"
+      ],
+      "doable_step": "Vote.",
+      "for_everyone_notes": null,
+      "short_quote": null,
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "photo",
+          "label": "Photo",
+          "text": null
+        },
+        {
+          "key": "stat",
+          "label": "Opening line",
+          "text": "Leads with a stat: 11.2 million environmentalists didn't vote."
+        },
+        {
+          "key": "caption",
+          "label": "Caption",
+          "text": "Her personal reason for voting."
+        },
+        {
+          "key": "ask",
+          "label": "The ask",
+          "text": "The step: go vote."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "pow-senate-testimony",
+      "title": "POW athletes testify before the Senate",
+      "source_url": "https://www.tetongravity.com/pow-athletes-just-testified-before-the-senate-on-climate-change/",
+      "venue": "Teton Gravity Research",
+      "platform": "Website",
+      "published_date": "Undated, likely 2019–20",
+      "published_iso": null,
+      "content_type": "Testimony recap",
+      "content_type_slug": "testimony",
+      "content_type_audit": "Congressional testimony, news recap",
+      "standin_format": "testimony",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Teton Gravity Research"
+      ],
+      "messenger_name": "Jones, Gleich, Caldwell",
+      "messenger_people": [
+        "Jeremy Jones",
+        "Caroline Gleich",
+        "Tommy Caldwell"
+      ],
+      "messenger_role": "Pro athletes (snowboarder, ski mountaineer, climber)",
+      "messenger_affiliation": "Protect Our Winters",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "J"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "policymakers"
+      ],
+      "topics": [
+        "winter",
+        "policy"
+      ],
+      "topic_labels": [
+        "Winter and snow",
+        "Policy"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "Undated (likely 2019–20)",
+      "partisan_framing": "Mentions denial and was delivered to a single-party committee.",
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "~",
+        "P3": "~",
+        "P4": "·",
+        "P5": "~",
+        "P6": "·",
+        "P7": "~",
+        "P8": "–"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P7",
+          "principle_name": "Trustworthy",
+          "type": "could improve",
+          "note": "Athletes speak as experts; P7 favors listening and learning roles.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Vivid stories: glaciers retreating, the Arctic Refuge.",
+          "anchor": "p1"
+        },
+        {
+          "n": 3,
+          "principle": "P8",
+          "principle_name": "For everyone",
+          "type": "could improve",
+          "note": "Mentions denial, to a single-party committee.",
+          "anchor": "p2"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "Vivid stories: Jones watching glaciers retreat, Caldwell in the Arctic Refuge.",
+      "what_to_watch": "The athletes present a “field report” like experts, which Principle 7 warns against. It also mentions denial and was delivered to a single-party committee (P8 weak).",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) Testimony framed as a field report",
+        "Vivid place stories",
+        "Denial and politics"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": null,
+      "short_quote": "field report",
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "Three athletes testify before a Senate committee, framed as a “field report.”"
+        },
+        {
+          "key": "p1",
+          "label": "Paragraph",
+          "text": "Jones describes watching glaciers retreat; Caldwell describes the Arctic Refuge."
+        },
+        {
+          "key": "p2",
+          "label": "Paragraph",
+          "text": "The testimony addresses climate denial before a single-party committee."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "gleich-why-winter-matters",
+      "title": "Caroline Gleich on why winter matters",
+      "source_url": "https://www.tetongravity.com/caroline-gleich-on-why-winter-matters/",
+      "venue": "Teton Gravity Research",
+      "platform": "Website",
+      "published_date": "Undated",
+      "published_iso": null,
+      "content_type": "Profile",
+      "content_type_slug": "profile",
+      "content_type_audit": "Athlete profile article",
+      "standin_format": "profile",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "Teton Gravity Research"
+      ],
+      "messenger_name": "Caroline Gleich",
+      "messenger_people": null,
+      "messenger_role": "Pro ski mountaineer",
+      "messenger_affiliation": null,
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "C"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": [
+        "fans"
+      ],
+      "topics": [
+        "winter"
+      ],
+      "topic_labels": [
+        "Winter and snow"
+      ],
+      "geography": {
+        "place": "United States",
+        "scope": "national"
+      },
+      "timeliness": "Undated",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "–",
+        "P2": "+",
+        "P3": "+",
+        "P4": "~",
+        "P5": "~",
+        "P6": "·",
+        "P7": "~",
+        "P8": "+"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "could improve",
+          "note": "No personal story.",
+          "anchor": "lede"
+        },
+        {
+          "n": 2,
+          "principle": "P3",
+          "principle_name": "Empowering",
+          "type": "working",
+          "note": "An upbeat call to show up and speak out.",
+          "anchor": "quote"
+        },
+        {
+          "n": 3,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "could improve",
+          "note": "No specific step.",
+          "anchor": "close"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "It's upbeat about showing up and speaking out.",
+      "what_to_watch": "There's no personal story (P1 weak) and no specific step. She later ran for the U.S. Senate as a Democrat, which may limit her reach with conservative audiences.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "(As published) Profile intro",
+        "Upbeat call to speak out",
+        "No personal story or step"
+      ],
+      "doable_step": null,
+      "for_everyone_notes": "Messenger's later run for office may limit cross-party reach.",
+      "short_quote": "showing up and speaking out",
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "headline",
+          "label": "Headline",
+          "text": null
+        },
+        {
+          "key": "lede",
+          "label": "Lede",
+          "text": "A profile of a pro skier on why winter matters."
+        },
+        {
+          "key": "quote",
+          "label": "Paragraph",
+          "text": "An upbeat call for “showing up and speaking out.”"
+        },
+        {
+          "key": "close",
+          "label": "Close",
+          "text": "No personal story or specific step in the piece."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
+      "id": "ecoathletes-roster",
+      "title": "EcoAthletes Champions page",
+      "source_url": "https://www.ecoathletes.org/athletes",
+      "venue": "EcoAthletes",
+      "platform": "Organization website",
+      "published_date": "Current",
+      "published_iso": null,
+      "content_type": "Roster page",
+      "content_type_slug": "roster",
+      "content_type_audit": "Program roster page",
+      "standin_format": "roster",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": null,
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "EcoAthletes"
+      ],
+      "messenger_name": "EcoAthletes",
+      "messenger_people": null,
+      "messenger_role": "Athlete climate network",
+      "messenger_affiliation": "EcoAthletes",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "E"
+      },
+      "communicator_segment": "athlete",
+      "communicator_segment_label": "Outdoor and athlete voices",
+      "audience_segment": null,
+      "topics": [],
+      "topic_labels": [],
+      "geography": {
+        "place": "US and Canada",
+        "scope": "national"
+      },
+      "timeliness": "Current",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": null,
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": null,
+          "principle_name": "Overall",
+          "type": "could improve",
+          "note": "A list of athletes, not a message: nothing to grade yet.",
+          "anchor": "grid"
+        },
+        {
+          "n": 2,
+          "principle": null,
+          "principle_name": "Overall",
+          "type": "working",
+          "note": "Useful for finding and recruiting messengers.",
+          "anchor": "intro"
+        }
+      ],
+      "verdict": "Not yet usable",
+      "verdict_slug": "not",
+      "why_it_works": null,
+      "what_to_watch": "A roster, not a message: useful for recruiting messengers, not as a library example. Not graded.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": null,
+      "doable_step": null,
+      "for_everyone_notes": null,
+      "short_quote": null,
+      "model_payload": null,
+      "institutional_backing": null,
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": null,
+      "amplify_candidate": null,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "intro",
+          "label": "Intro",
+          "text": "A short program introduction."
+        },
+        {
+          "key": "grid",
+          "label": "Roster",
+          "text": "A grid of athlete profiles (names and photos not reproduced)."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    }
+  ]
+}

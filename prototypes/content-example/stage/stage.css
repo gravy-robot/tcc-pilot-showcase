@@ -1,0 +1,64 @@
+/* Model A: Stage (like a video site). Hand-written; loaded after shared/ce-core.css. */
+
+/* Library: a grid of thumbnail cards */
+.lib-head{padding-top:20px}
+.lib-intro{max-width:62ch}
+.lib--stage .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.lib--stage .filters{background:var(--surface);border-radius:14px;padding:14px 16px;box-shadow:var(--tcc-shadow)}
+.lib--stage .fg-opts{flex-wrap:nowrap;overflow-x:auto;padding:2px 2px 6px}
+@media (min-width:900px){.lib--stage .fg-opts{flex-wrap:wrap}}
+.lib--stage .fg label{white-space:nowrap}
+
+/* Detail */
+.st-title{max-width:30ch}
+.st-grid{display:grid;gap:16px 32px;grid-template-columns:minmax(0,1fr);
+  grid-template-areas:"stage" "a1" "a2" "side" "related";margin-top:12px}
+.st-a1{grid-area:a1}.st-a2{grid-area:a2}.st-stage{grid-area:stage;margin-bottom:28px}.st-side{grid-area:side}.st-related{grid-area:related}
+@media (min-width:1000px){
+  .st-grid{grid-template-columns:minmax(0,1.65fr) minmax(320px,1fr);
+    grid-template-areas:"stage a1" "stage a2" "stage side" "related side";grid-template-rows:auto auto auto 1fr}
+  .st-stage{align-self:start}.st-related{align-self:start}
+  .st-a2 .ce-tags{margin-top:0}
+}
+.st-side .ce-part{background:var(--surface);border-radius:14px;padding:16px 18px;box-shadow:var(--tcc-shadow)}
+.st-side .ce-part--conn{background:transparent;box-shadow:none;padding:0 4px}
+
+/* The stage: a clear dark frame; long formats scroll inside it */
+.stage{position:relative;background:var(--stage-bg);border-radius:18px;padding:18px 18px 40px}
+.stage-scroll{max-height:72vh;overflow:auto;border-radius:10px;padding:4px;scrollbar-color:#5E6380 transparent}
+.stage .si-cap-top{color:#DDE4F6}
+.stage .si-cap-top a{color:#33C6F5}
+.si--short-video .si-vid,.si--photo-post .si-phone,.si--carousel .si-phone{margin:0 auto}
+
+/* Controls float over the stage's bottom edge */
+.stage-controls{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);display:flex;align-items:center;gap:4px;
+  background:var(--surface);color:var(--head);border-radius:999px;padding:2px 6px 2px 14px;box-shadow:0 2px 6px rgba(0,0,0,.15),0 10px 26px rgba(27,45,91,.18);
+  white-space:nowrap;max-width:calc(100% - 16px);overflow-x:auto}
+.sc-btn{display:inline-flex;align-items:center;gap:6px;font:700 14px/1 var(--tcc-font-ui);color:var(--head);text-decoration:none;padding:14px 12px;border-radius:999px;min-height:44px}
+.sc-btn:hover{background:var(--surface-2)}
+.stage-controls .ce-ov{padding-right:8px;border-right:1px solid var(--line)}
+@media (max-width:520px){
+  .stage{padding:12px 10px 78px;border-radius:14px}
+  .stage-controls{left:8px;right:8px;bottom:-22px;transform:none;max-width:none;flex-wrap:wrap;justify-content:center;white-space:normal;
+    overflow:visible;padding:2px 8px;gap:0 4px;border-radius:22px}
+  .stage-controls .ce-ov{gap:6px;font-size:14px;border-right:0;width:100%;justify-content:center;border-bottom:1px solid var(--line)}
+  .sc-btn{padding:12px 10px;font-size:14px}
+}
+
+/* More examples like this: finite list */
+.rel{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.rel a{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border-radius:12px;padding:12px;text-decoration:none;color:var(--text);box-shadow:var(--tcc-shadow)}
+.rel b{display:block;color:var(--head);font-size:15px;line-height:1.3}
+.rel small{font:500 13px/1.3 var(--tcc-font-ui);color:var(--muted)}
+
+/* Contrast pair: two stages side by side, stacked on phones */
+.pair-lesson{font-size:19px;max-width:62ch;color:var(--head);font-weight:700}
+.pair-toolbar{margin:8px 0 4px}
+.pair-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){.pair-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pair-col{min-width:0}
+.pair-col .stage{margin:12px 0 36px}
+.pair-col .stage-scroll{max-height:60vh}
+.pi-h{font-size:20px}
+.pair-cmp{margin-top:20px}
+.pair-col .ce-part{background:var(--surface);border-radius:14px;padding:14px 16px;box-shadow:var(--tcc-shadow)}

@@ -1,0 +1,24 @@
+/* Overnote theme: maps Overnote's --overnote-* variables to TCC colors.
+   Loaded by every page (TCC pages and the research maps), so values are
+   plain hex from the design system, not tcc.css tokens. Set only, never
+   repurposed (see overnote/docs/OVERNOTE_REQUIREMENT.md, section 2.5).
+   Pumpkin = highlight mode, cerulean ink = sticky mode. */
+:root{
+  --overnote-font:"Ubuntu",system-ui,sans-serif;
+  --overnote-accent:#08688A;              /* cerulean ink */
+  --overnote-accent-contrast:#FFFFFF;
+  --overnote-focus-ring:#08688A;
+  --overnote-mode-off:#1B2D5B;            /* navy */
+  --overnote-mode-highlight:#A3470E;      /* pumpkin ink */
+  --overnote-mode-sticky:#08688A;
+  --overnote-text:#2C3A4A;                /* slate */
+  --overnote-text-muted:#5E6380;
+  --overnote-border:#E8E6DF;              /* sand */
+  --overnote-highlight-bg:rgba(242,128,48,.28);
+  --overnote-highlight-bg-hover:rgba(242,128,48,.42);
+  --overnote-highlight-bg-active:rgba(242,128,48,.55);
+  --overnote-highlight-underline:#F28030;
+  --overnote-sticky-bg:#F5EEDC;           /* linen */
+  --overnote-sticky-header:#F0E0B0;       /* cream */
+  --overnote-sticky-text:#1B2D5B;
+}

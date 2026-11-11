@@ -1,0 +1,135 @@
+/* Model B: Canvas (like a map app). Hand-written; loaded after shared/ce-core.css.
+   Without JS the canvas is a plain scroll area and the details sit beside
+   (desktop) or below (phone) it. ce-enhance.js adds pan/zoom, the bottom
+   sheet, floating note cards and the split divider. */
+
+body.m-canvas{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.cvp{position:relative;flex:1;min-height:0}
+@media (min-width:900px){ body.m-canvas{height:100vh;height:100dvh} }
+.js body.m-canvas{height:100vh;height:100dvh;overflow:hidden}
+html.js:has(body.m-canvas){overflow:hidden;height:100%}
+
+/* The canvas */
+.cv{position:absolute;inset:0;overflow:auto;background:
+  radial-gradient(circle,rgba(94,99,128,.22) 1px,transparent 1.5px) 0 0/22px 22px,var(--bg)}
+.cv:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.js .cv{overflow:hidden;touch-action:none;cursor:grab}
+.js .cv.is-dragging{cursor:grabbing}
+.cv-content{transform-origin:0 0;padding:16px 40px 40px;width:max-content}
+html:not(.js) .cv-content{padding-top:96px}
+.cv .si{width:680px}
+.cv--narrow .si{width:380px}
+.cv .si-cap-top{background:var(--surface);border-radius:10px;padding:8px 12px;box-shadow:var(--tcc-shadow)}
+
+/* Floating controls */
+.fl{position:absolute;z-index:10}
+.fl-pill{top:12px;left:50%;transform:translateX(-50%);max-width:calc(100% - 24px)}
+.pill,.fl-layers > summary{display:inline-flex;align-items:center;gap:8px;background:var(--surface);color:var(--head);border-radius:999px;
+  padding:12px 18px;font:700 14px/1 var(--tcc-font-ui);box-shadow:0 2px 6px rgba(0,0,0,.12),0 10px 26px rgba(27,45,91,.16);text-decoration:none;cursor:pointer;list-style:none;min-height:44px;white-space:nowrap}
+.pill > summary{list-style:none;display:flex;gap:8px;align-items:center;cursor:pointer}
+details.pill{display:block;padding:12px 18px;border-radius:24px;max-width:min(560px,calc(100vw - 24px))}
+details.pill[open]{border-radius:18px}
+.pill summary::-webkit-details-marker,.fl-layers summary::-webkit-details-marker{display:none}
+.pill-panel{margin-top:12px;max-height:min(70vh,640px);overflow:auto;white-space:normal;font:400 15px/1.5 var(--tcc-font-head);color:var(--text)}
+.fl-layers{top:12px;right:12px}
+.layers-panel{position:absolute;right:0;top:52px;background:var(--surface);border-radius:14px;padding:12px 14px;box-shadow:var(--tcc-shadow);display:grid;gap:4px;min-width:230px}
+.layers-panel label{display:flex;gap:10px;align-items:center;font:700 14px/1.2 var(--tcc-font-ui);min-height:40px;cursor:pointer}
+.layers-panel input{width:20px;height:20px;accent-color:var(--tcc-pumpkin)}
+.fl-zoom{bottom:16px;left:16px;flex-direction:column;background:var(--surface);border-radius:14px;box-shadow:var(--tcc-shadow);overflow:hidden}
+.fl-zoom button{width:44px;height:44px;border:0;background:transparent;color:var(--head);font:700 22px/1 var(--tcc-font-ui);cursor:pointer}
+.fl-zoom button + button{border-top:1px solid var(--line)}
+.fl-zoom button:hover{background:var(--surface-2)}
+.fl-zoom button:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+
+/* Compact messenger card (anatomy 1 + 2) */
+.fl-card{top:72px;left:16px;width:340px;background:var(--surface);border-radius:16px;padding:12px 14px;box-shadow:var(--tcc-shadow)}
+.fl-card .ce-tags{margin-top:8px}
+
+/* Details: a floating side panel on desktop, a bottom sheet on phones */
+.sheet{position:absolute;z-index:12;top:12px;right:12px;bottom:12px;width:400px;background:var(--surface);border-radius:18px;box-shadow:0 2px 6px rgba(0,0,0,.12),0 12px 32px rgba(27,45,91,.18);display:flex;flex-direction:column}
+.sheet-body{overflow:auto;padding:16px 18px 24px;flex:1}
+.cv-detail .fl-layers{right:424px}
+.cv-pair .fl-layers{right:424px}
+.sheet .ce-part{border-top:1px solid var(--line);padding-top:12px}
+.sheet .ce-part:first-child{border-top:0}
+.sheet-handle{border:0;background:transparent;padding:10px 0 4px;cursor:grab;width:100%;touch-action:none}
+.sheet-handle span{display:block;width:44px;height:5px;border-radius:3px;background:var(--muted);margin:0 auto}
+@media (min-width:900px){.js .sheet-handle{display:none!important}}
+
+/* Layers toggles: hide pattern / trust */
+body:has([data-layer-toggle="pattern"]:not(:checked)) [data-layer="pattern"]{display:none}
+body:has([data-layer-toggle="trust"]:not(:checked)) [data-layer="trust"]{display:none}
+
+/* Floating note card, anchored near a pin */
+.notecard{position:absolute;z-index:20;width:min(320px,calc(100% - 24px));background:var(--surface);color:var(--text);border-radius:14px;padding:14px 16px;box-shadow:0 4px 10px rgba(0,0,0,.18),0 16px 40px rgba(27,45,91,.25);border-top:4px solid var(--tcc-pumpkin)}
+.nc-h{font:700 13px/1.3 var(--tcc-font-ui);color:var(--muted);margin:0 0 6px}
+.nc-body p{margin:0 0 8px}
+.nc-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nc-nav button{border:0;background:var(--surface-2);color:var(--head);font:700 13px/1 var(--tcc-font-ui);padding:10px 12px;border-radius:999px;cursor:pointer;min-height:40px}
+.nc-nav [data-nc="close"]{margin-left:auto}
+.nc-nav span{font:500 12px/1 var(--tcc-font-ui);color:var(--muted)}
+
+/* Library board */
+.lib--canvas .cv-content{padding:16px 48px 48px}
+.board{display:grid;grid-template-columns:repeat(3,620px);gap:48px;align-items:start}
+.cluster{background:rgba(255,255,255,.55);border-radius:22px;padding:18px;box-shadow:inset 0 0 0 2px var(--line)}
+@media (prefers-color-scheme:dark){.cluster{background:rgba(27,45,91,.6)}}
+.cluster-h{font-size:22px;margin:0 0 14px}
+.lib--canvas .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.lib--canvas .fl-pill{top:12px}
+.lib--canvas .card-one{display:none}
+
+/* Contrast pair: split view with a draggable divider */
+.split{position:absolute;inset:0 436px 0 0;display:grid;grid-template-columns:var(--split,50%) 12px minmax(0,1fr)}
+.split-pane{position:relative;min-width:0;overflow:hidden}
+.split-label{position:absolute;z-index:5;left:12px;bottom:12px;margin:0;background:var(--surface);border-radius:999px;padding:6px 12px 6px 6px;font:700 13px/1 var(--tcc-font-ui);color:var(--head);box-shadow:var(--tcc-shadow);display:flex;gap:8px;align-items:center}
+.split-divider{position:relative;background:var(--line);cursor:col-resize;touch-action:none}
+.split-divider span{position:absolute;left:50%;top:50%;width:6px;height:48px;border-radius:3px;background:var(--muted);transform:translate(-50%,-50%)}
+.split-divider:focus-visible{outline:3px solid var(--focus);outline-offset:0}
+html:not(.js) .split{grid-template-columns:1fr 1fr}
+.cv-pair .fl-zoom{left:auto;right:448px}
+html:not(.js) .cv-pair .cv-content{padding-top:80px}
+.cv-pair .split-pane:first-child .split-label{left:12px}
+
+/* ---------- Phones ---------- */
+@media (max-width:899px){
+  .fl-card{top:64px;left:10px;right:10px;width:auto;padding:8px 10px;border-radius:14px}
+  .fl-card .ce-av{width:32px;height:32px}
+  .fl-card .ce-ms-name{font-size:15px}
+  .fl-card .ce-ms-role{font-size:12px}
+  .fl-card .ce-ms-people{display:none}
+  .fl-card .ce-tags{flex-wrap:nowrap;overflow-x:auto;margin-top:6px;padding-bottom:2px}
+  .fl-card .tag{white-space:nowrap}
+  .fl-pill{left:10px;transform:none;max-width:calc(100% - 120px)}
+  .pill{padding:12px 14px}
+  .fl-layers,.cv-detail .fl-layers,.cv-pair .fl-layers{right:10px}
+  .cv-content,.lib--canvas .cv-content,.cv-pair .cv-content{padding:16px 16px 40px}
+  html:not(.js) .cv-content{padding-top:190px}
+  .lib--canvas .fl-pill{max-width:calc(100% - 20px)}
+
+  /* No JS: canvas is a fixed-height scroll area; details follow in the page */
+  html:not(.js) .cvp{display:flex;flex-direction:column}
+  html:not(.js) .cv{position:relative;height:72vh}
+  html:not(.js) .sheet{position:static;width:auto;border-radius:0;box-shadow:none}
+  html:not(.js) .split{position:relative;inset:auto;display:block}
+  html:not(.js) .split-pane{height:60vh}
+
+  /* JS: bottom sheet with three heights */
+  .js .sheet{top:auto;left:0;right:0;bottom:0;width:auto;border-radius:18px 18px 0 0;height:var(--sheet-h,50%);transition:height .2s ease}
+  .js .sheet[data-sheet="collapsed"]{--sheet-h:92px}
+  .js .sheet[data-sheet="half"]{--sheet-h:48%}
+  .js .sheet[data-sheet="full"]{--sheet-h:calc(100% - 56px)}
+  .js .sheet.is-dragging{transition:none}
+  .js .fl-zoom{left:auto;right:10px;bottom:calc(var(--sheet-px,48%) + 12px)}
+  .js .cv-detail .fl-zoom,.js .cv-pair .fl-zoom{bottom:auto;top:50%;transform:translateY(-50%);right:10px}
+  .js .split{inset:0 0 0 0;grid-template-columns:none;grid-template-rows:var(--split,50%) 12px minmax(0,1fr);bottom:92px}
+  .js .split-divider{cursor:row-resize}
+  .js .split-divider span{width:48px;height:6px}
+  .js .split-label{bottom:auto;top:12px;left:auto;right:12px}
+  .js .split-pane:first-child .split-label{left:auto;right:12px;top:auto;bottom:12px}
+  .js .cv-pair .fl-pill,.js .cv-pair .fl-layers{top:auto}
+  .js .cv-pair .fl-pill{display:none}
+  .js .cv-pair .fl-layers{bottom:auto;top:calc(var(--split,50%) + 18px);right:auto;left:10px}
+  .js .cv-pair .layers-panel{left:0;right:auto}
+}
+@media (prefers-reduced-motion:reduce){.js .sheet{transition:none}}
