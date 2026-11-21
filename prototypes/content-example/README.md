@@ -78,7 +78,7 @@ Bytes for each page plus every CSS, script and font file it references, with med
 <!-- weights:start -->
 | Model | Library | Detail: article | Detail: video (not loaded) | Pair | Heaviest detail |
 |---|---|---|---|---|---|
-| Model A: Stage | 163 KB | 146 KB | 146 KB | 154 KB | 146 KB (howard-wildfire-smoke.html) |
+| Model A: Stage | 163 KB | 147 KB | 147 KB | 154 KB | 147 KB (howard-wildfire-smoke.html) |
 | Model B: Canvas | 169 KB | 150 KB | 150 KB | 160 KB | 150 KB (suter-outrider-oped.html) |
 | Model C: Requirements only | 161 KB | 142 KB | 142 KB | 136 KB | 142 KB (suter-outrider-oped.html) |
 <!-- weights:end -->

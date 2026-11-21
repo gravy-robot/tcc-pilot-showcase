@@ -1053,9 +1053,11 @@ def detail_stage(model, rec, recs, by, standalone=False):
         f'<p class="small muted">A short, finite list. Nothing plays next on its own.</p></section>')
     return (f'<main id="main" class="wrap st-detail">{"" if standalone else back_link()}<h1 class="st-title">{e(rec["title"])}</h1>{state_banner(rec, by, links=not standalone)}'
             f'<div class="st-grid">'
-            f'<div class="st-a1">{messenger_strip(rec)}</div><div class="st-a2">{fit_tags(rec)}</div>'
             f'<div class="st-stage" data-part="3"><div class="stage"><div class="stage-scroll" tabindex="0" role="region" aria-label="Content stage">{standin(rec)}</div>{controls}</div></div>'
-            f'<div class="st-side">{why_section(rec)}{pattern_section(rec)}{trust_section(rec)}{actions_section(rec)}{connection_section(rec)}</div>'
+            # Right rail: on wide screens it scrolls on its own, beside the stage.
+            f'<div class="st-rail" tabindex="0" role="region" aria-label="About this example">'
+            f'<div class="st-a1">{messenger_strip(rec)}</div><div class="st-a2">{fit_tags(rec)}</div>'
+            f'<div class="st-side">{why_section(rec)}{pattern_section(rec)}{trust_section(rec)}{actions_section(rec)}{connection_section(rec)}</div></div>'
             f'{related_html}</div></main>')
 
 # Standalone Stage mockups, one per health piece in the audit, for review.

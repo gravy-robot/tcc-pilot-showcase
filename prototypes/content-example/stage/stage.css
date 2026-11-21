@@ -12,14 +12,21 @@
 /* Detail */
 .st-title{max-width:30ch}
 .st-grid{display:grid;gap:16px 32px;grid-template-columns:minmax(0,1fr);
-  grid-template-areas:"stage" "a1" "a2" "side" "related";margin-top:12px}
-.st-a1{grid-area:a1}.st-a2{grid-area:a2}.st-stage{grid-area:stage;margin-bottom:28px}.st-side{grid-area:side}.st-related{grid-area:related}
+  grid-template-areas:"stage" "rail" "related";margin-top:12px}
+.st-stage{grid-area:stage;margin-bottom:28px}.st-rail{grid-area:rail;display:grid;gap:16px;align-content:start}.st-related{grid-area:related}
+.st-rail:focus-visible{outline-offset:2px}
 @media (min-width:1000px){
   .st-grid{grid-template-columns:minmax(0,1.65fr) minmax(320px,1fr);
-    grid-template-areas:"stage a1" "stage a2" "stage side" "related side";grid-template-rows:auto auto auto 1fr}
+    grid-template-areas:"stage rail" "related rail";grid-template-rows:auto 1fr}
   .st-stage{align-self:start}.st-related{align-self:start}
   .st-a2 .ce-tags{margin-top:0}
+  /* The rail scrolls on its own, beside the stage. Padding keeps card
+     shadows inside the scroll box; the negative margin keeps alignment. */
+  .st-rail{align-self:start;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;
+    overscroll-behavior:contain;padding:4px 10px 24px;margin:-4px -10px 0;scrollbar-width:thin;scrollbar-color:#B9B6AC transparent}
 }
+/* Messenger: avatar top-aligned with the name */
+.st-rail .ce-ms{align-items:flex-start}
 .st-side .ce-part{background:var(--surface);border-radius:14px;padding:16px 18px;box-shadow:var(--tcc-shadow)}
 .st-side .ce-part--conn{background:transparent;box-shadow:none;padding:0 4px}
 
