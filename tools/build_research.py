@@ -166,8 +166,7 @@ persona_html = f"""
 <section class="block anchor-target" id="persona" aria-labelledby="persona-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">1 · Who we're designing for first</p><h2 id="persona-h">Healthcare persona {anchor("persona", "Healthcare persona")}</h2></div>
-      <p>Health professionals are the first segment. Dr. Maya stands in for them across every stage of the journey.</p>
+      <div><h2 id="persona-h">Healthcare persona {anchor("persona", "Healthcare persona")}</h2></div>
     </div>
     <div class="tile persona-card">
       <div class="persona">
@@ -194,8 +193,8 @@ journey_html = f"""
 <section class="block anchor-target" id="journey" aria-labelledby="journey-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">2 · Seven stages, every segment</p><h2 id="journey-h">Journey {anchor("journey", "Journey")}</h2></div>
-      <p>How curated examples help Dr. Maya from noticing climate in the clinic to sharing what works. In the “Curated content's job” row, each named example opens its Content Example prototype.</p>
+      <div><h2 id="journey-h">Journey {anchor("journey", "Journey")}</h2></div>
+      <p>How curated examples help Dr. Maya: from noticing climate in the clinic to sharing what works. In the “Curated content's job” row, each named example opens its Content Example prototype.</p>
     </div>
     <nav class="jump stage-jump" aria-label="Jump to a stage">
       {"".join(f'<a class="btn btn-ghost" href="#journey-{s}">{i+1} {esc(STAGE_NAMES[i].split(" ")[0])}</a>' for i, s in enumerate(STAGES))}
@@ -257,7 +256,7 @@ jobs_html = f"""
 <section class="block anchor-target" id="jobs-to-be-done" aria-labelledby="jtbd-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">3 · What a Content Example must do</p><h2 id="jtbd-h">Jobs to be done {anchor("jobs-to-be-done", "Jobs to be done")}</h2></div>
+      <div><h2 id="jtbd-h">Jobs to be done {anchor("jobs-to-be-done", "Jobs to be done")}</h2></div>
       <p>Seven jobs, one per journey stage. Each shows where it comes from: the <span class="src src-journey">Journey</span> stage, Dr. Maya's <span class="src src-persona">Persona</span> voice, and the <span class="src src-research">Research</span> in TCC's and AU's landscape reports.</p>
     </div>
     <div class="grid g2 core">
@@ -324,7 +323,12 @@ h2 .h-anchor{display:inline}
 .rj-scroll:focus-visible{outline:3px solid #0F5F59;outline-offset:-3px}
 .rj-map{width:2000px;margin:0 auto;padding:24px;font-family:Inter,system-ui,sans-serif;color:#1F2A30}
 .rj-map .jm-grid{grid-template-columns:180px repeat(7,minmax(0,1fr))}
-.rj-map .jm-stage{scroll-margin:16px 24px}
+.rj-map .jm-stage{scroll-margin:16px 24px 16px 188px}
+/* Row titles stay put while the stages scroll sideways. The 8px spread in the
+   page color hides cells sliding through the gaps between titles. */
+.rj-map .jm-label,.rj-map .jm-grid > div:empty{position:sticky;left:0;z-index:2;box-shadow:0 0 0 8px #F6F5F1}
+.rj-map .jm-grid > div:empty{background:#F6F5F1}
+@media (max-width:640px){.rj-map .jm-grid{grid-template-columns:124px repeat(7,minmax(0,1fr))}.rj-map .jm-label{padding:12px;font-size:15px}.rj-map .jm-stage{scroll-margin-left:132px}}
 .rj-map .jm-stage:target{outline:4px solid var(--tcc-pumpkin);outline-offset:2px}
 .rj-map .jm-link{color:#0B3B37;text-decoration:underline;text-decoration-color:#0F5F59;text-underline-offset:3px}
 .rj-map .jm-link:hover{color:#0F5F59}
@@ -356,7 +360,6 @@ h2 .h-anchor{display:inline}
 .caveats,#sources{margin-top:24px}
 .sources li{margin-bottom:8px}
 .sources li:target{background:var(--tcc-sky)}
-.top-links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;margin-top:16px}
 """
 
 page = f"""<!doctype html>
@@ -384,15 +387,18 @@ page = f"""<!doctype html>
 <main id="main">
 <section class="block" id="top" aria-labelledby="top-h">
   <div class="wrap">
-    <p class="eyebrow">TCC curated content · Health professionals pilot · Research</p>
-    <h1 id="top-h" style="font-weight:900;font-size:clamp(32px,5vw,52px);margin:0 0 16px">Who we're helping, their journey, and the jobs examples must do</h1>
-    <div class="prose"><p>The persona and journey set up the jobs. Each job links back to the stage, the persona line and the research it comes from.</p></div>
+    <p class="eyebrow">TCC curated content</p>
+    <h1 id="top-h" style="font-weight:900;font-size:clamp(32px,5vw,52px);margin:0 0 16px">The messenger journey</h1>
+    <div class="prose">
+      <p><strong>Where does curated content support the messenger's journey? Nearly every stage.</strong> But to help, it has to show up in touchpoints TCC owns or in tools messengers already use every day.</p>
+      <p>A <strong>healthcare persona</strong> is the basis of the proposed journey below. The <strong>journey</strong> shows the role of example content at each stage.</p>
+      <p>Requirements for example content are translated into <strong>Jobs to be done</strong>. Each job links back to the stage, the persona line, and the research it comes from.</p>
+    </div>
     <nav class="jump" aria-label="Jump to">
       <a class="btn btn-ghost" href="#persona">Healthcare persona</a>
       <a class="btn btn-ghost" href="#journey">Journey</a>
       <a class="btn btn-ghost" href="#jobs-to-be-done">Jobs to be done</a>
     </nav>
-    <p class="top-links small">Related: <a href="../audit/index.html">Example audit</a> <a href="../prototypes/content-example/index.html">Content Example prototypes</a></p>
   </div>
 </section>
 {persona_html}

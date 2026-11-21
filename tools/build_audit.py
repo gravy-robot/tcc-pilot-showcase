@@ -157,7 +157,7 @@ page = f"""<!doctype html>
 <main id="main">
 <section class="block" id="purpose" aria-labelledby="purpose-h">
   <div class="wrap">
-    <p class="eyebrow">TCC curated content · Nov 6, 2026</p>
+    <p class="eyebrow">TCC curated content</p>
     <h1 style="font-weight:900;font-size:clamp(32px,5vw,52px);margin:0 0 20px">Content example audit</h1>
     <div class="prose">
       <p>{inline(intro)}</p>
