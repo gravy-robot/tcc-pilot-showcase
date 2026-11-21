@@ -1071,7 +1071,8 @@ def mockup_page(rec, recs, by):
                 head_extra=jsonld(rec) + MOCKUP_CSS, js=True, body_class="m-stage p-detail p-mockup", banner=False)
 
 # With no banner above it, the title needs its own breathing room.
-MOCKUP_CSS = "<style>.p-mockup main.st-detail{padding-top:40px}@media (max-width:640px){.p-mockup main.st-detail{padding-top:24px}}</style>"
+MOCKUP_CSS = ("<style>.p-mockup main.st-detail,.p-mockup main.st-pair{padding-top:40px}"
+              "@media (max-width:640px){.p-mockup main.st-detail,.p-mockup main.st-pair{padding-top:24px}}</style>")
 
 def layers_menu(rid):
     return (f'<details class="fl fl-layers"><summary><span aria-hidden="true">◫</span> Layers</summary><div class="layers-panel">'
@@ -1139,7 +1140,9 @@ def pair_item_compact(rec, role, with_standin=True):
             + (f'<div data-part="3">{standin(rec)}</div>' if with_standin else "")
             + f'{why_section(rec, h="h3")}{trust_section(rec, h="h3")}</article>')
 
-def pair_page(model, p, by):
+def pair_page(model, p, by, standalone=False):
+    """standalone=True (Stage only): a pair mockup in mockups/, no banner or
+    back link. "Details" opens each piece's mockup in the same folder."""
     mk = model["key"]
     s, w = by[p["strong"]], by[p["weak"]]
     if mk == "stage":
@@ -1151,7 +1154,7 @@ def pair_page(model, p, by):
             return (f'<article class="pair-col" aria-labelledby="pc-{r["id"]}"><p class="eyebrow">{"Good example" if role == "strong" else "Learning case"}</p>'
                     f'<h2 id="pc-{r["id"]}" class="pi-h">{e(r["title"])}</h2>{messenger_strip(r)}{fit_tags(r)}<div data-part="3">{stagebox(r)}</div>'
                     f'{why_section(r, h="h3")}{trust_section(r, h="h3")}</article>')
-        body = (f'<main id="main" class="wrap st-pair">{back_link()}<h1>{e(p["title"])}</h1>{pair_intro(p, by)}'
+        body = (f'<main id="main" class="wrap st-pair">{"" if standalone else back_link()}<h1>{e(p["title"])}</h1>{pair_intro(p, by)}'
                 f'<div class="pair-toolbar">{overlay_toggle(p["id"])}</div>'
                 f'<div class="pair-grid">{col(s, "strong")}{col(w, "weak")}</div>'
                 f'<section aria-labelledby="cmp-h" class="pair-cmp"><h2 id="cmp-h">Principle by principle</h2>{compare_table(p, by)}</section></main>')
@@ -1177,6 +1180,9 @@ def pair_page(model, p, by):
         body = (f'<main id="main" class="wrap sp sp-pair">{back_link()}<h1>{e(p["title"])}</h1>{pair_intro(p, by)}'
                 f'{overlay_toggle(p["id"])}{pair_item_compact(s, "strong")}{notes_list(s)}{pair_item_compact(w, "weak")}{notes_list(w)}'
                 f'<section aria-labelledby="cmp-h"><h2 id="cmp-h">Principle by principle</h2>{compare_table(p, by)}</section></main>')
+    if standalone:
+        return page(f'{p["title"]} · Contrast pair mockup', body, None, css=["../stage/stage.css"], head_extra=MOCKUP_CSS,
+                    js=True, body_class="m-stage p-pair p-mockup", banner=False)
     return page(f'{p["title"]} · Contrast pair · {model["name"]}', body, model, css=[f"{mk}.css"],
                 js=(mk != "spec"), body_class=f"m-{mk} p-pair")
 
@@ -1404,6 +1410,9 @@ def main():
     for r in recs:
         if r["communicator_segment"] == MOCKUP_SEGMENT:
             (mk / f'{r["id"]}.html').write_text(mockup_page(r, recs, by)); count += 1
+    for pr in PAIRS:  # pairs whose two pieces are both in the mockup segment
+        if all(by[pr[k]]["communicator_segment"] == MOCKUP_SEGMENT for k in ("strong", "weak")):
+            (mk / f'{pr["id"]}.html').write_text(pair_page(MODELS[0], pr, by, standalone=True)); count += 1
     w = weights()
     (OUT / "index.html").write_text(compare_page(by, w)); count += 1
     update_readme(w)

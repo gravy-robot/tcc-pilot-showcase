@@ -12,8 +12,7 @@ python3 tools/build_research.py .          # persona, journey, jobs   -> researc
 
 Run `build_content_example.py` before `build_maps.py`, `build_research.py` and
 `build_audit.py`: the journey's "Curated content's job" row links each named piece to its
-Stage mockup in `prototypes/content-example/mockups/` (pairs to their page in
-`examples/`), and shows "Prototype coming soon" if the page doesn't exist yet. The links
+Stage mockup in `prototypes/content-example/mockups/` (pairs included), and shows "Prototype coming soon" if the page doesn't exist yet. The links
 live in `CONTENT_LINKS` in `build_maps.py`. The audit's health rows get a "Mockup" link
 from `data/examples.json`.
 

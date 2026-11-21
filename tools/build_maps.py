@@ -35,17 +35,15 @@ a:focus-visible{outline:3px solid #0F5F59;outline-offset:2px;border-radius:4px}
 .jm-soon small{display:inline-block;font-size:11px;font-weight:600;color:#45535A;border:1px dashed #9AA5AA;border-radius:999px;padding:1px 8px}
 """
 
-# Journey "Curated content's job" row: each named piece links to its Content
-# Example. Single pieces open their standalone Stage mockup
-# (prototypes/content-example/mockups/<id>.html). Pairs have no mockup yet, so
-# they open the stable pair page (examples/<id>.html), which offers each model.
+# Journey "Curated content's job" row: each named piece or contrast pair links
+# to its standalone Stage mockup (prototypes/content-example/mockups/<id>.html).
 # A missing target renders "coming soon".
 CE = "prototypes/content-example"
 CONTENT_LINKS = [  # (exact text inside <b>, path from the site root, fragment)
     ("Courtney Howard on wildfire smoke", f"{CE}/mockups/howard-wildfire-smoke.html", ""),
     ("Ashley Lawson's heat-dome speech", f"{CE}/mockups/lawson-heat-dome-speech.html", ""),
-    ("Lawson vs. the Seattle op-ed", f"{CE}/examples/pair-heat-dome.html", ""),
-    ("Howard vs. Vossler", f"{CE}/examples/pair-smoke-and-heat.html", ""),
+    ("Lawson vs. the Seattle op-ed", f"{CE}/mockups/pair-heat-dome.html", ""),
+    ("Howard vs. Vossler", f"{CE}/mockups/pair-smoke-and-heat.html", ""),
     ("Howard's structure", f"{CE}/mockups/howard-wildfire-smoke.html", "#pat-howard-wildfire-smoke"),
 ]
 
