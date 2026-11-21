@@ -7,7 +7,17 @@ sources. Re-run them only if the sources change.
 python3 tools/build_maps.py .              # reference/maps/*.dc.html -> maps/*.html
 python3 tools/build_audit.py .             # reference/audit.md       -> audit/index.html
 python3 tools/build_content_example.py .   # reference/audit.md       -> prototypes/content-example/
+python3 tools/build_research.py .          # persona, journey, jobs   -> research/index.html
 ```
+
+Run `build_content_example.py` before `build_maps.py` and `build_research.py`: the
+journey's "Curated content's job" row links each named example to its stable page in
+`prototypes/content-example/examples/`, and shows "Prototype coming soon" if that page
+doesn't exist yet. The links live in `CONTENT_LINKS` in `build_maps.py`.
+
+`build_research.py` builds one standalone page with three linkable sections: `#persona`,
+`#journey` and `#jobs-to-be-done`. Each job cites its journey stage, persona line and the
+TCC/AU research; the figures and PDF page numbers are in `RESEARCH` at the top of the script.
 
 Run from the site root. Each overwrites only its own output pages.
 `build_content_example.py` writes `data/examples.json`, the three prototype
