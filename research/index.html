@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Health professionals pilot</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Healthcare persona, journey and jobs to be done for TCC's curated content pilot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../assets/tcc.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+/* Journey map palette, from reference/maps/Main.dc.html. Used only inside the map. */
+a{color:#0F5F59}a:hover{color:#0B4743}
+.jm-grid{display:grid;grid-template-columns:200px repeat(7, minmax(0, 1fr));gap:8px}
+.jm-label{background:#1F2A30;color:#FFFFFF;border-radius:10px;padding:16px;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;line-height:1.25;display:flex;flex-direction:column;gap:6px}
+.jm-label small{font-family:Inter,sans-serif;font-size:12px;font-weight:400;color:#C9D3D8;line-height:1.4}
+.jm-cell{background:#FFFFFF;border:1px solid #DDE2DF;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.45;color:#1F2A30}
+.jm-quote{background:#FFFFFF;border:1px solid #DDE2DF;border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.45;color:#1F2A30;font-style:italic}
+.jm-pain{background:#FDF1EA;border:1px solid #F3C9B2;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.45;color:#5A2410}
+.jm-ex{background:#E7F3F1;border:1px solid #A9D3CD;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.45;color:#0B3B37}
+.jm-opp{background:#FFFFFF;border:2px solid #0F5F59;border-radius:10px;padding:13px 15px;font-size:14px;line-height:1.45;color:#1F2A30}
+.jm-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#0F5F59;margin-bottom:6px}
+.jm-ex b,.jm-opp b,.jm-cell b{font-weight:600}
+
+/* LOCAL: research page additions. TCC tokens come from assets/tcc.css. */
+h2 .h-anchor,h3 .h-anchor{font-size:.7em;font-weight:700;text-decoration:none;color:var(--tcc-cerulean-ink);opacity:0;margin-left:.2em;padding:0 .15em;transition:opacity .15s}
+h2:hover .h-anchor,h3:hover .h-anchor,.h-anchor:focus-visible{opacity:1}
+@media (hover:none){.h-anchor{opacity:.55}}
+h2 .h-anchor{display:inline}
+.badge{display:inline-block;vertical-align:middle;font:700 12px/1 var(--tcc-font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--tcc-navy);background:var(--tcc-cream);border-radius:999px;padding:5px 10px;margin-left:6px}
+.persona-card{margin-bottom:28px}
+.persona h3{margin:0 0 6px}
+.voice-table{min-width:760px}
+.voice-table td.voice{font-style:italic;color:var(--tcc-navy);white-space:nowrap}
+.voice-table tr:target{background:var(--tcc-sky)}
+.anchor-target{scroll-margin-top:16px}
+.stage-jump .btn,.jump .btn{min-height:40px;padding:8px 14px;font-size:14px}
+.rj-hint{display:block;margin-top:16px}
+.rj-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;background:#F6F5F1;border-top:1px solid #DDE2DF;border-bottom:1px solid #DDE2DF}
+.rj-scroll:focus-visible{outline:3px solid #0F5F59;outline-offset:-3px}
+.rj-map{width:2000px;margin:0 auto;padding:24px;font-family:Inter,system-ui,sans-serif;color:#1F2A30}
+.rj-map .jm-grid{grid-template-columns:180px repeat(7,minmax(0,1fr))}
+.rj-map .jm-stage{scroll-margin:16px 24px}
+.rj-map .jm-stage:target{outline:4px solid var(--tcc-pumpkin);outline-offset:2px}
+.rj-map .jm-link{color:#0B3B37;text-decoration:underline;text-decoration-color:#0F5F59;text-underline-offset:3px}
+.rj-map .jm-link:hover{color:#0F5F59}
+.rj-map .jm-soon small{display:inline-block;font-size:11px;font-weight:600;color:#45535A;border:1px dashed #9AA5AA;border-radius:999px;padding:1px 8px}
+.rj-legend > div{flex-wrap:wrap;margin-top:20px}
+.rj-more{margin-top:12px}
+.core{margin-bottom:24px}
+.story{margin:8px 0 16px;padding:12px 16px;border-left:4px solid var(--tcc-pumpkin);background:var(--tcc-linen);border-radius:0 8px 8px 0;font-size:17px;line-height:1.5;color:var(--tcc-navy)}
+.jobs{display:grid;gap:24px;margin-top:24px}
+.job h3{font-size:clamp(22px,3vw,28px);margin:0 0 4px}
+.job:target{box-shadow:0 0 0 4px var(--tcc-pumpkin),var(--tcc-shadow)}
+.jobfacts{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0 0 16px;font-size:15px}
+.jobfacts dt{font-weight:700;color:var(--tcc-navy)}
+.jobfacts dd{margin:0}
+.from{border-top:1px solid var(--tcc-sand);padding-top:14px}
+.from-h{font:700 13px/1.3 var(--tcc-font-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--tcc-muted);margin:0 0 10px}
+.from-grid{display:grid;grid-template-columns:110px 1fr;gap:12px 16px;margin:0;font-size:15px;line-height:1.55}
+.from-grid dd{margin:0}
+@media (max-width:560px){.from-grid,.jobfacts{grid-template-columns:1fr;gap:4px}.from-grid dd{margin-bottom:10px}}
+.src{display:inline-block;font:700 12px/1 var(--tcc-font-ui);letter-spacing:.04em;border-radius:999px;padding:5px 10px;white-space:nowrap}
+.src-journey{background:#E7F3F1;color:#0B3B37}
+.src-persona{background:var(--tcc-cream);color:var(--tcc-navy)}
+.src-research{background:var(--tcc-mist);color:var(--tcc-navy)}
+.cites{margin:0;padding-left:18px}
+.cites li{margin:0 0 6px}
+.cite{color:var(--tcc-muted);font-size:14px;white-space:nowrap}
+.gap{margin:6px 0 0;color:var(--tcc-slate)}
+.gap-tag{display:inline-block;font:700 11px/1 var(--tcc-font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--local-bad);border:1px solid var(--local-bad);border-radius:999px;padding:3px 8px;margin-right:4px}
+.caveats,#sources{margin-top:24px}
+.sources li{margin-bottom:8px}
+.sources li:target{background:var(--tcc-sky)}
+.top-links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;margin-top:16px}
+</style>
+<!-- Generated by tools/build_research.py from reference/persona-and-stages.md,
+     reference/maps/Main.dc.html and reference/requirements/content-example-jtbd.md. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+<section class="block" id="top" aria-labelledby="top-h">
+  <div class="wrap">
+    <p class="eyebrow">TCC curated content · Health professionals pilot · Research</p>
+    <h1 id="top-h" style="font-weight:900;font-size:clamp(32px,5vw,52px);margin:0 0 16px">Who we're helping, their journey, and the jobs examples must do</h1>
+    <div class="prose"><p>The persona and journey set up the jobs. Each job links back to the stage, the persona line and the research it comes from.</p></div>
+    <nav class="jump" aria-label="Jump to">
+      <a class="btn btn-ghost" href="#persona">Healthcare persona</a>
+      <a class="btn btn-ghost" href="#journey">Journey</a>
+      <a class="btn btn-ghost" href="#jobs-to-be-done">Jobs to be done</a>
+    </nav>
+    <p class="top-links small">Related: <a href="../audit/index.html">Example audit</a> <a href="../prototypes/content-example/index.html">Content Example prototypes</a></p>
+  </div>
+</section>
+
+<section class="block anchor-target" id="persona" aria-labelledby="persona-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">1 · Who we're designing for first</p><h2 id="persona-h">Healthcare persona <a class="h-anchor" href="#persona" aria-label="Link to Healthcare persona">#</a></h2></div>
+      <p>Health professionals are the first segment. Dr. Maya stands in for them across every stage of the journey.</p>
+    </div>
+    <div class="tile persona-card">
+      <div class="persona">
+        <div class="avatar"><svg viewBox="0 0 88 88" role="img" aria-label="Illustrated initial M for Dr. Maya. No photo: she is a composite."><circle cx="44" cy="44" r="44" fill="#F0E0B0"/><text x="44" y="58" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="40" fill="#1B2D5B">M</text></svg></div>
+        <div>
+          <h3>Dr. Maya, family physician <span class="badge">Composite</span></h3>
+          <ul class="small"><li>Busy community practice.</li><li>Sees heat and smoke in her older and asthmatic patients.</li><li>Posts on LinkedIn a few times a month.</li><li>Drafts in an AI chatbot on her phone.</li><li>Makes clinic handouts in Canva.</li><li>Belongs to a medical society.</li><li>Wary of anything that looks partisan.</li></ul>
+          <p class="small muted">She is illustrative, not a real person. Her voice lines below are illustrative, not interview quotes.</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="sub" id="persona-voice">Her voice, goal and pain point at each stage</h3>
+    <p class="scroll-hint" aria-hidden="true">Scroll the table sideways to see every column.</p>
+    <div class="table-scroll" role="region" aria-labelledby="persona-voice" tabindex="0">
+      <table class="plain voice-table">
+        <thead><tr><th scope="col">Stage</th><th scope="col">Her voice (illustrative)</th><th scope="col">Her goal</th><th scope="col">Pain point</th></tr></thead>
+        <tbody><tr id="persona-notice"><th scope="row"><a href="#journey-notice">1 Notice</a></th><td class="voice">“This is showing up in my exam room.”</td><td>Understand why patients do worse in heat and smoke, and whether doctors should speak</td><td>Climate content reads as political; little time</td></tr><tr id="persona-explore"><th scope="row"><a href="#journey-explore">2 Explore</a></th><td class="voice">“Is this for clinicians, or for activists?”</td><td>Find credible, practical guidance for clinicians, not activists</td><td>Nothing filters by profession, topic or place</td></tr><tr id="persona-join"><th scope="row"><a href="#journey-join">3 Join</a></th><td class="voice">“I can give this five minutes a week.”</td><td>Get ongoing help without a big time commitment</td><td>Sign-ups ask a lot and promise vague benefits</td></tr><tr id="persona-learn"><th scope="row"><a href="#journey-learn">4 Learn</a></th><td class="voice">“Show me good examples. Don't lecture me.”</td><td>Learn what works in minutes</td><td>Training ranked low (27%) vs. "what works" evidence (54%)</td></tr><tr id="persona-create"><th scope="row"><a href="#journey-create">5 Create</a></th><td class="voice">“I don't want to sound like a doomer, or partisan.”</td><td>Draft a post, op-ed or handout quickly, in her own voice</td><td>AI drafts come back generic, jargon-heavy or doom-laden</td></tr><tr id="persona-share"><th scope="row"><a href="#journey-share">6 Share</a></th><td class="voice">“Will my hospital sign off on this?”</td><td>Publish without risk to her job or patients' trust</td><td>Employer gatekeepers; good health videos got 20 and 55 views</td></tr><tr id="persona-return"><th scope="row"><a href="#journey-return">7 Return and connect</a></th><td class="voice">“Other doctors like me are doing this, too.”</td><td>Know it made a difference; find peers</td><td>Most communicators work alone</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="block anchor-target" id="journey" aria-labelledby="journey-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">2 · Seven stages, every segment</p><h2 id="journey-h">Journey <a class="h-anchor" href="#journey" aria-label="Link to Journey">#</a></h2></div>
+      <p>How curated examples help Dr. Maya from noticing climate in the clinic to sharing what works. In the “Curated content's job” row, each named example opens its Content Example prototype.</p>
+    </div>
+    <nav class="jump stage-jump" aria-label="Jump to a stage">
+      <a class="btn btn-ghost" href="#journey-notice">1 Notice</a><a class="btn btn-ghost" href="#journey-explore">2 Explore</a><a class="btn btn-ghost" href="#journey-join">3 Join</a><a class="btn btn-ghost" href="#journey-learn">4 Learn</a><a class="btn btn-ghost" href="#journey-create">5 Create</a><a class="btn btn-ghost" href="#journey-share">6 Share</a><a class="btn btn-ghost" href="#journey-return">7 Return</a>
+    </nav>
+    <p class="scroll-hint rj-hint">The map is wider than the screen. Scroll it sideways to see all seven stages.</p>
+  </div>
+  <div class="rj-scroll" role="region" aria-label="Journey map, scrolls sideways" tabindex="0">
+    <div class="rj-map">
+<div class="jm-grid">
+<div></div>
+<div style="grid-column: span 3; background: #DCEBE8; color: #0B3B37; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase">Marketing funnel</div>
+<div style="background: #E3E5F2; color: #27306B; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase">Training</div>
+<div style="grid-column: span 2; background: #F6E6D8; color: #6B3410; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase">Enablement</div>
+<div style="background: #E6E6E1; color: #33393C; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase">Network</div>
+
+<div></div>
+<div class="jm-stage" id="journey-notice" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 1</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Notice</div></div>
+<div class="jm-stage" id="journey-explore" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 2</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Explore</div></div>
+<div class="jm-stage" id="journey-join" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 3</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Join</div></div>
+<div class="jm-stage" id="journey-learn" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 4</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Learn</div></div>
+<div class="jm-stage" id="journey-create" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 5</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Create</div></div>
+<div class="jm-stage" id="journey-share" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 6</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Share</div></div>
+<div class="jm-stage" id="journey-return" style="background: #1F2A30; color: #FFFFFF; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><div style="font-size: 12px; color: #C9D3D8">Stage 7</div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600">Return and connect</div></div>
+
+<div class="jm-label" id="row-goal">Goal<small>What she is trying to do</small></div>
+<div class="jm-cell" id="goal-stage-1">Understand why her patients do worse in heat and smoke, and whether doctors should say anything.</div>
+<div class="jm-cell" id="goal-stage-2">Find credible, practical guidance written for clinicians, not activists.</div>
+<div class="jm-cell" id="goal-stage-3">Get ongoing help without a big time commitment.</div>
+<div class="jm-cell" id="goal-stage-4">Learn what actually works, in minutes, not hours.</div>
+<div class="jm-cell" id="goal-stage-5">Draft a post, op-ed or patient handout quickly, in her own voice.</div>
+<div class="jm-cell" id="goal-stage-6">Publish without risk to her job or her patients' trust.</div>
+<div class="jm-cell" id="goal-stage-7">Know it made a difference and find peers doing the same.</div>
+
+<div class="jm-label" id="row-doing">Doing<small>Actions and channels</small></div>
+<div class="jm-cell" id="doing-stage-1">Sees a colleague's LinkedIn post, a medical society newsletter, or local news quoting a doctor on wildfire smoke.</div>
+<div class="jm-cell" id="doing-stage-2">Clicks through to talkingclimate.com. Tries the Start Talking tool. Searches for heat and older patients.</div>
+<div class="jm-cell" id="doing-stage-3">Signs up for the newsletter or a starter pack on her phone between appointments.</div>
+<div class="jm-cell" id="doing-stage-4">Takes a short online module, or a session at a society conference.</div>
+<div class="jm-cell" id="doing-stage-5">Opens an AI chatbot on her phone, Canva for a handout, and the LinkedIn composer.</div>
+<div class="jm-cell" id="doing-stage-6">Runs it past her employer's comms team. Posts on LinkedIn or YouTube, submits an op-ed, or hands it to patients.</div>
+<div class="jm-cell" id="doing-stage-7">Checks responses, joins TCC's network, and offers her piece for others to use.</div>
+
+<div class="jm-label" id="row-thinking-and-feeling">Thinking and feeling<small>Persona voice, illustrative</small></div>
+<div class="jm-quote" id="thinking-and-feeling-stage-1" data-stage="notice">"This is showing up in my exam room."</div>
+<div class="jm-quote" id="thinking-and-feeling-stage-2" data-stage="explore">"Is this for clinicians, or for activists?"</div>
+<div class="jm-quote" id="thinking-and-feeling-stage-3" data-stage="join">"I can give this five minutes a week."</div>
+<div class="jm-quote" id="thinking-and-feeling-stage-4" data-stage="learn">"Show me good examples. Don't lecture me."</div>
+<div class="jm-quote" id="thinking-and-feeling-stage-5" data-stage="create">"I don't want to sound like a doomer, or partisan."</div>
+<div class="jm-quote" id="thinking-and-feeling-stage-6" data-stage="share">"Will my hospital sign off on this?"</div>
+<div class="jm-quote" id="thinking-and-feeling-stage-7" data-stage="return">"Other doctors like me are doing this, too."</div>
+
+<div class="jm-label" id="row-pain-points">Pain points<small>What gets in the way</small></div>
+<div class="jm-pain" id="pain-points-stage-1">Climate content often reads as political or as activism. Little time to dig in.</div>
+<div class="jm-pain" id="pain-points-stage-2">Most resources speak to a general audience. Nothing filters by profession, topic or place.</div>
+<div class="jm-pain" id="pain-points-stage-3">Sign-ups ask for a lot and promise vague benefits like "join the network."</div>
+<div class="jm-pain" id="pain-points-stage-4">Communicators rank training low (27%) and evidence on what works high (54%).</div>
+<div class="jm-pain" id="pain-points-stage-5">AI drafts come back generic, jargon-heavy or doom-laden. No good examples in the tool.</div>
+<div class="jm-pain" id="pain-points-stage-6">Employer gatekeepers. Good health videos get little reach: 20 and 55 views in our audit.</div>
+<div class="jm-pain" id="pain-points-stage-7">Most communicators work alone and rarely hear what landed.</div>
+
+<div class="jm-label" id="row-curated-content-s-job">Curated content's job<small>Examples from the audit</small></div>
+<div class="jm-ex" id="curated-content-s-job-stage-1"><span class="jm-tag">Proof it's normal</span><br><a class="jm-link" href="../prototypes/content-example/examples/howard-wildfire-smoke.html"><b>Courtney Howard on wildfire smoke</b></a>: a doctor, practical steps, no politics. Reshared by her society.</div>
+<div class="jm-ex" id="curated-content-s-job-stage-2"><span class="jm-tag">Hero example</span><br><a class="jm-link" href="../prototypes/content-example/examples/lawson-heat-dome-speech.html"><b>Ashley Lawson's heat-dome speech</b></a> leads a health library filtered by role, topic and place.</div>
+<div class="jm-ex" id="curated-content-s-job-stage-3"><span class="jm-tag">The offer</span><br>A starter pack of <b>three good vs. so-so pairs</b>, sent by email.</div>
+<div class="jm-ex" id="curated-content-s-job-stage-4"><span class="jm-tag">Contrast pairs</span><br><a class="jm-link" href="../prototypes/content-example/examples/pair-heat-dome.html"><b>Lawson vs. the Seattle op-ed</b></a>, <a class="jm-link" href="../prototypes/content-example/examples/pair-smoke-and-heat.html"><b>Howard vs. Vossler</b></a>. Grade it, then fix it.</div>
+<div class="jm-ex" id="curated-content-s-job-stage-5"><span class="jm-tag">In-tool references</span><br>Good examples load into her chatbot as models. A Canva handout follows <a class="jm-link" href="../prototypes/content-example/examples/howard-wildfire-smoke.html#pattern"><b>Howard's structure</b></a>.</div>
+<div class="jm-ex" id="curated-content-s-job-stage-6"><span class="jm-tag">Reassurance and reach</span><br>Examples clinicians have already published show comms teams what's safe. TCC reposts strong pieces.</div>
+<div class="jm-ex" id="curated-content-s-job-stage-7"><span class="jm-tag">Contribution loop</span><br>Her piece is graded and added to the library. A monthly "what's working" digest.</div>
+
+<div class="jm-label" id="row-opportunity-for-tcc">Opportunity for TCC<small>What the platform could do</small></div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-1">Place examples in partner channels: Medical Society Consortium, CAPE, Climate for Health.</div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-2">A health landing page on talkingclimate.com with filters for role, topic and geography.</div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-3">Make the conversion point "Get 3 patient-ready examples," not "Join our network."</div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-4">15-minute modules built on contrast pairs. [Explore CME credit with a society partner.]</div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-5">An assistant grounded in the curated library, such as Speak Sustainability, plus Canva templates.</div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-6">"Submit for amplification" so TCC can repost and boost good work.</div>
+<div class="jm-opp" id="opportunity-for-tcc-stage-7">Peer cohorts by specialty, and a library that grows from members' own work.</div>
+</div>
+<div class="rj-legend"><div style="display: flex; gap: 28px; align-items: center; font-size: 13px; color: #45535A">
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #FDF1EA; border: 1px solid #F3C9B2; display: inline-block"></span>Pain point</div>
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #E7F3F1; border: 1px solid #A9D3CD; display: inline-block"></span>Curated example at work</div>
+<div style="display: flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 4px; background: #FFFFFF; border: 2px solid #0F5F59; display: inline-block"></span>Platform opportunity</div>
+<div>Sources: TCC and American University landscape assessments (2026); TCC curated content segment audit (Nov 2026). Persona is a composite.</div>
+</div></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="small muted rj-more">Also as full-size maps: <a href="../maps/journey.html">journey map</a> and <a href="../maps/touchpoints.html">touchpoint map</a>.</p>
+  </div>
+</section>
+
+<section class="block anchor-target" id="jobs-to-be-done" aria-labelledby="jtbd-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">3 · What a Content Example must do</p><h2 id="jtbd-h">Jobs to be done <a class="h-anchor" href="#jobs-to-be-done" aria-label="Link to Jobs to be done">#</a></h2></div>
+      <p>Seven jobs, one per journey stage. Each shows where it comes from: the <span class="src src-journey">Journey</span> stage, Dr. Maya's <span class="src src-persona">Persona</span> voice, and the <span class="src src-research">Research</span> in TCC's and AU's landscape reports.</p>
+    </div>
+    <div class="grid g2 core">
+      <div class="tile">
+        <p class="eyebrow">The core job</p>
+        <blockquote class="story"><strong>When</strong> I've decided climate belongs in my professional voice, <strong>I want to</strong> see someone like me doing it well, <strong>so I can</strong> do it myself without risking my credibility.</blockquote>
+        <p class="small">Being <strong>confident</strong> and being <strong>effective</strong> are separate outcomes. An example has to build both: belief that she <em>can</em> and <em>should</em> speak, and the skill to speak <em>well</em>.</p>
+      </div>
+      <div class="tile">
+        <p class="eyebrow">Why examples, rather than training</p>
+        <ul class="small prose"><li>In the TCC/AU research, communicators ranked regular updates on "what works" (54%) far above training (27%) and science education (24%).</li><li>The research also notes that findings rarely reach working professionals such as a busy doctor.</li><li>Dr. Maya's voice on the journey map: "Show me good examples. Don't lecture me."</li></ul>
+        <p class="small muted">A Content Example is any curated piece of real climate communication TCC shows a messenger: a single piece in the library; one half of a contrast pair (a strong piece and a weaker one); a reference the messenger's AI chatbot uses as a model; an attribution on the messenger's own post.</p>
+      </div>
+    </div>
+    <nav class="jump" aria-label="Jump to a job">
+      <a class="btn btn-ghost" href="#j1">J1 Notice</a><a class="btn btn-ghost" href="#j2">J2 Explore</a><a class="btn btn-ghost" href="#j3">J3 Join</a><a class="btn btn-ghost" href="#j4">J4 Learn</a><a class="btn btn-ghost" href="#j5">J5 Create</a><a class="btn btn-ghost" href="#j6">J6 Share</a><a class="btn btn-ghost" href="#j7">J7 Return and connect</a>
+    </nav>
+    <div class="jobs">
+<article class="tile job anchor-target" id="j1" aria-labelledby="j1-h">
+  <p class="eyebrow">J1 · Stage 1: Notice</p>
+  <h3 id="j1-h">Give her permission <a class="h-anchor" href="#j1" aria-label="Link to J1">#</a></h3>
+  <blockquote class="story">When climate shows up in my exam room as heat and smoke, I want to see a fellow clinician talk about it practically, so I know it's appropriate for someone like me to speak.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>Links climate to health effects she already sees.</dd>
+    <dt>Emotional and social</dt><dd>"This is normal for doctors." Removes the fear of looking political.</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-notice">Stage 1: Notice</a>. Pain point: Climate content reads as political; little time. Curated content's job: Proof it's normal: Howard on wildfire smoke.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-notice">Dr. Maya</a>: “This is showing up in my exam room.” Her goal: understand why patients do worse in heat and smoke, and whether doctors should speak.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><ul class="cites"><li>The messengers people know and trust, doctors among them, are rarely the ones with access to the research, the framing or local data. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 5</a>)</span></li><li>Only 19% of communicators in the TCC/AU research reach health professionals, though “people trust the people that they already know.” <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 6</a>)</span></li></ul></dd>
+    </dl>
+  </div>
+</article>
+<article class="tile job anchor-target" id="j2" aria-labelledby="j2-h">
+  <p class="eyebrow">J2 · Stage 2: Explore</p>
+  <h3 id="j2-h">Signal fit fast <a class="h-anchor" href="#j2" aria-label="Link to J2">#</a></h3>
+  <blockquote class="story">When I'm looking for guidance, I want to tell within seconds whether something is for clinicians or for activists, so I don't waste time or pick up a partisan frame.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>Filter by role, topic, place and how recent it is.</dd>
+    <dt>Emotional and social</dt><dd>Trust. It reads like a clinical source, not a campaign.</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-explore">Stage 2: Explore</a>. Pain point: Nothing filters by profession, topic or place. Curated content's job: Hero example: Lawson's heat-dome speech leads a filtered health library.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-explore">Dr. Maya</a>: “Is this for clinicians, or for activists?” Her goal: find credible, practical guidance for clinicians, not activists.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><ul class="cites"><li>Of communicators who target by profession, fewer than one in five focus on the health sector itself. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li><li>34.7% say a regular feed of curated, trusted content to quote, share or repost would help them. <span class="cite">(<a href="#src-au">AU research report, PDF p. 17</a>)</span></li></ul><p class="gap"><span class="gap-tag">Gap</span> No TCC/AU finding tests filtering by role, topic or place. That need comes from the journey’s pain point.</p></dd>
+    </dl>
+  </div>
+</article>
+<article class="tile job anchor-target" id="j3" aria-labelledby="j3-h">
+  <p class="eyebrow">J3 · Stage 3: Join</p>
+  <h3 id="j3-h">Preview the value <a class="h-anchor" href="#j3" aria-label="Link to J3">#</a></h3>
+  <blockquote class="story">When I'm asked to sign up, I want to see the examples I'll get, so I know the commitment is worth it.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>The payoff is visible before she commits.</dd>
+    <dt>Emotional and social</dt><dd>Low risk. "I can give this five minutes a week."</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-join">Stage 3: Join</a>. Pain point: Sign-ups ask a lot and promise vague benefits. Curated content's job: The offer: "Get 3 patient-ready examples" starter pack.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-join">Dr. Maya</a>: “I can give this five minutes a week.” Her goal: get ongoing help without a big time commitment.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><p class="gap"><span class="gap-tag">Gap</span> No TCC/AU research finding. This job rests on the journey and persona only. Test it in clinician interviews.</p></dd>
+    </dl>
+  </div>
+</article>
+<article class="tile job anchor-target" id="j4" aria-labelledby="j4-h">
+  <p class="eyebrow">J4 · Stage 4: Learn</p>
+  <h3 id="j4-h">Make "good" visible <a class="h-anchor" href="#j4" aria-label="Link to J4">#</a></h3>
+  <blockquote class="story">When I'm learning what works, I want to compare a strong example with a weaker one and see why, so I can recognize good communication on my own.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>Teaches the Eight Principles through real cases rather than lessons.</dd>
+    <dt>Emotional and social</dt><dd>Confidence. "I can tell the difference now."</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-learn">Stage 4: Learn</a>. Pain point: Training ranked low (27%) vs. "what works" evidence (54%). Curated content's job: Contrast pairs: Lawson vs. Seattle op-ed; Howard vs. Vossler.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-learn">Dr. Maya</a>: “Show me good examples. Don't lecture me.” Her goal: learn what works in minutes.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><ul class="cites"><li>Communicators want regular updates on what works (54%) far more than training (27%) or science education (24%). <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li><li>The same survey table, unrounded: best-practice updates 53.5%, training 26.5%, science education 24.1%. <span class="cite">(<a href="#src-au">AU research report, PDF p. 17</a>)</span></li><li>Published findings rarely reach “the doctor with two dozen patients waiting.” <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li></ul></dd>
+    </dl>
+  </div>
+</article>
+<article class="tile job anchor-target" id="j5" aria-labelledby="j5-h">
+  <p class="eyebrow">J5 · Stage 5: Create</p>
+  <h3 id="j5-h">Be a model she can borrow <a class="h-anchor" href="#j5" aria-label="Link to J5">#</a></h3>
+  <blockquote class="story">When I'm drafting a post, op-ed or handout, I want a proven model to borrow the structure and tone from, so my draft is fast, sounds like me and avoids jargon, doom and partisanship.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>Reusable structure (hook, local link, one doable step) that her AI chatbot or Canva template can follow.</dd>
+    <dt>Emotional and social</dt><dd>"I don't want to sound like a doomer, or partisan."</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-create">Stage 5: Create</a>. Pain point: AI drafts come back generic, jargon-heavy or doom-laden. Curated content's job: In-tool references: examples load into her chatbot as models.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-create">Dr. Maya</a>: “I don't want to sound like a doomer, or partisan.” Her goal: draft a post, op-ed or handout quickly, in her own voice.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><ul class="cites"><li>Sharing alarming updates about global trends raises awareness and concern but erodes efficacy, the sense that action matters. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 4</a>)</span></li><li>37.6% want customized tips for different forms of communication, such as social media and video. <span class="cite">(<a href="#src-au">AU research report, PDF p. 17</a>)</span></li><li>In our audit, both segments miss most often on P4 Doable and P8 For Everyone (partisan framing). <span class="cite">(<a href="../audit/index.html">Example audit</a>)</span></li></ul></dd>
+    </dl>
+  </div>
+</article>
+<article class="tile job anchor-target" id="j6" aria-labelledby="j6-h">
+  <p class="eyebrow">J6 · Stage 6: Share</p>
+  <h3 id="j6-h">Provide cover <a class="h-anchor" href="#j6" aria-label="Link to J6">#</a></h3>
+  <blockquote class="story">When I'm about to publish, I want evidence that respected peers have said something similar safely, so I and my employer's comms office can approve it with confidence.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>Precedent that makes internal approval easier.</dd>
+    <dt>Emotional and social</dt><dd>"I'm not the first."</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-share">Stage 6: Share</a>. Pain point: Employer gatekeepers; good health videos got 20 and 55 views. Curated content's job: Reassurance and reach; TCC reposts strong pieces.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-share">Dr. Maya</a>: “Will my hospital sign off on this?” Her goal: publish without risk to her job or patients' trust.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><ul class="cites"><li>Endorsing candidates is communicators’ least common goal, chosen by only 1 in 25: evidence that the field isn’t partisan. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 6</a>)</span></li><li>In our audit, the best health videos had only 20 and 55 views. Good precedent exists but few people see it. <span class="cite">(<a href="../audit/index.html">Example audit</a>)</span></li></ul><p class="gap"><span class="gap-tag">Gap</span> No TCC/AU finding on employer or comms-office approval. That need comes from the journey and persona.</p></dd>
+    </dl>
+  </div>
+</article>
+<article class="tile job anchor-target" id="j7" aria-labelledby="j7-h">
+  <p class="eyebrow">J7 · Stage 7: Return and connect</p>
+  <h3 id="j7-h">Connect her to peers and credit her work <a class="h-anchor" href="#j7" aria-label="Link to J7">#</a></h3>
+  <blockquote class="story">When I've shared my piece, I want to see it make a difference and find others like me, so I keep going and don't do this alone.</blockquote>
+  <dl class="jobfacts">
+    <dt>Practical</dt><dd>Her piece can become an example for others, which gets it seen and gets her feedback.</dd>
+    <dt>Emotional and social</dt><dd>Belonging. Most communicators work alone, and 57% want help finding peers and collaborators.</dd>
+  </dl>
+  <div class="from">
+    <p class="from-h">Where this job comes from</p>
+    <dl class="from-grid">
+      <dt><span class="src src-journey">Journey</span></dt>
+      <dd><a href="#journey-return">Stage 7: Return and connect</a>. Pain point: Most communicators work alone. Curated content's job: Contribution loop: her piece joins the library; monthly digest.</dd>
+      <dt><span class="src src-persona">Persona</span></dt>
+      <dd><a href="#persona-return">Dr. Maya</a>: “Other doctors like me are doing this, too.” Her goal: know it made a difference; find peers.</dd>
+      <dt><span class="src src-research">Research</span></dt>
+      <dd><ul class="cites"><li>57% of communicators want help finding peers and collaborators, tied with “what works” as the top need after funding (AU: 57.1%, PDF p. 17). <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li><li>Communicators mostly work alone, rarely team up or share ideas, and connect mostly with people like themselves. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 5</a>)</span></li><li>34% of respondents work alone; another 34% work in organizations of 10 or fewer full-time staff. <span class="cite">(<a href="#src-au">AU research report, PDF p. 4</a>)</span></li></ul></dd>
+    </dl>
+  </div>
+</article></div>
+
+    <div class="grid g2" style="margin-top:32px">
+      <div class="tile" id="jtbd-stakeholders">
+        <h3>Jobs for other stakeholders</h3>
+        <div class="table-scroll" role="region" aria-label="Jobs for other stakeholders" tabindex="0">
+          <table class="plain"><thead><tr><th scope="col">Stakeholder</th><th scope="col">Job the Content Example does for them</th></tr></thead><tbody><tr><th scope="row"><strong>TCC</strong></th><td>A unit of evidence about "what works," and something to amplify. In the audit, the strongest health videos had only 20 and 55 views, a distribution problem curation can fix.</td></tr><tr><th scope="row"><strong>Original creator</strong></th><td>Credit, attribution and a wider audience for work they've already done.</td></tr><tr><th scope="row"><strong>Gatekeepers</strong> (hospital comms, medical societies)</th><td>A precedent they can approve against. One approval can be reused across a health system.</td></tr><tr><th scope="row"><strong>AI tools</strong> (the messenger's chatbot)</th><td>A structured, annotated reference that steers drafts toward the Eight Principles.</td></tr></tbody></table>
+        </div>
+      </div>
+      <div class="tile" id="jtbd-needs">
+        <h3>Underlying needs, across all stages</h3>
+        <ol class="small prose"><li><strong>Relevance:</strong> "Is this someone like me, about my patients, in my place?"</li><li><strong>Credibility:</strong> "Is it sourced, non-partisan and from a trusted institution?"</li><li><strong>Clarity about why it works:</strong> "What exactly makes this good?"</li><li><strong>Something reusable:</strong> "What can I take from it?"</li><li><strong>Safety:</strong> "Will this hurt my job or my patients' trust?"</li><li><strong>Connection:</strong> "Who else is doing this?"</li></ol>
+      </div>
+    </div>
+    <div class="tile caveats" id="evidence-caveats">
+      <h3>Evidence caveats</h3>
+      <ul class="small prose"><li><strong>The sample was different.</strong> The AU survey sampled professional climate communicators, not trusted messengers like clinicians. The "examples over training" finding fits Dr. Maya's persona, but it is borrowed evidence.</li><li><strong>Dr. Maya is a composite.</strong> Her voice lines are illustrative, not interview quotes.</li><li><strong>What to test first:</strong> the jobs at stages 4 to 6 (learn, create, share) carry the most design weight and the least direct evidence. Test them in clinician interviews before locking in requirements.</li></ul>
+    </div>
+    <div class="tile" id="sources">
+      <h3>Sources</h3>
+      <ul class="small prose sources">
+        <li id="src-tcc"><b>TCC insights report.</b> Who’s Really Talking About Climate? Mapping climate communication in the United States and Canada. Talking Climate Collaborative, Landscape Assessment 2026. <a href="https://talkingclimate.com">talkingclimate.com</a></li>
+        <li id="src-au"><b>AU research report.</b> Fisher, D. R., Jayko, W. C., and Jasny, L. Mapping the Ecosystem of Climate Communication in the US and Canada: A Landscape Assessment. American University, July 30, 2026. <a href="https://doi.org/10.57912/32957927">doi.org/10.57912/32957927</a></li>
+        <li><b>Example audit.</b> TCC curated content segment example audit, Nov 6, 2026. <a href="../audit/index.html">Open the audit</a></li>
+      </ul>
+      <p class="small muted">Page numbers are PDF pages. Survey figures are from the TCC/AU research; view counts are from our audit. The TCC and AU reports round some figures differently (for example, LinkedIn use 87% vs. 83%).</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site on-navy">
+  <div class="wrap">
+    <img class="logo" src="../assets/tcc-logo-white.png" width="618" height="432" alt="Talking Climate Collaborative">
+    <div>
+      <p>Sources: TCC and American University landscape assessments (2026); TCC curated content segment audit (Nov 2026).</p>
+      <p>Dr. Maya is a composite. Draft for review, Nov 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

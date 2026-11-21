@@ -5,7 +5,7 @@ drops the canvas runtime (support.js, <x-dc>, <helmet>, DCLogic script).
 """
 import re, sys, pathlib
 
-root = pathlib.Path(sys.argv[1])
+root = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ".")
 src = root / "reference" / "maps"
 out = root / "maps"
 
@@ -30,7 +30,35 @@ a:focus-visible{outline:3px solid #0F5F59;outline-offset:2px;border-radius:4px}
 .tp-go{color:#FFFFFF;background:#0F5F59;text-decoration:none}
 .tp-go:hover{background:#0B4743;color:#FFFFFF}
 .tp-soon{color:#45535A;background:#F6F5F1;border:1px dashed #9AA5AA}
+.jm-link{color:#0B3B37;text-decoration:underline;text-decoration-color:#0F5F59;text-underline-offset:3px}
+.jm-link:hover{color:#0F5F59}
+.jm-soon small{display:inline-block;font-size:11px;font-weight:600;color:#45535A;border:1px dashed #9AA5AA;border-radius:999px;padding:1px 8px}
 """
+
+# Journey "Curated content's job" row: each named piece links to its stable
+# Content Example URL (prototypes/content-example/examples/<id>.html), which
+# survives the Stage vs. Canvas choice. A missing target renders "coming soon".
+CONTENT_LINKS = [  # (exact text inside <b>, example or pair id, fragment)
+    ("Courtney Howard on wildfire smoke", "howard-wildfire-smoke", ""),
+    ("Ashley Lawson's heat-dome speech", "lawson-heat-dome-speech", ""),
+    ("Lawson vs. the Seattle op-ed", "pair-heat-dome", ""),
+    ("Howard vs. Vossler", "pair-smoke-and-heat", ""),
+    ("Howard's structure", "howard-wildfire-smoke", "#pattern"),
+]
+EXAMPLES_DIR = pathlib.Path("prototypes/content-example/examples")
+
+def link_content(body, prefix):
+    """prefix: path from the output page to the site root, e.g. '../'."""
+    for text, target, frag in CONTENT_LINKS:
+        b = f"<b>{text}</b>"
+        assert b in body, text
+        href = f"{prefix}{EXAMPLES_DIR.as_posix()}/{target}.html{frag}"
+        if (root / EXAMPLES_DIR / f"{target}.html").exists():
+            rep = f'<a class="jm-link" href="{href}"><b>{text}</b></a>'
+        else:
+            rep = f'<span class="jm-soon"><b>{text}</b> <small>Prototype coming soon</small></span>'
+        body = body.replace(b, rep)
+    return body
 
 def slug(t):
     t = re.sub(r"<[^>]+>", "", t).lower()
@@ -83,6 +111,8 @@ def build(name, outname, title, page_name, intro, pilots=False):
             r'(<span class="tp-pilot">Pilot candidate</span><b>.*?</b><span class="tp-ex">.*?</span>)',
             add, body, flags=re.S)
         assert count == 4, count
+    if name == "Main.dc.html":
+        body = link_content(body, "../")
     body = add_ids(body)
     helmet = helmet.replace("<style>", "<style>" + LOCAL_CSS, 1) if False else helmet
     html = f"""<!doctype html>
@@ -91,6 +121,7 @@ def build(name, outname, title, page_name, intro, pilots=False):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
+<meta name="robots" content="noindex">
 <!-- Rebuilt from reference/maps/{name} (canvas source). Research artifact:
      keeps its own palette and fonts (Inter, Space Grotesk), not TCC branding. -->
 <link rel="stylesheet" href="../assets/banner.css">
@@ -105,7 +136,7 @@ def build(name, outname, title, page_name, intro, pilots=False):
       <span class="tcc-banner__kind">Reference</span>
       <span>{page_name}</span>
     </p>
-    <a class="tcc-banner__back" href="../index.html">← Back to hub</a>
+    <a class="tcc-banner__back" href="../research/index.html#journey">Research page →</a>
   </div>
 </nav>
 <main>
@@ -122,10 +153,11 @@ def build(name, outname, title, page_name, intro, pilots=False):
     (out / outname).write_text(html)
     print("wrote", outname, len(html))
 
-build("Main.dc.html", "journey.html", "Journey map · Health professionals",
-      "Journey map",
-      "The full map is 2,480 pixels wide. Scroll sideways to see all seven stages.")
-build("Touchpoints.dc.html", "touchpoints.html", "Touchpoint map · Health professionals",
-      "Touchpoint map",
-      "The full map is 2,480 pixels wide. Scroll sideways to see all seven stages. The four pilot candidates link to their mockups when they are ready.",
-      pilots=True)
+if __name__ == "__main__":
+    build("Main.dc.html", "journey.html", "Journey map · Health professionals",
+          "Journey map",
+          "The full map is 2,480 pixels wide. Scroll sideways to see all seven stages.")
+    build("Touchpoints.dc.html", "touchpoints.html", "Touchpoint map · Health professionals",
+          "Touchpoint map",
+          "The full map is 2,480 pixels wide. Scroll sideways to see all seven stages. The four pilot candidates link to their mockups when they are ready.",
+          pilots=True)
