@@ -34,11 +34,11 @@ stage/  canvas/  spec/   per model: index.html (messenger view), curator.html,
                          one page per example, one page per contrast pair
 examples/           one stable page per example and pair (21): opens the default
                     model and offers the others; link here from outside
-mockups/            standalone Stage page per health piece (8), no navigation,
+mockups/            standalone Stage page per health piece (9), no navigation,
                     for review with Overnote (?review=1)
 ```
 
-**Mockups for review:** `mockups/<id>.html` is a standalone Stage page for each health piece in the audit (8), with no banner and no links to the library, other examples, pairs or model pages. Built by `mockup_page()` from the same Stage code, so a change there reaches every mockup. Add `?review=1` to review with Overnote.
+**Mockups for review:** `mockups/<id>.html` is a standalone Stage page for each health piece in the audit (9), with no banner and no links to the library, other examples, pairs or model pages. Built by `mockup_page()` from the same Stage code, so a change there reaches every mockup. Add `?review=1` to review with Overnote.
 
 **Linking from elsewhere:** use `examples/<id>.html`, not a model's page, so links survive the Stage vs. Canvas decision. `DEFAULT_MODEL` in the generator sets which model it opens first. Add `#pattern` (or `#why`) to land on that section in whichever model opens.
 
@@ -78,9 +78,9 @@ Bytes for each page plus every CSS, script and font file it references, with med
 <!-- weights:start -->
 | Model | Library | Detail: article | Detail: video (not loaded) | Pair | Heaviest detail |
 |---|---|---|---|---|---|
-| Model A: Stage | 162 KB | 145 KB | 145 KB | 153 KB | 145 KB (howard-wildfire-smoke.html) |
-| Model B: Canvas | 168 KB | 149 KB | 149 KB | 159 KB | 149 KB (suter-outrider-oped.html) |
-| Model C: Requirements only | 160 KB | 141 KB | 141 KB | 135 KB | 141 KB (suter-outrider-oped.html) |
+| Model A: Stage | 163 KB | 146 KB | 146 KB | 154 KB | 146 KB (howard-wildfire-smoke.html) |
+| Model B: Canvas | 169 KB | 150 KB | 150 KB | 160 KB | 150 KB (suter-outrider-oped.html) |
+| Model C: Requirements only | 161 KB | 142 KB | 142 KB | 136 KB | 142 KB (suter-outrider-oped.html) |
 <!-- weights:end -->
 
 About 82 KB of every figure is the four font files, which a browser caches after the first page. Gzipped, a library page's HTML is about 5–7 KB.

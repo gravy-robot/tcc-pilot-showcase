@@ -104,6 +104,29 @@ CURATION = {
                duration_s=54, approx_mb="about 5–10 MB (estimate)", captions=None),
     engagement=[dict(date=AUDIT_DATE, views=55, note="In our audit")], amplify=True,
 ),
+"https://www.tiktok.com/@who/video/7311424986563022112": dict(
+    id="who-cop28-health-workers", type="short-video", format="vertical-social",
+    venue="World Health Organization", platform="TikTok",
+    role="Health workers from several countries", affil="Speaking for the World Health Organization at COP28",
+    authors=["World Health Organization"], topics=["air-quality", "clinical-care"], geo=("Global (recorded at COP28, Dubai)", "global"),
+    timeliness="COP28, December 2023", audience=["public"], institution="World Health Organization",
+    why="Health workers from several countries take turns naming what climate change is doing to their own patients. The chorus makes speaking up feel normal for clinicians, and the WHO name adds trust. It's a model for anyone who speaks for an organization.",
+    watch="It ends on alarm with no step for viewers (P4), and the crisis framing never turns to what's working (P3). Fix: keep the chorus and end with one thing viewers can do. About 57,000 plays and 219 likes on TikTok.",
+    structure=["Hook: everyone is at risk", "Chorus: each health worker names what they see in patients", "Systems: damaged clinics make care harder", "Close: people can't be healthy on a sick planet"],
+    step="None yet. A fix: one thing to do on a high-pollen or dusty day, like checking local air quality before going out.",
+    fe="Names fossil fuels plainly but blames no party or person. The COP28 setting may read as political to some viewers.",
+    notes=[("P5", "working", "Many health workers, one after another: a chorus, not a lone voice.", "opening"),
+           ("P1", "working", "Each names what they see in their own patients: asthma, allergies, heart risk.", "patients"),
+           ("P3", "improve", "Crisis framing with no turn to what's working.", "systems"),
+           ("P4", "improve", "No step for viewers. End with one thing to do on a bad-air day.", "close")],
+    regions=[("opening", "Opening", "Health workers say everyone is at risk from climate change's effects on health."),
+             ("patients", "Chorus", "Clinicians describe their patients: dust storms, breathing problems, heart risk, longer pollen seasons, more asthma attacks."),
+             ("systems", "Systems", "Damage to clinics and hospitals makes it harder to give good care."),
+             ("close", "Close", "The closing line: people can't be healthy on a sick planet.")],
+    media=dict(platform="TikTok", url="https://www.tiktok.com/@who/video/7311424986563022112", embed_id=None,
+               duration_s=78, approx_mb="vertical 9:16", captions="Auto captions (English) on TikTok"),
+    engagement=[dict(date="2026-11-21", views=57200, likes=219, comments=6, shares=7, saves=19, note="Checked on TikTok")], amplify=False,
+),
 "https://www.cp24.com/news/canada/2026/07/11/one-of-the-biggest-public-health-threats-why-doctors-say-you-need-to-take-wildfire-smoke-seriously/": dict(
     id="howard-wildfire-smoke", type="news-article", format="article", venue="CP24", platform="News website",
     role="Emergency physician", affil="CMA president-elect", authors=["CP24"],
@@ -611,6 +634,13 @@ def fmt_dur(s):
 
 def video_facade(rec, vertical=False):
     m = rec["media"]
+    if not m.get("embed_id"):  # e.g. TikTok: link out, never embed
+        return (f'<div class="si-video{" si-video--v" if vertical else ""}">'
+                f'<div class="si-video-inner"><p class="si-video-title">{e(rec["title"])}</p>'
+                f'<p class="si-video-meta">{fmt_dur(m["duration_s"])} · {e(m["approx_mb"])}</p>'
+                f'<a class="btn btn-primary si-video-load" href="{e(m["url"])}" target="_blank" rel="noopener">'
+                f'<span aria-hidden="true">▶</span> Watch on {e(m["platform"])}{NEWTAB}</a>'
+                f'<p class="si-video-note">Opens {e(m["platform"])} in a new tab. Nothing loads on this page.</p></div></div>')
     return (f'<div class="si-video{" si-video--v" if vertical else ""}" data-yt="{e(m["embed_id"])}" data-yt-title="{e(rec["title"])}">'
             f'<div class="si-video-inner"><p class="si-video-title">{e(rec["title"])}</p>'
             f'<p class="si-video-meta">{fmt_dur(m["duration_s"])} · {e(m["approx_mb"])}</p>'
@@ -621,7 +651,7 @@ def video_facade(rec, vertical=False):
 def standin_alt(rec):
     kind = {"article": "news article page", "tv-story": "TV news web story", "op-ed": "opinion page",
             "blog": "blog post", "release": "news release", "photo-post": "social photo post",
-            "carousel": "three-slide social carousel", "short-video": "short vertical video",
+            "carousel": "three-slide social carousel", "short-video": "short vertical video", "vertical-social": "vertical social video on a phone",
             "long-video": "video with chapter timeline", "testimony": "testimony news recap",
             "profile": "profile article", "roster": "roster web page"}[rec["standin_format"]]
     parts = "; ".join(r["text"] for r in rec["standin_regions"] if r["text"])
@@ -674,6 +704,24 @@ def standin(rec):
         chapters = "".join(region(rec, r["key"], f'<div class="si-chap"><span class="si-lab">{e(r["label"])}</span>{e(r["text"])}</div>', cls="si-chapwrap") for r in rec["standin_regions"])
         body = (f'<div class="si-vid{" si-vid--v" if vert else ""}">{video_facade(rec, vert)}'
                 f'<div class="si-timeline" role="group" aria-label="Order of moves in the video"><p class="si-tl-note">Order of moves (TCC paraphrase). Timestamps not yet captured.</p>'
+                f'<div class="si-chaps">{chapters}</div></div></div>')
+    elif f == "vertical-social":
+        # A phone showing a vertical social video (TikTok, Reels): rail of
+        # counts, handle and caption, with the order of moves below.
+        m = rec["media"]
+        eng = (rec.get("engagement_snapshots") or [{}])[-1]
+        def n(k):
+            v = eng.get(k)
+            return "—" if v is None else (f"{v/1000:.1f}K".replace(".0K", "K") if v >= 1000 else str(v))
+        rail = "".join(f'<li><span class="si-tt-ic" aria-hidden="true">{ic}</span><span>{n(k)}</span><span class="sr-only"> {lab}</span></li>'
+                       for ic, k, lab in (("♥", "likes", "likes"), ("💬", "comments", "comments"), ("🔖", "saves", "saves"), ("↗", "shares", "shares")))
+        chapters = "".join(region(rec, r["key"], f'<div class="si-chap"><span class="si-lab">{e(r["label"])}</span>{e(r["text"])}</div>', cls="si-chapwrap") for r in rec["standin_regions"])
+        body = (f'<div class="si-tt">'
+                f'<div class="si-tt-phone"><div class="si-tt-screen">{video_facade(rec, True)}'
+                f'<ul class="si-tt-rail" aria-label="Counts on {e(m["platform"])}, checked {e(eng.get("date", ""))}">{rail}</ul>'
+                f'<div class="si-tt-foot"><b>{e(rec["venue"])}</b><span>{e(m["platform"])} · {date} · Caption not reproduced</span></div>'
+                f'</div></div>'
+                f'<div class="si-timeline" role="group" aria-label="Order of moves in the video"><p class="si-tl-note">Order of moves (TCC paraphrase of the captions). Timestamps not yet captured.</p>'
                 f'<div class="si-chaps">{chapters}</div></div></div>')
     elif f == "roster":
         tiles = "".join('<span class="si-tile" aria-hidden="true"><i></i><b></b></span>' for _ in range(8))
@@ -775,7 +823,10 @@ def connection_section(rec, h="h2"):
     eng = ""
     if rec["engagement_snapshots"]:
         s = rec["engagement_snapshots"][0]
-        eng = f' Reach in our audit: {s["views"]} views, so it\'s a candidate for TCC to reshare.'
+        if rec["amplify_candidate"]:
+            eng = f' Reach in our audit: {s["views"]} views, so it\'s a candidate for TCC to reshare.'
+        else:
+            eng = f' Reach: {s["views"]:,} views when checked ({s["date"]}).'
     return (f'<section class="ce-part ce-part--conn" data-part="8" aria-labelledby="cn-{rec["id"]}"><{h} id="cn-{rec["id"]}" class="sr-only">Connection</{h}>'
             f'<p class="ce-conn"><span aria-hidden="true">◎</span> Made with this example: <span class="ce-gap">no data yet</span>. '
             f'Reshared by TCC: <span class="ce-gap">not yet</span>.{e(eng)}</p></section>')
@@ -1027,7 +1078,7 @@ def layers_menu(rid):
             f'<label><input type="checkbox" class="layer" data-layer-toggle="trust" checked> Trust details</label></div></details>')
 
 def detail_canvas(model, rec, recs, by):
-    narrow = rec["standin_format"] in ("photo-post", "carousel", "short-video")
+    narrow = rec["standin_format"] in ("photo-post", "carousel", "short-video", "vertical-social")
     return (f'<main id="main" class="cvp cv-detail">'
             f'<h1 class="sr-only">{e(rec["title"])}</h1>'
             f'<div class="fl fl-card">{messenger_strip(rec)}{fit_tags(rec)}</div>'
@@ -1191,7 +1242,7 @@ ROUTER_CSS = """
 # C. Compare page and weights
 # ---------------------------------------------------------------------------
 MATRIX = [
-    ("Short-form video", ["msv-healthcare-short"]),
+    ("Short-form video", ["msv-healthcare-short", "who-cop28-health-workers"]),
     ("Long-form video or speech", ["lawson-heat-dome-speech"]),
     ("Social post (text and image)", ["pow-signs-everywhere", "diggins-i-voted"]),
     ("News article or interview", ["howard-wildfire-smoke"]),

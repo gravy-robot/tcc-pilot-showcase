@@ -4,7 +4,7 @@ Nov 6, 2026 · @Brandon Schauer
 
 ## Purpose and method
 
-**Can we find and curate content? Yes.** We looked at two segments of communicators, health professionals and outdoor/athlete voices, and found and graded 18 pieces across videos, social posts, articles and op-eds against the Eight Principles for Effective and Inviting Climate Communication.
+**Can we find and curate content? Yes.** We looked at two segments of communicators, health professionals and outdoor/athlete voices, and found and graded 19 pieces across videos, social posts, articles and op-eds against the Eight Principles for Effective and Inviting Climate Communication.
 
 Each piece is marked per principle:
 
@@ -21,7 +21,7 @@ The principles are Personal (P1), Accessible (P2), Empowering (P3), Doable (P4),
 
 ## Primary segment: health professionals
 
-Five of eight health examples are good and three are useful so-so contrasts. The strongest pieces pair a patient story with one practical step and stay out of politics.
+Five of nine health examples are good and four are useful so-so contrasts. The strongest pieces pair a patient story with one practical step and stay out of politics.
 
 **Messengers identified:** [Dr. Courtney Howard](https://www.cp24.com/news/canada/2026/07/11/one-of-the-biggest-public-health-threats-why-doctors-say-you-need-to-take-wildfire-smoke-seriously/) (ER physician, CMA president-elect); [Dr. Kyle Merritt](https://globalnews.ca/news/8366001/bc-doctor-climate-change-diagnosis) (family physician, Nelson, BC); [Dr. Caleb Dresser](https://www.turnto23.com/news/health/doctors-are-starting-to-incorporate-climate-change-into-their-patient-care) (emergency physician, Harvard Chan C-CHANGE); [Dr. Mark Vossler](https://psr.org/as-doctors-see-the-costs-of-climate-change-trump-plays-a-deadly-game-of-denial/) (retired cardiologist, PSR). Organizations to recruit through: [Medical Society Consortium on Climate and Health](https://aap.org/en/patient-care/climate-change/medical-society-consortium-on-climate-and-health), [Climate for Health](https://climateforhealth.org/our-planet-our-health/), [Alliance of Nurses for Healthy Environments](https://www.napnap.org/nursing-leaders-taking-action-on-extreme-heat/) and Physicians for Social Responsibility.
 
@@ -35,6 +35,7 @@ Five of eight health examples are good and three are useful so-so contrasts. The
 | [Extreme heat's impact on our health demands we take action](https://www.seattletimes.com/opinion/extreme-heats-impact-on-our-health-demands-we-take-action/) (Seattle Times) | Newspaper op-ed | Breck Lebegue, Chris Covert-Bowlds, Michael Soman (WA PSR) | Jul 2023 | + | \~ | \~ | \~ | + | \~ | + | \~ | So-so |
 | [As doctors see the costs, Trump plays a deadly game of denial](https://psr.org/as-doctors-see-the-costs-of-climate-change-trump-plays-a-deadly-game-of-denial/) (PSR / Earthjustice) | Advocacy blog post | Mark Vossler | Mar 2026 | + | + | – | – | \~ | · | \~ | – | So-so |
 | [Nursing leaders taking action on extreme heat](https://www.napnap.org/nursing-leaders-taking-action-on-extreme-heat/) (NAPNAP / ANHE) | Organizational news release | Nursing organizations | Sep 2024 | \~ | – | \~ | \~ | + | + | + | \~ | So-so |
+| [Health workers at COP28 on climate and their patients](https://www.tiktok.com/@who/video/7311424986563022112) (WHO on TikTok) | TikTok vertical video, organization channel | World Health Organization (health workers at COP28) | Dec 2023 | + | \~ | \~ | – | + | + | + | \~ | So-so |
 
 **What makes each one land or miss:**
 
@@ -49,6 +50,7 @@ Five of eight health examples are good and three are useful so-so contrasts. The
 
 - **Lawson's heat-dome speech** is the best health piece in the set. She worked downtown Vancouver during the 2021 heat dome, then moves from grief to cheaper, cleaner energy and asks people to check on isolated seniors. It had 20 views.
 - **The Medical Society of Virginia short** is a peer-to-peer model: ask older patients about heat and asthma parents about smoky air. It shows how clinicians can make climate part of routine care. It had 55 views.
+- **The WHO TikTok** is a chorus of health workers at COP28, each naming what they see in their own patients: dust storms, breathing problems, heart risk, longer pollen seasons. Many voices make speaking up feel normal, and the WHO name adds trust. It ends on alarm with no step for viewers. It is the only vertical, phone-first piece in the set and a model for communicators who speak for an organization. About 57,000 plays and 219 likes when checked on Nov 21, 2026.
 - Instagram search found no active clinician accounts. Health voices sit on YouTube and LinkedIn, which matches the research.
 
 ## Flex segment: outdoor and athlete voices
@@ -124,6 +126,7 @@ Social media adds two more needs:
 - [Turn to 23: Doctors bring climate into patient care](https://www.turnto23.com/news/health/doctors-are-starting-to-incorporate-climate-change-into-their-patient-care)
 - [PSR: As doctors see the costs of climate change](https://psr.org/as-doctors-see-the-costs-of-climate-change-trump-plays-a-deadly-game-of-denial/)
 - [NAPNAP: Nursing leaders taking action on extreme heat](https://www.napnap.org/nursing-leaders-taking-action-on-extreme-heat/)
+- [WHO on TikTok: Health workers at COP28 on climate and health](https://www.tiktok.com/@who/video/7311424986563022112)
 - [UW Climate Impacts Group: Extreme heat op-ed](https://cig.uw.edu/?p=22503)
 - [AP via WSLS: Olympians on Capitol Hill](https://www.wsls.com/news/politics/2026/06/24/in-visit-to-capitol-jessie-diggins-and-other-olympians-push-for-climate-change-solutions/)
 - [Teton Gravity: POW athletes testify before the Senate](https://www.tetongravity.com/pow-athletes-just-testified-before-the-senate-on-climate-change/)

@@ -1531,6 +1531,191 @@
       ]
     },
     {
+      "id": "who-cop28-health-workers",
+      "title": "Health workers at COP28 on climate and their patients",
+      "source_url": "https://www.tiktok.com/@who/video/7311424986563022112",
+      "venue": "World Health Organization",
+      "platform": "TikTok",
+      "published_date": "Dec 2023",
+      "published_iso": "2023-12",
+      "content_type": "Short video",
+      "content_type_slug": "short-video",
+      "content_type_audit": "TikTok vertical video, organization channel",
+      "standin_format": "vertical-social",
+      "language": "en",
+      "full_text_md": null,
+      "renders": null,
+      "media": {
+        "platform": "TikTok",
+        "url": "https://www.tiktok.com/@who/video/7311424986563022112",
+        "embed_id": null,
+        "duration_s": 78,
+        "approx_mb": "vertical 9:16",
+        "captions": "Auto captions (English) on TikTok"
+      },
+      "sponsorship": null,
+      "rights_status": "link-only",
+      "intake_date": "2026-11-06",
+      "update_log": [
+        {
+          "date": "2026-11-11",
+          "author": "Prototype generator",
+          "reason": "Record created from the Nov 6, 2026 audit for prototyping"
+        }
+      ],
+      "provenance": "Curator: TCC segment audit (Nov 6, 2026)",
+      "authors": [
+        "World Health Organization"
+      ],
+      "messenger_name": "World Health Organization (health workers at COP28)",
+      "messenger_people": null,
+      "messenger_role": "Health workers from several countries",
+      "messenger_affiliation": "Speaking for the World Health Organization at COP28",
+      "messenger_avatar": {
+        "kind": "initial",
+        "initial": "W"
+      },
+      "communicator_segment": "health",
+      "communicator_segment_label": "Health professionals",
+      "audience_segment": [
+        "public"
+      ],
+      "topics": [
+        "air-quality",
+        "clinical-care"
+      ],
+      "topic_labels": [
+        "Air quality",
+        "Clinical care"
+      ],
+      "geography": {
+        "place": "Global (recorded at COP28, Dubai)",
+        "scope": "global"
+      },
+      "timeliness": "COP28, December 2023",
+      "partisan_framing": null,
+      "taxonomy_version": "prototype-0 (Nov 2026)",
+      "principle_grades": {
+        "P1": "+",
+        "P2": "~",
+        "P3": "~",
+        "P4": "–",
+        "P5": "+",
+        "P6": "+",
+        "P7": "+",
+        "P8": "~"
+      },
+      "grading_analysis": [
+        {
+          "n": 1,
+          "principle": "P5",
+          "principle_name": "Collective",
+          "type": "working",
+          "note": "Many health workers, one after another: a chorus, not a lone voice.",
+          "anchor": "opening"
+        },
+        {
+          "n": 2,
+          "principle": "P1",
+          "principle_name": "Personal",
+          "type": "working",
+          "note": "Each names what they see in their own patients: asthma, allergies, heart risk.",
+          "anchor": "patients"
+        },
+        {
+          "n": 3,
+          "principle": "P3",
+          "principle_name": "Empowering",
+          "type": "could improve",
+          "note": "Crisis framing with no turn to what's working.",
+          "anchor": "systems"
+        },
+        {
+          "n": 4,
+          "principle": "P4",
+          "principle_name": "Doable",
+          "type": "could improve",
+          "note": "No step for viewers. End with one thing to do on a bad-air day.",
+          "anchor": "close"
+        }
+      ],
+      "verdict": "So-so",
+      "verdict_slug": "soso",
+      "why_it_works": "Health workers from several countries take turns naming what climate change is doing to their own patients. The chorus makes speaking up feel normal for clinicians, and the WHO name adds trust. It's a model for anyone who speaks for an organization.",
+      "what_to_watch": "It ends on alarm with no step for viewers (P4), and the crisis framing never turns to what's working (P3). Fix: keep the chorus and end with one thing viewers can do. About 57,000 plays and 219 likes on TikTok.",
+      "contrast_pair_id": null,
+      "contrast_role": null,
+      "grade_provenance": {
+        "graded_by": "TCC Design Research",
+        "method": "human, first-pass screen",
+        "date": "2026-11-06",
+        "rubric": "TCC segment audit first-pass screen, Nov 6, 2026"
+      },
+      "structure": [
+        "Hook: everyone is at risk",
+        "Chorus: each health worker names what they see in patients",
+        "Systems: damaged clinics make care harder",
+        "Close: people can't be healthy on a sick planet"
+      ],
+      "doable_step": "None yet. A fix: one thing to do on a high-pollen or dusty day, like checking local air quality before going out.",
+      "for_everyone_notes": "Names fossil fuels plainly but blames no party or person. The COP28 setting may read as political to some viewers.",
+      "short_quote": null,
+      "model_payload": null,
+      "institutional_backing": "World Health Organization",
+      "sources_cited": null,
+      "reviewed_by": null,
+      "reviewed_date": null,
+      "engagement_snapshots": [
+        {
+          "date": "2026-11-21",
+          "views": 57200,
+          "likes": 219,
+          "comments": 6,
+          "shares": 7,
+          "saves": 19,
+          "note": "Checked on TikTok"
+        }
+      ],
+      "amplify_candidate": false,
+      "tcc_amplified": null,
+      "derived_from": null,
+      "contributed_by": null,
+      "standin_regions": [
+        {
+          "key": "opening",
+          "label": "Opening",
+          "text": "Health workers say everyone is at risk from climate change's effects on health."
+        },
+        {
+          "key": "patients",
+          "label": "Chorus",
+          "text": "Clinicians describe their patients: dust storms, breathing problems, heart risk, longer pollen seasons, more asthma attacks."
+        },
+        {
+          "key": "systems",
+          "label": "Systems",
+          "text": "Damage to clinics and hospitals makes it harder to give good care."
+        },
+        {
+          "key": "close",
+          "label": "Close",
+          "text": "The closing line: people can't be healthy on a sick planet."
+        }
+      ],
+      "prototype_curation": true,
+      "prototype_curation_fields": [
+        "structure",
+        "doable_step",
+        "topics",
+        "geography",
+        "timeliness",
+        "audience_segment",
+        "grading_analysis",
+        "standin_regions",
+        "for_everyone_notes"
+      ]
+    },
+    {
       "id": "pow-signs-everywhere",
       "title": "“The signs are everywhere” vote post",
       "source_url": "https://www.instagram.com/p/DfQUuJvEgdL/",

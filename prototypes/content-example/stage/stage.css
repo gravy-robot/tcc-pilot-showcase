@@ -28,7 +28,7 @@
 .stage-scroll{max-height:72vh;overflow:auto;border-radius:10px;padding:4px;scrollbar-color:#5E6380 transparent}
 .stage .si-cap-top{color:#DDE4F6}
 .stage .si-cap-top a{color:#33C6F5}
-.si--short-video .si-vid,.si--photo-post .si-phone,.si--carousel .si-phone{margin:0 auto}
+.si--short-video .si-vid,.si--vertical-social .si-tt,.si--photo-post .si-phone,.si--carousel .si-phone{margin:0 auto}
 
 /* Controls float over the stage's bottom edge */
 .stage-controls{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);display:flex;align-items:center;gap:4px;
