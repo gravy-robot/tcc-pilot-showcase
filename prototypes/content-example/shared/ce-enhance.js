@@ -1,7 +1,8 @@
 /* Content Example prototypes: progressive enhancement. Hand-written.
    Everything works without this file. It only adds:
    instant filtering and search, overlay sync and note highlighting,
-   copy and print buttons, the YouTube swap (on click only), and, for the
+   copy and print buttons, the YouTube swap (on click only), the Stage
+   right-rail fit, and, for the
    Canvas model, pan/zoom, the bottom sheet, floating note cards and the
    split divider. No dependencies. */
 (function () {
@@ -411,6 +412,30 @@
     var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(fitAll, 120); });
   }
 
-  function init() { initFilters(); initCommon(); initCanvas(); }
+  /* ---------- Stage detail: fit the right rail to the window ----------
+     On wide screens the rail is sticky and scrolls on its own. Until it
+     sticks, it starts partway down the window, so a fixed max-height would
+     push its last card below the fold. Size it to the space it actually has. */
+  function initRail() {
+    var rail = $(".st-rail");
+    if (!rail) return;
+    var wide = window.matchMedia("(min-width: 1000px)");
+    var queued = false;
+    function fit() {
+      queued = false;
+      if (!wide.matches) { rail.style.maxHeight = ""; return; }
+      var top = Math.max(16, rail.getBoundingClientRect().top);
+      rail.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + "px";
+    }
+    function queue() { if (!queued) { queued = true; window.requestAnimationFrame(fit); } }
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    window.addEventListener("load", queue);
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(queue); // titles rewrap once fonts load
+    if (window.ResizeObserver) new ResizeObserver(queue).observe(rail.closest("main") || doc.body);
+    fit();
+  }
+
+  function init() { initFilters(); initCommon(); initCanvas(); initRail(); }
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", init); else init();
 })();

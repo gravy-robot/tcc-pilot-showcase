@@ -21,7 +21,9 @@
   .st-stage{align-self:start}.st-related{align-self:start}
   .st-a2 .ce-tags{margin-top:0}
   /* The rail scrolls on its own, beside the stage. Padding keeps card
-     shadows inside the scroll box; the negative margin keeps alignment. */
+     shadows inside the scroll box; the negative margin keeps alignment.
+     ce-enhance.js fits max-height to the space below the rail's top, so
+     the last card is always reachable; this value is the no-JS fallback. */
   .st-rail{align-self:start;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;
     overscroll-behavior:contain;padding:4px 10px 24px;margin:-4px -10px 0;scrollbar-width:thin;scrollbar-color:#B9B6AC transparent}
 }
