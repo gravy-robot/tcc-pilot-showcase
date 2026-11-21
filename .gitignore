@@ -2,3 +2,11 @@
 *.zip
 __pycache__/
 .claude/
+
+# Kept private: this repo is public (decided Nov 21, 2026). These stay on disk only.
+CLAUDE.md
+reference/source-docs/project-narrative.md
+reference/source-docs/*.pdf
+prompts/
+reference/parked/
+reference/templates/
