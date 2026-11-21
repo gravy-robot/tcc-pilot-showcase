@@ -6,6 +6,17 @@ md = (root / "reference" / "audit.md").read_text()
 
 NEWTAB = '<span class="sr-only"> (opens in a new tab)</span>'
 
+# Standalone Stage mockups, keyed by source URL. Built by
+# tools/build_content_example.py, so run that first.
+import json
+CE = root / "prototypes" / "content-example"
+MOCKUPS = {}
+_data = CE / "data" / "examples.json"
+if _data.exists():
+    for _r in json.loads(_data.read_text())["examples"]:
+        if (CE / "mockups" / f'{_r["id"]}.html').exists():
+            MOCKUPS[_r["source_url"]] = f'../prototypes/content-example/mockups/{_r["id"]}.html'
+
 def inline(t):
     t = t.replace("\\~", "~")
     t = html.escape(t, quote=False)
@@ -68,7 +79,10 @@ def audit_table(head, rows, caption, tid):
         m = re.match(r"\[([^\]]+)\]\(([^)]+)\)\s*(\((.+)\))?$", ex)
         if m:
             src = f'<small>{html.escape(m.group(4))}</small>' if m.group(4) else ""
-            exh = f'<a href="{m.group(2)}" target="_blank" rel="noopener">{inline(m.group(1))}{NEWTAB}</a>{src}'
+            mock = MOCKUPS.get(m.group(2))
+            mock = (f'<a class="mockup-link" href="{mock}">Mockup<span class="sr-only">: {html.escape(m.group(1))}</span></a>'
+                    if mock else "")
+            exh = f'<a href="{m.group(2)}" target="_blank" rel="noopener">{inline(m.group(1))}{NEWTAB}</a>{src}{mock}'
         else:
             exh = inline(ex)
         cells = [f'<th scope="row" class="ex" style="font-weight:400">{exh}</th>',
@@ -148,6 +162,10 @@ page = f"""<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../assets/tcc.css">
+<style>/* LOCAL: link from a health row to its Content Example mockup */
+table.audit .mockup-link{{display:inline-block;margin-top:6px;font:700 12px/1 var(--tcc-font-ui);color:var(--tcc-navy);
+  border:1.5px solid var(--tcc-navy);border-radius:999px;padding:4px 10px;text-decoration:none}}
+table.audit .mockup-link:hover{{background:var(--tcc-navy);color:#fff}}</style>
 <!-- Generated from reference/audit.md (Nov 6, 2026). -->
 </head>
 <body>

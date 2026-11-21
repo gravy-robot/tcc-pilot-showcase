@@ -35,25 +35,27 @@ a:focus-visible{outline:3px solid #0F5F59;outline-offset:2px;border-radius:4px}
 .jm-soon small{display:inline-block;font-size:11px;font-weight:600;color:#45535A;border:1px dashed #9AA5AA;border-radius:999px;padding:1px 8px}
 """
 
-# Journey "Curated content's job" row: each named piece links to its stable
-# Content Example URL (prototypes/content-example/examples/<id>.html), which
-# survives the Stage vs. Canvas choice. A missing target renders "coming soon".
-CONTENT_LINKS = [  # (exact text inside <b>, example or pair id, fragment)
-    ("Courtney Howard on wildfire smoke", "howard-wildfire-smoke", ""),
-    ("Ashley Lawson's heat-dome speech", "lawson-heat-dome-speech", ""),
-    ("Lawson vs. the Seattle op-ed", "pair-heat-dome", ""),
-    ("Howard vs. Vossler", "pair-smoke-and-heat", ""),
-    ("Howard's structure", "howard-wildfire-smoke", "#pattern"),
+# Journey "Curated content's job" row: each named piece links to its Content
+# Example. Single pieces open their standalone Stage mockup
+# (prototypes/content-example/mockups/<id>.html). Pairs have no mockup yet, so
+# they open the stable pair page (examples/<id>.html), which offers each model.
+# A missing target renders "coming soon".
+CE = "prototypes/content-example"
+CONTENT_LINKS = [  # (exact text inside <b>, path from the site root, fragment)
+    ("Courtney Howard on wildfire smoke", f"{CE}/mockups/howard-wildfire-smoke.html", ""),
+    ("Ashley Lawson's heat-dome speech", f"{CE}/mockups/lawson-heat-dome-speech.html", ""),
+    ("Lawson vs. the Seattle op-ed", f"{CE}/examples/pair-heat-dome.html", ""),
+    ("Howard vs. Vossler", f"{CE}/examples/pair-smoke-and-heat.html", ""),
+    ("Howard's structure", f"{CE}/mockups/howard-wildfire-smoke.html", "#pat-howard-wildfire-smoke"),
 ]
-EXAMPLES_DIR = pathlib.Path("prototypes/content-example/examples")
 
 def link_content(body, prefix):
     """prefix: path from the output page to the site root, e.g. '../'."""
     for text, target, frag in CONTENT_LINKS:
         b = f"<b>{text}</b>"
         assert b in body, text
-        href = f"{prefix}{EXAMPLES_DIR.as_posix()}/{target}.html{frag}"
-        if (root / EXAMPLES_DIR / f"{target}.html").exists():
+        href = f"{prefix}{target}{frag}"
+        if (root / target).exists():
             rep = f'<a class="jm-link" href="{href}"><b>{text}</b></a>'
         else:
             rep = f'<span class="jm-soon"><b>{text}</b> <small>Prototype coming soon</small></span>'

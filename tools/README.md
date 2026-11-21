@@ -10,10 +10,12 @@ python3 tools/build_content_example.py .   # reference/audit.md       -> prototy
 python3 tools/build_research.py .          # persona, journey, jobs   -> research/index.html
 ```
 
-Run `build_content_example.py` before `build_maps.py` and `build_research.py`: the
-journey's "Curated content's job" row links each named example to its stable page in
-`prototypes/content-example/examples/`, and shows "Prototype coming soon" if that page
-doesn't exist yet. The links live in `CONTENT_LINKS` in `build_maps.py`.
+Run `build_content_example.py` before `build_maps.py`, `build_research.py` and
+`build_audit.py`: the journey's "Curated content's job" row links each named piece to its
+Stage mockup in `prototypes/content-example/mockups/` (pairs to their page in
+`examples/`), and shows "Prototype coming soon" if the page doesn't exist yet. The links
+live in `CONTENT_LINKS` in `build_maps.py`. The audit's health rows get a "Mockup" link
+from `data/examples.json`.
 
 `build_research.py` builds one standalone page with three linkable sections: `#persona`,
 `#journey` and `#jobs-to-be-done`. Each job cites its journey stage, persona line and the
