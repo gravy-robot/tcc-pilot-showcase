@@ -196,9 +196,6 @@ journey_html = f"""
       <div><h2 id="journey-h">Journey {anchor("journey", "Journey")}</h2></div>
       <p>How curated examples help Dr. Maya: from noticing climate in the clinic to sharing what works. In the “Curated content's job” row, each named example opens its Content Example prototype.</p>
     </div>
-    <nav class="jump stage-jump" aria-label="Jump to a stage">
-      {"".join(f'<a class="btn btn-ghost" href="#journey-{s}">{i+1} {esc(STAGE_NAMES[i].split(" ")[0])}</a>' for i, s in enumerate(STAGES))}
-    </nav>
     <p class="scroll-hint rj-hint">The map is wider than the screen. Scroll it sideways to see all seven stages.</p>
   </div>
   <div class="rj-scroll" role="region" aria-label="Journey map, scrolls sideways" tabindex="0">
@@ -317,7 +314,7 @@ h2 .h-anchor{display:inline}
 .voice-table td.voice{font-style:italic;color:var(--tcc-navy);white-space:nowrap}
 .voice-table tr:target{background:var(--tcc-sky)}
 .anchor-target{scroll-margin-top:16px}
-.stage-jump .btn,.jump .btn{min-height:40px;padding:8px 14px;font-size:14px}
+.jump .btn{min-height:40px;padding:8px 14px;font-size:14px}
 .rj-hint{display:block;margin:16px 0 20px}
 .rj-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;background:#F6F5F1;border-top:1px solid #DDE2DF;border-bottom:1px solid #DDE2DF}
 .rj-scroll:focus-visible{outline:3px solid #0F5F59;outline-offset:-3px}
