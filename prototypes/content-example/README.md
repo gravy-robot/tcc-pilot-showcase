@@ -15,7 +15,7 @@ python3 tools/build_content_example.py .
 Python 3 standard library only. It overwrites only generated files:
 
 - `data/examples.json`
-- every `*.html` in `stage/`, `canvas/`, `spec/` and `examples/` (deleted and rewritten)
+- every `*.html` in `stage/`, `canvas/`, `spec/`, `examples/` and `mockups/` (deleted and rewritten)
 - `index.html` (the compare page)
 - the weight table between the `weights` markers below
 
@@ -34,7 +34,11 @@ stage/  canvas/  spec/   per model: index.html (messenger view), curator.html,
                          one page per example, one page per contrast pair
 examples/           one stable page per example and pair (21): opens the default
                     model and offers the others; link here from outside
+mockups/            standalone Stage page per health piece (8), no navigation,
+                    for review with Overnote (?review=1)
 ```
+
+**Mockups for review:** `mockups/<id>.html` is a standalone Stage page for each health piece in the audit (8), with no banner and no links to the library, other examples, pairs or model pages. Built by `mockup_page()` from the same Stage code, so a change there reaches every mockup. Add `?review=1` to review with Overnote.
 
 **Linking from elsewhere:** use `examples/<id>.html`, not a model's page, so links survive the Stage vs. Canvas decision. `DEFAULT_MODEL` in the generator sets which model it opens first. Add `#pattern` (or `#why`) to land on that section in whichever model opens.
 

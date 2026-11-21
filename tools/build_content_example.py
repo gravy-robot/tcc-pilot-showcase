@@ -800,7 +800,7 @@ def jsonld(rec):
 # ---------------------------------------------------------------------------
 # Page shell
 # ---------------------------------------------------------------------------
-def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_class=""):
+def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_class="", banner=True):
     links = f'<link rel="stylesheet" href="{"shared/" if depth == 0 else "../shared/"}ce-core.css">' + "".join(f'<link rel="stylesheet" href="{c}">' for c in css)
     script = f'<script src="{"shared/" if depth == 0 else "../shared/"}ce-enhance.js" defer></script>' if js else ""
     compare = "index.html" if depth == 0 else "../index.html"
@@ -812,6 +812,8 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
     else:
         trail += '<span>Compare models</span>'
         links_html = ""
+    banner_html = (f'<nav class="tcc-banner" aria-label="Where you are">\n  <div class="tcc-banner__inner">\n'
+                   f'    <p class="tcc-banner__trail">{trail}</p>\n    <p class="tcc-banner__links">{links_html}</p>\n  </div>\n</nav>') if banner else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -827,12 +829,7 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
-<nav class="tcc-banner" aria-label="Where you are">
-  <div class="tcc-banner__inner">
-    <p class="tcc-banner__trail">{trail}</p>
-    <p class="tcc-banner__links">{links_html}</p>
-  </div>
-</nav>
+{banner_html}
 {body}
 <!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="{site_root}js/annotate.js"></script>
@@ -970,15 +967,15 @@ def zoom_cluster():
 # ---------------------------------------------------------------------------
 # Detail pages
 # ---------------------------------------------------------------------------
-def state_banner(rec, by):
+def state_banner(rec, by, links=True):
     if rec["verdict_slug"] == "soso":
         if rec["contrast_pair_id"]:
-            return (f'<p class="ce-state"><b>Learning case.</b> For messengers, this appears only as the weaker half of a contrast pair (rule R3). '
-                    f'<a href="{rec["contrast_pair_id"]}.html">See the pair</a>.</p>')
+            see = f' <a href="{rec["contrast_pair_id"]}.html">See the pair</a>.' if links else ""
+            return (f'<p class="ce-state"><b>Learning case.</b> For messengers, this appears only as the weaker half of a contrast pair (rule R3).{see}</p>')
         return '<p class="ce-state"><b>Curator view only.</b> A So-so example with no contrast pair yet, so messengers don\'t see it (rule R3).</p>'
     if rec["verdict_slug"] == "not":
         return '<p class="ce-state"><b>Not yet usable.</b> Visible to curators only. Reason: it\'s a roster, not a message.</p>'
-    if rec["contrast_pair_id"]:
+    if rec["contrast_pair_id"] and links:
         return f'<p class="ce-state ce-state--info">Part of a contrast pair. <a href="{rec["contrast_pair_id"]}.html">Compare it with a learning case</a>.</p>'
     return ""
 
@@ -993,19 +990,35 @@ def detail(model, rec, recs, by):
 def back_link():
     return '<p class="ce-back"><a href="index.html">← Library</a></p>'
 
-def detail_stage(model, rec, recs, by):
+def detail_stage(model, rec, recs, by, standalone=False):
+    """standalone=True: a mockup page with no links to the library, other
+    examples, pairs or model pages (prototypes/content-example/mockups/)."""
     rel = "".join(f'<li><a href="{r["id"]}.html">{avatar(r, 28)}<span><b>{e(r["title"])}</b><small>{e(r["messenger_name"])} · {e(r["content_type"])}</small></span></a></li>' for r in related(rec, recs))
     controls = (f'<div class="stage-controls" role="group" aria-label="Stage controls">{overlay_toggle(rec)}'
                 f'<a class="sc-btn" href="{e(rec["source_url"])}" target="_blank" rel="noopener">Open original <span aria-hidden="true">↗</span>{NEWTAB}</a>'
                 + (f'<a class="sc-btn" href="#use-{rec["id"]}" data-open-details>Use as a model</a>' if rec["model_payload"] else "") + '</div>')
-    return (f'<main id="main" class="wrap st-detail">{back_link()}<h1 class="st-title">{e(rec["title"])}</h1>{state_banner(rec, by)}'
+    related_html = "" if standalone else (
+        f'<section class="st-related" aria-labelledby="rel-h"><h2 id="rel-h">More examples like this</h2><ol class="rel">{rel}</ol>'
+        f'<p class="small muted">A short, finite list. Nothing plays next on its own.</p></section>')
+    return (f'<main id="main" class="wrap st-detail">{"" if standalone else back_link()}<h1 class="st-title">{e(rec["title"])}</h1>{state_banner(rec, by, links=not standalone)}'
             f'<div class="st-grid">'
             f'<div class="st-a1">{messenger_strip(rec)}</div><div class="st-a2">{fit_tags(rec)}</div>'
             f'<div class="st-stage" data-part="3"><div class="stage"><div class="stage-scroll" tabindex="0" role="region" aria-label="Content stage">{standin(rec)}</div>{controls}</div></div>'
             f'<div class="st-side">{why_section(rec)}{pattern_section(rec)}{trust_section(rec)}{actions_section(rec)}{connection_section(rec)}</div>'
-            f'<section class="st-related" aria-labelledby="rel-h"><h2 id="rel-h">More examples like this</h2><ol class="rel">{rel}</ol>'
-            f'<p class="small muted">A short, finite list. Nothing plays next on its own.</p></section>'
-            f'</div></main>')
+            f'{related_html}</div></main>')
+
+# Standalone Stage mockups, one per health piece in the audit, for review.
+# No banner or links back to the library or model pages. GLOBAL review
+# changes go in the shared Stage code above, so they reach every mockup.
+MOCKUP_SEGMENT = "health"
+
+def mockup_page(rec, recs, by):
+    body = detail_stage(MODELS[0], rec, recs, by, standalone=True)
+    return page(f'{rec["title"]} · Content Example mockup', body, None, css=["../stage/stage.css"],
+                head_extra=jsonld(rec) + MOCKUP_CSS, js=True, body_class="m-stage p-detail p-mockup", banner=False)
+
+# With no banner above it, the title needs its own breathing room.
+MOCKUP_CSS = "<style>.p-mockup main.st-detail{padding-top:40px}@media (max-width:640px){.p-mockup main.st-detail{padding-top:24px}}</style>"
 
 def layers_menu(rid):
     return (f'<details class="fl fl-layers"><summary><span aria-hidden="true">◫</span> Layers</summary><div class="layers-panel">'
@@ -1331,6 +1344,13 @@ def main():
         (ex / f'{r["id"]}.html').write_text(example_router(r)); count += 1
     for p in PAIRS:
         (ex / f'{p["id"]}.html').write_text(pair_router(p, by)); count += 1
+    mk = OUT / "mockups"
+    mk.mkdir(parents=True, exist_ok=True)
+    for old in mk.glob("*.html"):
+        old.unlink()
+    for r in recs:
+        if r["communicator_segment"] == MOCKUP_SEGMENT:
+            (mk / f'{r["id"]}.html').write_text(mockup_page(r, recs, by)); count += 1
     w = weights()
     (OUT / "index.html").write_text(compare_page(by, w)); count += 1
     update_readme(w)
