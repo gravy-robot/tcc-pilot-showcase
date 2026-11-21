@@ -4,7 +4,7 @@ Nov 6, 2026 · @Brandon Schauer
 
 ## Purpose and method
 
-This audit gives TCC 11 real communications from two segments, graded against Rare's 8 Principles, so the platform can show both strong and so-so examples. Health professionals are the pilot segment. Outdoor and athlete voices test whether the same approach flexes to a second segment.
+**Can we find and curate content? Yes.** We looked at two segments of communicators, health professionals and outdoor/athlete voices, and found and graded 18 pieces across videos, social posts, articles and op-eds against the Eight Principles for Effective and Inviting Climate Communication.
 
 Each piece is marked per principle:
 
@@ -15,7 +15,7 @@ Each piece is marked per principle:
 
 The overall verdict is **Good example** (mostly +, no –), **So-so** (useful to teach a fix), or **Not yet usable** (too thin to grade).
 
-This is a first-pass screen, not a full line-by-line review. Several pages showed only an excerpt, which the notes flag. Before anything goes into the library, each piece should get a full read of its original text.
+This is a first-pass screen, not a full line-by-line review. Several pages showed only an excerpt and required human effort to acquire the full content. We would need human reviews before any piece goes into the library.
 
 The principles are Personal (P1), Accessible (P2), Empowering (P3), Doable (P4), Collective (P5), Normal (P6), Trustworthy (P7) and For Everyone (P8).
 
