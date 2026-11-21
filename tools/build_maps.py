@@ -136,7 +136,7 @@ def build(name, outname, title, page_name, intro, pilots=False):
       <span class="tcc-banner__kind">Reference</span>
       <span>{page_name}</span>
     </p>
-    <a class="tcc-banner__back" href="../research/index.html#journey">Research page →</a>
+    <a class="tcc-banner__back" href="../research/index.html#journey">Messenger-centered design →</a>
   </div>
 </nav>
 <main>
