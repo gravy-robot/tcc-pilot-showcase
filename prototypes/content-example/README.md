@@ -15,7 +15,7 @@ python3 tools/build_content_example.py .
 Python 3 standard library only. It overwrites only generated files:
 
 - `data/examples.json`
-- every `*.html` in `stage/`, `canvas/` and `spec/` (deleted and rewritten)
+- every `*.html` in `stage/`, `canvas/`, `spec/` and `examples/` (deleted and rewritten)
 - `index.html` (the compare page)
 - the weight table between the `weights` markers below
 
@@ -32,9 +32,13 @@ shared/ce-enhance.js  the one script (progressive enhancement only)
 shared/fonts/       Nunito (variable) and Ubuntu 400/500/700, latin subset woff2, with licences
 stage/  canvas/  spec/   per model: index.html (messenger view), curator.html,
                          one page per example, one page per contrast pair
+examples/           one stable page per example and pair (21): opens the default
+                    model and offers the others; link here from outside
 ```
 
-Each model has 2 library pages + 18 detail pages + 3 pair pages = 23 pages, so 69 plus the compare page.
+**Linking from elsewhere:** use `examples/<id>.html`, not a model's page, so links survive the Stage vs. Canvas decision. `DEFAULT_MODEL` in the generator sets which model it opens first. Add `#pattern` (or `#why`) to land on that section in whichever model opens.
+
+Each model has 2 library pages + 18 detail pages + 3 pair pages = 23 pages, so 69, plus the compare page and 21 per-example pages.
 
 ## What each model tests
 

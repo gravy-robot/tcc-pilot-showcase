@@ -143,25 +143,16 @@ page = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Example audit · Health professionals pilot</title>
+<meta name="robots" content="noindex">
 <meta name="description" content="Health and athlete examples graded against Rare's 8 Principles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../assets/tcc.css">
-<link rel="stylesheet" href="../assets/banner.css">
 <link rel="stylesheet" href="../assets/overnote-theme.css">
 <!-- Generated from reference/audit.md (Nov 6, 2026). -->
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<nav class="tcc-banner" aria-label="Where you are">
-  <div class="tcc-banner__inner">
-    <p class="tcc-banner__trail">
-      <span class="tcc-banner__kind">Reference</span>
-      <span>Example audit</span>
-    </p>
-    <a class="tcc-banner__back" href="../index.html">← Back to hub</a>
-  </div>
-</nav>
 
 <main id="main">
 <section class="block" id="purpose" aria-labelledby="purpose-h">

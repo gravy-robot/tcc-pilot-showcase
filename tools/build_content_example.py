@@ -383,6 +383,10 @@ PAIRS = [
          lesson="Suter shows teammates already changing habits. The “I voted” post leads with millions who don't vote, which makes voting sound rare."),
 ]
 
+# The presentation model a per-example page (examples/<id>.html) opens first.
+# Stage vs. Canvas is still undecided; change this one value when it is.
+DEFAULT_MODEL = "stage"
+
 MODELS = [
     dict(key="stage", name="Stage", long="Model A: Stage", like="like a video site"),
     dict(key="canvas", name="Canvas", long="Model B: Canvas", like="like a map app"),
@@ -799,7 +803,6 @@ def jsonld(rec):
 def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_class=""):
     links = f'<link rel="stylesheet" href="{"shared/" if depth == 0 else "../shared/"}ce-core.css">' + "".join(f'<link rel="stylesheet" href="{c}">' for c in css)
     script = f'<script src="{"shared/" if depth == 0 else "../shared/"}ce-enhance.js" defer></script>' if js else ""
-    hub = ("../../" if depth == 0 else "../../../") + "index.html"
     compare = "index.html" if depth == 0 else "../index.html"
     trail = '<span class="tcc-banner__kind">Prototype</span><span>Content Example</span>'
     if model:
@@ -808,13 +811,13 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
     else:
         trail += '<span>Compare models</span>'
         links_html = ""
-    links_html += f'<a class="tcc-banner__back" href="{hub}">← Back to hub</a>'
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
+<meta name="robots" content="noindex">
 <meta name="color-scheme" content="light dark">
 <script>document.documentElement.classList.add('js')</script>
 {links}
@@ -1109,6 +1112,66 @@ def pair_page(model, p, by):
                 js=(mk != "spec"), body_class=f"m-{mk} p-pair")
 
 # ---------------------------------------------------------------------------
+# Per-example pages: examples/<id>.html
+# A stable URL per example or pair that survives the Stage vs. Canvas choice.
+# It names the default model and offers the others. "#pattern" on the URL is
+# carried to the reusable-pattern section (#pat-<id>) in whichever model opens.
+# ---------------------------------------------------------------------------
+ROUTER_JS = """<script>
+(function(){var h=location.hash.slice(1);if(!h)return;var m=document.querySelector('main[data-id]');if(!m)return;var id=m.getAttribute('data-id');
+var map={pattern:'pat-'+id,why:'why-'+id,notes:'why-'+id};var t=map[h];if(!t)return;
+document.querySelectorAll('a[data-model]').forEach(function(a){a.href=a.getAttribute('href').split('#')[0]+'#'+t;});})();
+</script>"""
+
+def model_choice(target, label):
+    ordered = sorted(MODELS, key=lambda m: m["key"] != DEFAULT_MODEL)
+    first, rest = ordered[0], ordered[1:]
+    btn = f'<a class="btn btn-primary" data-model="{first["key"]}" href="../{first["key"]}/{target}.html">Open {e(label)} in {e(first["name"])}</a>'
+    others = " · ".join(f'<a data-model="{m["key"]}" href="../{m["key"]}/{target}.html">{e(m["long"])}</a>' for m in rest)
+    return (f'<p class="ex-go">{btn}</p>'
+            f'<p class="small ex-alt">Default model: {e(first["long"])}, {e(first["like"])}. The presentation model isn\'t chosen yet. Also open it in {others}, or <a href="../index.html">compare all three</a>.</p>')
+
+def example_router(rec):
+    why = rec["why_it_works"] or rec["what_to_watch"] or ""
+    pair = next((p for p in PAIRS if rec["id"] in (p["strong"], p["weak"])), None)
+    pair_line = f'<p class="small">Part of the contrast pair <a href="{pair["id"]}.html">{e(pair["title"])}</a>.</p>' if pair else ""
+    body = f"""<main id="main" class="wrap ex-route" data-id="{rec["id"]}">
+<p class="eyebrow">Content Example · {e(rec["communicator_segment_label"])}</p>
+<h1>{e(rec["title"])}</h1>
+{messenger_strip(rec)}
+<p>{verdict_badge(rec)} <span class="small muted">{e(rec["content_type"])} · {e(rec["venue"] or "")}</span></p>
+{f'<p class="lede">{e(why)}</p>' if why else ""}
+{model_choice(rec["id"], "this example")}
+{pair_line}
+</main>"""
+    return page(f'{rec["title"]} · Content Example', body + ROUTER_JS, {"name": "Example"}, depth=1, js=False,
+                head_extra=f"<style>{ROUTER_CSS}</style>", body_class="p-route")
+
+def pair_router(p, by):
+    s, w = by[p["strong"]], by[p["weak"]]
+    body = f"""<main id="main" class="wrap ex-route">
+<p class="eyebrow">Content Example · Contrast pair</p>
+<h1>{e(p["title"])}</h1>
+<p class="lede">{e(p["lesson"])}</p>
+<ul class="ex-pair">
+<li>{verdict_badge(s)} <a href="{s["id"]}.html">{e(s["title"])}</a> <span class="small muted">{e(s["messenger_name"])}</span></li>
+<li>{verdict_badge(w)} <a href="{w["id"]}.html">{e(w["title"])}</a> <span class="small muted">{e(w["messenger_name"])}</span></li>
+</ul>
+{model_choice(p["id"], "this pair")}
+</main>"""
+    return page(f'{p["title"]} · Content Example pair', body, {"name": "Pair"}, depth=1, js=False,
+                head_extra=f"<style>{ROUTER_CSS}</style>", body_class="p-route")
+
+ROUTER_CSS = """
+.ex-route{max-width:760px;padding-top:32px;padding-bottom:64px}
+.ex-route h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:4px 0 16px}
+.ex-route .ce-ms{margin:0 0 12px}
+.ex-go{margin:24px 0 8px}
+.ex-pair{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.ex-pair li{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+"""
+
+# ---------------------------------------------------------------------------
 # C. Compare page and weights
 # ---------------------------------------------------------------------------
 MATRIX = [
@@ -1257,6 +1320,14 @@ def main():
             (d / f'{r["id"]}.html').write_text(detail(m, r, recs, by)); count += 1
         for p in PAIRS:
             (d / f'{p["id"]}.html').write_text(pair_page(m, p, by)); count += 1
+    ex = OUT / "examples"
+    ex.mkdir(parents=True, exist_ok=True)
+    for old in ex.glob("*.html"):
+        old.unlink()
+    for r in recs:
+        (ex / f'{r["id"]}.html').write_text(example_router(r)); count += 1
+    for p in PAIRS:
+        (ex / f'{p["id"]}.html').write_text(pair_router(p, by)); count += 1
     w = weights()
     (OUT / "index.html").write_text(compare_page(by, w)); count += 1
     update_readme(w)
