@@ -804,6 +804,7 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
     links = f'<link rel="stylesheet" href="{"shared/" if depth == 0 else "../shared/"}ce-core.css">' + "".join(f'<link rel="stylesheet" href="{c}">' for c in css)
     script = f'<script src="{"shared/" if depth == 0 else "../shared/"}ce-enhance.js" defer></script>' if js else ""
     compare = "index.html" if depth == 0 else "../index.html"
+    site_root = "../" * (depth + 2)  # prototypes/content-example/ is two levels down
     trail = '<span class="tcc-banner__kind">Prototype</span><span>Content Example</span>'
     if model:
         trail += f'<span>{e(model["name"])}</span>'
@@ -821,6 +822,7 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
 <meta name="color-scheme" content="light dark">
 <script>document.documentElement.classList.add('js')</script>
 {links}
+<link rel="stylesheet" href="{site_root}assets/overnote-theme.css">
 {head_extra}
 {script}
 </head>
@@ -833,6 +835,8 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
   </div>
 </nav>
 {body}
+<!-- Overnote review layer. Needs HTTP; see js/annotate.js. -->
+<script type="module" src="{site_root}js/annotate.js"></script>
 </body>
 </html>
 """

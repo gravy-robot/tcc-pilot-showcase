@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../assets/tcc.css">
+<link rel="stylesheet" href="../assets/overnote-theme.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 /* Journey map palette, from reference/maps/Main.dc.html. Used only inside the map. */
@@ -37,7 +38,7 @@ h2 .h-anchor{display:inline}
 .voice-table tr:target{background:var(--tcc-sky)}
 .anchor-target{scroll-margin-top:16px}
 .stage-jump .btn,.jump .btn{min-height:40px;padding:8px 14px;font-size:14px}
-.rj-hint{display:block;margin-top:16px}
+.rj-hint{display:block;margin:16px 0 20px}
 .rj-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;background:#F6F5F1;border-top:1px solid #DDE2DF;border-bottom:1px solid #DDE2DF}
 .rj-scroll:focus-visible{outline:3px solid #0F5F59;outline-offset:-3px}
 .rj-map{width:2000px;margin:0 auto;padding:24px;font-family:Inter,system-ui,sans-serif;color:#1F2A30}
@@ -419,5 +420,7 @@ h2 .h-anchor{display:inline}
     </div>
   </div>
 </footer>
+<!-- Overnote review layer. Needs HTTP; see js/annotate.js. -->
+<script type="module" src="../js/annotate.js"></script>
 </body>
 </html>
