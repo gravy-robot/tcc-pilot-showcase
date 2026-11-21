@@ -370,7 +370,6 @@ page = f"""<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../assets/tcc.css">
-<link rel="stylesheet" href="../assets/overnote-theme.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 /* Journey map palette, from reference/maps/Main.dc.html. Used only inside the map. */
@@ -411,7 +410,7 @@ page = f"""<!doctype html>
     </div>
   </div>
 </footer>
-<!-- Overnote review layer. Needs HTTP; see js/annotate.js. -->
+<!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="../js/annotate.js"></script>
 </body>
 </html>

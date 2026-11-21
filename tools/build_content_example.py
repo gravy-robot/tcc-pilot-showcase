@@ -822,7 +822,6 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
 <meta name="color-scheme" content="light dark">
 <script>document.documentElement.classList.add('js')</script>
 {links}
-<link rel="stylesheet" href="{site_root}assets/overnote-theme.css">
 {head_extra}
 {script}
 </head>
@@ -835,7 +834,7 @@ def page(title, body, model=None, depth=1, css=(), js=True, head_extra="", body_
   </div>
 </nav>
 {body}
-<!-- Overnote review layer. Needs HTTP; see js/annotate.js. -->
+<!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="{site_root}js/annotate.js"></script>
 </body>
 </html>

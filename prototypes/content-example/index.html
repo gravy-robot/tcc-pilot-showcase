@@ -8,7 +8,6 @@
 <meta name="color-scheme" content="light dark">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="shared/ce-core.css"><link rel="stylesheet" href="shared/compare.css">
-<link rel="stylesheet" href="../../assets/overnote-theme.css">
 
 
 </head>
@@ -35,7 +34,7 @@
 <p>Total bytes for the page plus the CSS, script and fonts it loads, with media not loaded. Uncompressed, so real transfers with gzip or Brotli are smaller. Budgets from WS-11: library ≤ 300 KB, detail ≤ 500 KB. No page makes a third-party request on load; YouTube is contacted only after “Load video.”</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Page weight by model"><table class="plain wt"><caption class="sr-only">Page weight by model</caption>
 <thead><tr><th scope="col">Model</th><th scope="col">Library</th><th scope="col">Detail: long article (Howard)</th><th scope="col">Detail: video, not loaded (Lawson)</th><th scope="col">Contrast pair (heat dome)</th><th scope="col">Third-party requests on load</th></tr></thead>
-<tbody><tr><th scope="row">Model A: Stage</th><td>168 KB <span class="ok">✓ within</span></td><td>151 KB <span class="ok">✓ within</span></td><td>151 KB <span class="ok">✓ within</span></td><td>158 KB <span class="ok">✓ within</span></td><td>0 <span class="ok">✓</span></td></tr><tr><th scope="row">Model B: Canvas</th><td>173 KB <span class="ok">✓ within</span></td><td>155 KB <span class="ok">✓ within</span></td><td>155 KB <span class="ok">✓ within</span></td><td>165 KB <span class="ok">✓ within</span></td><td>0 <span class="ok">✓</span></td></tr><tr><th scope="row">Model C: Requirements only</th><td>165 KB <span class="ok">✓ within</span></td><td>147 KB <span class="ok">✓ within</span></td><td>146 KB <span class="ok">✓ within</span></td><td>140 KB <span class="ok">✓ within</span></td><td>0 <span class="ok">✓</span></td></tr></tbody></table></div></section>
+<tbody><tr><th scope="row">Model A: Stage</th><td>162 KB <span class="ok">✓ within</span></td><td>145 KB <span class="ok">✓ within</span></td><td>145 KB <span class="ok">✓ within</span></td><td>153 KB <span class="ok">✓ within</span></td><td>0 <span class="ok">✓</span></td></tr><tr><th scope="row">Model B: Canvas</th><td>168 KB <span class="ok">✓ within</span></td><td>149 KB <span class="ok">✓ within</span></td><td>149 KB <span class="ok">✓ within</span></td><td>159 KB <span class="ok">✓ within</span></td><td>0 <span class="ok">✓</span></td></tr><tr><th scope="row">Model C: Requirements only</th><td>160 KB <span class="ok">✓ within</span></td><td>141 KB <span class="ok">✓ within</span></td><td>141 KB <span class="ok">✓ within</span></td><td>135 KB <span class="ok">✓ within</span></td><td>0 <span class="ok">✓</span></td></tr></tbody></table></div></section>
 <section aria-labelledby="how-h"><h2 id="how-h">How to read these prototypes</h2>
 <ul class="prose">
 <li><b>Stand-ins, not copies.</b> We don't have rights to reproduce the originals. Each one is drawn as an illustration of its format, filled with TCC's paraphrase and at most one short quote. Every stand-in links to the original.</li>
@@ -44,7 +43,7 @@
 <li><b>Gaps are shown.</b> Where the audit has no data (full text, clinician review, institution, reshare counts), the page says so.</li>
 </ul></section>
 </main>
-<!-- Overnote review layer. Needs HTTP; see js/annotate.js. -->
+<!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="../../js/annotate.js"></script>
 </body>
 </html>

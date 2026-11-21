@@ -1,3 +1,10 @@
+/*
+ * Vendored copy of Overnote, Brandon Schauer's annotation layer.
+ * Source: /Users/brandonschauer/Documents/consultancy/code/overnote/src/overnote.js
+ * (not on npm or GitHub). Copied Nov 21, 2026. Don't edit here: to upgrade,
+ * copy the new src/overnote.js over this file and keep this header.
+ * Loaded only in review mode (?review=1); see js/annotate.js.
+ */
 /**
  * Overnote — a zero-dependency HTML annotation layer.
  *
@@ -50,6 +57,10 @@ const ICONS = {
   comments: ICON('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'),
   addComment: ICON('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v6M9 10h6"/>'),
   close: ICON('<path d="M18 6 6 18M6 6l12 12"/>'),
+  more: ICON('<circle cx="5" cy="12" r="1.25" fill="currentColor"/><circle cx="12" cy="12" r="1.25" fill="currentColor"/><circle cx="19" cy="12" r="1.25" fill="currentColor"/>'),
+  download: ICON('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>'),
+  upload: ICON('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>'),
+  trash: ICON('<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>'),
 };
 
 /* ------------------------------------------------------------------ */
@@ -465,6 +476,15 @@ export class Overnote {
     return this.exportAnnotations().annotations;
   }
 
+  /** Removes every annotation. Returns how many saved (commented) annotations were removed. */
+  clearAnnotations() {
+    const removed = [...this.annotations.values()].filter((a) => a.comments.length).length;
+    for (const id of [...this.annotations.keys()]) this._destroyAnnotation(id);
+    this._refresh();
+    this._changed();
+    return removed;
+  }
+
   deleteAnnotation(id) {
     const annotation = this.annotations.get(id);
     if (!annotation) return false;
@@ -545,7 +565,8 @@ export class Overnote {
     cancelAnimationFrame(this._raf);
     this._raf = 0;
     for (const id of [...this._views.keys()]) this._unmount(id);
-    for (const el of [this.ui.layer, this.ui.outline, this.ui.sidebar, this.ui.toolbar]) el.remove();
+    clearTimeout(this._toastTimer);
+    for (const el of [this.ui.layer, this.ui.outline, this.ui.sidebar, this.ui.toolbar, this.ui.dialog]) el.remove();
     delete document.documentElement.dataset.overnoteMode;
     delete document.documentElement.dataset.overnoteSidebar;
     this._initialized = false;
@@ -610,6 +631,63 @@ export class Overnote {
       },
       [h('span', { class: 'overnote-icon', html: ICONS.comments, 'aria-hidden': 'true' }), ui.count],
     );
+
+    // ••• menu: export / import / delete all.
+    const menuItem = (icon, label, onclick, extraClass = '') =>
+      h('button', { type: 'button', role: 'menuitem', tabindex: '-1', class: `overnote-menu__item ${extraClass}`.trim(), onclick }, [
+        h('span', { class: 'overnote-icon', html: ICONS[icon], 'aria-hidden': 'true' }),
+        h('span', { text: label }),
+      ]);
+    ui.menuItems = {
+      export: menuItem('download', 'Export notes', () => this._menuExport()),
+      import: menuItem('upload', 'Import notes…', () => this._menuImport()),
+      clear: menuItem('trash', 'Delete all notes…', () => this._menuClear(), 'overnote-menu__item--danger'),
+    };
+    ui.menu = h('div', { class: 'overnote-menu', role: 'menu', 'aria-label': 'Notes', id: `overnote-menu-${uid()}`, hidden: true, onkeydown: (e) => this._onMenuKeydown(e) },
+      Object.values(ui.menuItems));
+    ui.menuButton = h('button', {
+      type: 'button',
+      class: 'overnote-toolbar__more',
+      'aria-label': 'More actions',
+      'aria-haspopup': 'menu',
+      'aria-expanded': 'false',
+      'aria-controls': ui.menu.id,
+      title: 'More',
+      html: ICONS.more,
+      onclick: () => this._toggleMenu(),
+    });
+    ui.fileInput = h('input', {
+      type: 'file',
+      accept: '.json,application/json',
+      hidden: true,
+      tabindex: '-1',
+      'aria-hidden': 'true',
+      onchange: (e) => this._onImportFile(e),
+    });
+    ui.toast = h('div', { class: 'overnote-toast', role: 'status', hidden: true });
+
+    ui.dialogMessage = h('p', { class: 'overnote-dialog__message' });
+    ui.dialogConfirm = h('button', { type: 'button', class: 'overnote-btn overnote-btn--danger', text: 'Delete all' });
+    ui.dialogCancel = h('button', { type: 'button', class: 'overnote-btn overnote-btn--ghost', text: 'Cancel' });
+    ui.dialogBox = h('div', { class: 'overnote-dialog__box', role: 'alertdialog', 'aria-modal': 'true', 'aria-labelledby': 'overnote-dialog-title' }, [
+      h('h2', { class: 'overnote-dialog__title', id: 'overnote-dialog-title', text: 'Delete all notes?' }),
+      ui.dialogMessage,
+      h('div', { class: 'overnote-dialog__actions' }, [ui.dialogCancel, ui.dialogConfirm]),
+    ]);
+    ui.dialog = h('div', { class: 'overnote-dialog', hidden: true, [UI_ATTR]: true }, [ui.dialogBox]);
+    ui.dialog.addEventListener('mousedown', (e) => e.target === ui.dialog && this._closeDialog(false));
+    ui.dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation();
+        this._closeDialog(false);
+      } else if (e.key === 'Tab') { // keep focus inside the two buttons
+        e.preventDefault();
+        (document.activeElement === ui.dialogCancel ? ui.dialogConfirm : ui.dialogCancel).focus();
+      }
+    });
+    ui.dialogCancel.addEventListener('click', () => this._closeDialog(false));
+    ui.dialogConfirm.addEventListener('click', () => this._closeDialog(true));
+
     ui.toolbar = h(
       'div',
       { class: `overnote-toolbar overnote-toolbar--${position}`, role: 'toolbar', 'aria-label': 'Overnote', [UI_ATTR]: true },
@@ -620,6 +698,10 @@ export class Overnote {
         ]),
         h('span', { class: 'overnote-toolbar__divider', 'aria-hidden': 'true' }),
         ui.sidebarToggle,
+        ui.menuButton,
+        ui.menu,
+        ui.toast,
+        ui.fileInput,
         ui.status,
       ],
     );
@@ -640,7 +722,126 @@ export class Overnote {
     ]);
     ui.sidebar.inert = true;
 
-    document.body.append(ui.layer, ui.outline, ui.sidebar, ui.toolbar);
+    document.body.append(ui.layer, ui.outline, ui.sidebar, ui.toolbar, ui.dialog);
+  }
+
+  /* ---------------- ••• menu ---------------- */
+
+  _toggleMenu(force, { focus = 'first' } = {}) {
+    const { menu, menuButton, menuItems } = this.ui;
+    const open = force ?? menu.hidden;
+    if (open === !menu.hidden) return;
+    menu.hidden = !open;
+    menuButton.setAttribute('aria-expanded', String(open));
+    if (open) {
+      this._hideToast();
+      const count = this.getAnnotations().length;
+      menuItems.export.disabled = count === 0;
+      menuItems.clear.disabled = count === 0;
+      if (focus === 'first') this._menuEnabledItems()[0]?.focus();
+    } else if (focus === 'button') {
+      menuButton.focus();
+    }
+  }
+
+  _menuEnabledItems() {
+    return Object.values(this.ui.menuItems).filter((b) => !b.disabled);
+  }
+
+  _onMenuKeydown(e) {
+    const items = this._menuEnabledItems();
+    const i = items.indexOf(document.activeElement);
+    const move = { ArrowDown: 1, ArrowUp: -1 }[e.key];
+    if (move) {
+      e.preventDefault();
+      items[(i + move + items.length) % items.length]?.focus();
+    } else if (e.key === 'Home' || e.key === 'End') {
+      e.preventDefault();
+      items[e.key === 'Home' ? 0 : items.length - 1]?.focus();
+    } else if (e.key === 'Escape' || e.key === 'Tab') {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      this._toggleMenu(false, { focus: e.key === 'Escape' ? 'button' : null });
+    }
+  }
+
+  _menuExport() {
+    this._toggleMenu(false, { focus: 'button' });
+    const data = this.exportAnnotations();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const host = (globalThis.location?.hostname || 'page').replace(/[^\w.-]+/g, '-');
+    const stamp = new Date().toISOString().slice(0, 19).replace(/[T:]/g, '-');
+    const link = h('a', { href: URL.createObjectURL(blob), download: `overnote-${host}-${stamp}.json` });
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(link.href), 0);
+    const n = data.annotations.length;
+    this._toast(`Exported ${n} note${n === 1 ? '' : 's'}`);
+  }
+
+  _menuImport() {
+    this._toggleMenu(false, { focus: 'button' });
+    this.ui.fileInput.value = '';
+    this.ui.fileInput.click();
+  }
+
+  async _onImportFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      const { imported, orphaned, skipped } = this.importAnnotations(await file.text(), { merge: true });
+      const parts = [`Imported ${imported} note${imported === 1 ? '' : 's'}`];
+      if (orphaned) parts.push(`${orphaned} couldn't be placed on this page`);
+      if (skipped) parts.push(`${skipped} invalid skipped`);
+      this._toast(parts.join(' · '), imported ? 'info' : 'error');
+    } catch (err) {
+      console.warn('Overnote: import failed.', err);
+      this._toast(`Couldn't import "${truncate(file.name, 40)}" — not a valid Overnote JSON file`, 'error');
+    } finally {
+      e.target.value = '';
+    }
+  }
+
+  _menuClear() {
+    this._toggleMenu(false);
+    const n = this.getAnnotations().length;
+    if (!n) return;
+    const { dialog, dialogMessage, dialogCancel } = this.ui;
+    dialogMessage.textContent = `This will permanently delete ${n === 1 ? 'the 1 note' : `all ${n} notes`} on this page, including their comments. This can't be undone. Consider exporting first.`;
+    this._dialogReturnFocus = this.ui.menuButton;
+    this._dialogResolve = (ok) => {
+      if (!ok) return;
+      const removed = this.clearAnnotations();
+      this._toast(`Deleted ${removed} note${removed === 1 ? '' : 's'}`);
+    };
+    dialog.hidden = false;
+    dialogCancel.focus();
+  }
+
+  _closeDialog(confirmed) {
+    if (this.ui.dialog.hidden) return;
+    this.ui.dialog.hidden = true;
+    const resolve = this._dialogResolve;
+    this._dialogResolve = null;
+    this._dialogReturnFocus?.focus();
+    resolve?.(confirmed);
+  }
+
+  _toast(message, tone = 'info') {
+    const { toast } = this.ui;
+    clearTimeout(this._toastTimer);
+    toast.textContent = message;
+    toast.dataset.tone = tone;
+    toast.hidden = false;
+    this._toastTimer = setTimeout(() => this._hideToast(), tone === 'error' ? 6000 : 3500);
+  }
+
+  _hideToast() {
+    clearTimeout(this._toastTimer);
+    if (this.ui?.toast) this.ui.toast.hidden = true;
   }
 
   _bindGlobalListeners() {
@@ -1172,6 +1373,9 @@ export class Overnote {
   }
 
   _onDocumentClick(e) {
+    if (!this.ui.menu.hidden && !this.ui.menu.contains(e.target) && !this.ui.menuButton.contains(e.target)) {
+      this._toggleMenu(false, { focus: null });
+    }
     if (this._handledEvents.has(e) || e.target.closest?.(UI_SELECTOR)) return;
     this._closeAllNotes();
     if (this.mode !== MODES.HIGHLIGHT) return;
@@ -1184,6 +1388,8 @@ export class Overnote {
 
   _onKeydown(e) {
     if (e.key !== 'Escape') return;
+    if (!this.ui.dialog.hidden) return this._closeDialog(false);
+    if (!this.ui.menu.hidden) return this._toggleMenu(false, { focus: 'button' });
     if (!this.ui.addButton.hidden) return this._hideAddButton();
     const open = [...this._views].find(([, v]) => v.open);
     if (open) return this._toggleNote(open[0], false);
@@ -1334,6 +1540,50 @@ html[data-overnote-sidebar="open"] .overnote-toolbar--top-right { right: calc(va
   display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px;
   background: var(--overnote-text); color: var(--overnote-surface); font-size: 11px; font-weight: 600; line-height: 1;
 }
+.overnote-toolbar .overnote-toolbar__more {
+  display: grid; place-items: center; width: 32px; height: 32px; padding: 8px; border-radius: 999px; color: var(--overnote-text-muted);
+}
+.overnote-toolbar .overnote-toolbar__more:hover,
+.overnote-toolbar .overnote-toolbar__more[aria-expanded="true"] { background: var(--overnote-surface-muted); color: var(--overnote-text); }
+.overnote-toolbar__more svg { width: 100%; height: 100%; }
+
+/* ••• menu & toast (anchored to the toolbar, opening away from the screen edge) */
+.overnote-menu, .overnote-toast {
+  position: absolute; right: 0; bottom: calc(100% + 8px); background: var(--overnote-surface);
+  border: 1px solid var(--overnote-border); border-radius: var(--overnote-radius); box-shadow: var(--overnote-shadow);
+  animation: overnote-pop .14s ease-out;
+}
+.overnote-toolbar--bottom-left .overnote-menu, .overnote-toolbar--bottom-left .overnote-toast,
+.overnote-toolbar--top-left .overnote-menu, .overnote-toolbar--top-left .overnote-toast { right: auto; left: 0; }
+.overnote-toolbar--top-right .overnote-menu, .overnote-toolbar--top-right .overnote-toast,
+.overnote-toolbar--top-left .overnote-menu, .overnote-toolbar--top-left .overnote-toast { bottom: auto; top: calc(100% + 8px); }
+.overnote-menu { display: flex; flex-direction: column; min-width: 200px; padding: 4px; }
+.overnote-toolbar .overnote-menu__item {
+  display: flex; align-items: center; gap: 10px; width: 100%; height: 34px; padding: 0 10px; border-radius: var(--overnote-radius-sm);
+  color: var(--overnote-text); text-align: left; white-space: nowrap;
+}
+.overnote-toolbar .overnote-menu__item:hover:not(:disabled),
+.overnote-toolbar .overnote-menu__item:focus-visible { background: var(--overnote-surface-muted); box-shadow: none; }
+.overnote-toolbar .overnote-menu__item:disabled { opacity: .45; cursor: default; }
+.overnote-toolbar .overnote-menu__item--danger { color: var(--overnote-danger); }
+.overnote-toast { width: max-content; max-width: min(360px, calc(100vw - 2 * var(--overnote-gap))); padding: 8px 12px; }
+.overnote-toast[data-tone="error"] { color: var(--overnote-danger); }
+
+/* Confirm dialog */
+.overnote-dialog {
+  position: fixed; inset: 0; z-index: calc(var(--overnote-z) + 4); display: grid; place-items: center; padding: var(--overnote-gap);
+  background: rgba(0, 0, 0, .35); font-family: var(--overnote-font); font-size: var(--overnote-font-size); line-height: 1.45;
+  color: var(--overnote-text); -webkit-font-smoothing: antialiased;
+}
+.overnote-dialog__box {
+  width: min(400px, 100%); padding: 20px; background: var(--overnote-surface); border: 1px solid var(--overnote-border);
+  border-radius: var(--overnote-radius); box-shadow: var(--overnote-shadow); animation: overnote-pop .14s ease-out;
+}
+.overnote-dialog .overnote-dialog__title { margin: 0 0 8px; font-size: 15px; font-weight: 600; line-height: 1.3; color: inherit; }
+.overnote-dialog .overnote-dialog__message { margin: 0; color: var(--overnote-text-muted); }
+.overnote-dialog__actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+[data-overnote-ui] .overnote-btn--danger { background: var(--overnote-danger); color: #fff; }
+[data-overnote-ui] .overnote-btn--danger:hover { filter: brightness(1.1); }
 
 /* Highlights */
 mark.overnote-highlight {

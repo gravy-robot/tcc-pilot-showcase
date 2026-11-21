@@ -125,7 +125,6 @@ def build(name, outname, title, page_name, intro, pilots=False):
 <!-- Rebuilt from reference/maps/{name} (canvas source). Research artifact:
      keeps its own palette and fonts (Inter, Space Grotesk), not TCC branding. -->
 <link rel="stylesheet" href="../assets/banner.css">
-<link rel="stylesheet" href="../assets/overnote-theme.css">
 {helmet.strip()}
 <style>{LOCAL_CSS}</style>
 </head>
@@ -145,7 +144,7 @@ def build(name, outname, title, page_name, intro, pilots=False):
 {body}
 </div>
 </main>
-<!-- Overnote review layer. Needs HTTP; see js/annotate.js. -->
+<!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="../js/annotate.js"></script>
 </body>
 </html>

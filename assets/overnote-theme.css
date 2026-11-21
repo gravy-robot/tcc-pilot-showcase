@@ -1,13 +1,12 @@
 /* Overnote theme: maps Overnote's --overnote-* variables to TCC colors.
-   Loaded by every page (TCC pages and the research maps), so values are
-   plain hex from the design system, not tcc.css tokens. Set only, never
-   repurposed (see overnote/docs/OVERNOTE_REQUIREMENT.md, section 2.5).
-   Pumpkin = highlight mode, cerulean ink = sticky mode. */
+   Loaded only in review mode, by js/review.js. Values are plain hex from the
+   design system, not tcc.css tokens, because the research maps don't load
+   tcc.css. Pumpkin = highlight mode, cerulean ink = sticky mode. */
 :root{
   --overnote-font:"Ubuntu",system-ui,sans-serif;
   --overnote-accent:#08688A;              /* cerulean ink */
   --overnote-accent-contrast:#FFFFFF;
-  --overnote-focus-ring:#08688A;
+  --overnote-focus-ring:0 0 0 3px rgba(8,104,138,.45);
   --overnote-mode-off:#1B2D5B;            /* navy */
   --overnote-mode-highlight:#A3470E;      /* pumpkin ink */
   --overnote-mode-sticky:#08688A;
@@ -21,4 +20,12 @@
   --overnote-sticky-bg:#F5EEDC;           /* linen */
   --overnote-sticky-header:#F0E0B0;       /* cream */
   --overnote-sticky-text:#1B2D5B;
+  --overnote-sticky-border:rgba(27,45,91,.18);
+  --overnote-hover-outline:#08688A;
+  --overnote-hover-fill:rgba(8,104,138,.06);
 }
+
+/* Guards: keep the page's global type rules (tcc.css, ce-core.css) out of
+   Overnote's toolbar, sidebar and notes. Overnote sets its own sizes. */
+[data-overnote-ui] h2::after{content:none}
+[data-overnote-ui] :where(h2,p){color:inherit;font-weight:inherit;margin:0}

@@ -74,9 +74,9 @@ Bytes for each page plus every CSS, script and font file it references, with med
 <!-- weights:start -->
 | Model | Library | Detail: article | Detail: video (not loaded) | Pair | Heaviest detail |
 |---|---|---|---|---|---|
-| Model A: Stage | 168 KB | 151 KB | 151 KB | 158 KB | 151 KB (howard-wildfire-smoke.html) |
-| Model B: Canvas | 173 KB | 155 KB | 155 KB | 165 KB | 155 KB (suter-outrider-oped.html) |
-| Model C: Requirements only | 165 KB | 147 KB | 146 KB | 140 KB | 147 KB (suter-outrider-oped.html) |
+| Model A: Stage | 162 KB | 145 KB | 145 KB | 153 KB | 145 KB (howard-wildfire-smoke.html) |
+| Model B: Canvas | 168 KB | 149 KB | 149 KB | 159 KB | 149 KB (suter-outrider-oped.html) |
+| Model C: Requirements only | 160 KB | 141 KB | 141 KB | 135 KB | 141 KB (suter-outrider-oped.html) |
 <!-- weights:end -->
 
 About 82 KB of every figure is the four font files, which a browser caches after the first page. Gzipped, a library page's HTML is about 5–7 KB.
