@@ -57,7 +57,19 @@ h2 .h-anchor{display:inline}
 .core{margin-bottom:24px}
 .story{margin:8px 0 16px;padding:12px 16px;border-left:4px solid var(--tcc-pumpkin);background:var(--tcc-linen);border-radius:0 8px 8px 0;font-size:17px;line-height:1.5;color:var(--tcc-navy)}
 .jobs{display:grid;gap:24px;margin-top:24px}
-.job h3{font-size:clamp(22px,3vw,28px);margin:0 0 4px}
+/* Job cards: collapsed by default; the title row toggles the rest */
+.job-d > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.job-d > summary::-webkit-details-marker{display:none}
+.job-sum{display:flex;flex-direction:column;gap:2px}
+.job-sum .eyebrow{display:block;margin:0}
+.job-h{font-family:var(--tcc-font-head);font-weight:800;font-size:clamp(22px,3vw,28px);line-height:1.2;color:var(--tcc-navy)}
+.job-h:hover .h-anchor,.job-h .h-anchor:focus-visible{opacity:1}
+.job-h .h-anchor{font-size:.7em;font-weight:700;text-decoration:none;color:var(--tcc-cerulean-ink);opacity:0;margin-left:.2em;padding:0 .15em;transition:opacity .15s}
+.chev{flex:none;width:36px;height:36px;border-radius:50%;border:2px solid var(--tcc-sand);position:relative;transition:transform .2s}
+.chev::before{content:"";position:absolute;left:11px;top:9px;width:10px;height:10px;border-right:3px solid var(--tcc-navy);border-bottom:3px solid var(--tcc-navy);transform:rotate(45deg)}
+.job-d[open] .chev{transform:rotate(180deg)}
+.job-d > summary:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:6px;border-radius:8px}
+.job-body{margin-top:16px}
 .job:target{box-shadow:0 0 0 4px var(--tcc-pumpkin),var(--tcc-shadow)}
 .jobfacts{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0 0 16px;font-size:15px}
 .jobfacts dt{font-weight:700;color:var(--tcc-navy)}
@@ -240,13 +252,17 @@ h2 .h-anchor{display:inline}
         <p class="small muted">A Content Example is any curated piece of real climate communication TCC shows a messenger: a single piece in the library; one half of a contrast pair (a strong piece and a weaker one); a reference the messenger's AI chatbot uses as a model; an attribution on the messenger's own post.</p>
       </div>
     </div>
-    <nav class="jump" aria-label="Jump to a job">
-      <a class="btn btn-ghost" href="#j1">J1 Notice</a><a class="btn btn-ghost" href="#j2">J2 Explore</a><a class="btn btn-ghost" href="#j3">J3 Join</a><a class="btn btn-ghost" href="#j4">J4 Learn</a><a class="btn btn-ghost" href="#j5">J5 Create</a><a class="btn btn-ghost" href="#j6">J6 Share</a><a class="btn btn-ghost" href="#j7">J7 Return and connect</a>
-    </nav>
     <div class="jobs">
 <article class="tile job anchor-target" id="j1" aria-labelledby="j1-h">
-  <p class="eyebrow">J1 · Stage 1: Notice</p>
-  <h3 id="j1-h">Give her permission <a class="h-anchor" href="#j1" aria-label="Link to J1">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J1 · Stage 1: Notice</span>
+      <span class="job-h" id="j1-h" role="heading" aria-level="3">Give her permission <a class="h-anchor" href="#j1" aria-label="Link to J1">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When climate shows up in my exam room as heat and smoke, I want to see a fellow clinician talk about it practically, so I know it's appropriate for someone like me to speak.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>Links climate to health effects she already sees.</dd>
@@ -263,10 +279,19 @@ h2 .h-anchor{display:inline}
       <dd><ul class="cites"><li>The messengers people know and trust, doctors among them, are rarely the ones with access to the research, the framing or local data. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 5</a>)</span></li><li>Only 19% of communicators in the TCC/AU research reach health professionals, though “people trust the people that they already know.” <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 6</a>)</span></li></ul></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>
 <article class="tile job anchor-target" id="j2" aria-labelledby="j2-h">
-  <p class="eyebrow">J2 · Stage 2: Explore</p>
-  <h3 id="j2-h">Signal fit fast <a class="h-anchor" href="#j2" aria-label="Link to J2">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J2 · Stage 2: Explore</span>
+      <span class="job-h" id="j2-h" role="heading" aria-level="3">Signal fit fast <a class="h-anchor" href="#j2" aria-label="Link to J2">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When I'm looking for guidance, I want to tell within seconds whether something is for clinicians or for activists, so I don't waste time or pick up a partisan frame.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>Filter by role, topic, place and how recent it is.</dd>
@@ -283,10 +308,19 @@ h2 .h-anchor{display:inline}
       <dd><ul class="cites"><li>Of communicators who target by profession, fewer than one in five focus on the health sector itself. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li><li>34.7% say a regular feed of curated, trusted content to quote, share or repost would help them. <span class="cite">(<a href="#src-au">AU research report, PDF p. 17</a>)</span></li></ul><p class="gap"><span class="gap-tag">Gap</span> No TCC/AU finding tests filtering by role, topic or place. That need comes from the journey’s pain point.</p></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>
 <article class="tile job anchor-target" id="j3" aria-labelledby="j3-h">
-  <p class="eyebrow">J3 · Stage 3: Join</p>
-  <h3 id="j3-h">Preview the value <a class="h-anchor" href="#j3" aria-label="Link to J3">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J3 · Stage 3: Join</span>
+      <span class="job-h" id="j3-h" role="heading" aria-level="3">Preview the value <a class="h-anchor" href="#j3" aria-label="Link to J3">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When I'm asked to sign up, I want to see the examples I'll get, so I know the commitment is worth it.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>The payoff is visible before she commits.</dd>
@@ -303,10 +337,19 @@ h2 .h-anchor{display:inline}
       <dd><p class="gap"><span class="gap-tag">Gap</span> No TCC/AU research finding. This job rests on the journey and persona only. Test it in clinician interviews.</p></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>
 <article class="tile job anchor-target" id="j4" aria-labelledby="j4-h">
-  <p class="eyebrow">J4 · Stage 4: Learn</p>
-  <h3 id="j4-h">Make "good" visible <a class="h-anchor" href="#j4" aria-label="Link to J4">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J4 · Stage 4: Learn</span>
+      <span class="job-h" id="j4-h" role="heading" aria-level="3">Make "good" visible <a class="h-anchor" href="#j4" aria-label="Link to J4">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When I'm learning what works, I want to compare a strong example with a weaker one and see why, so I can recognize good communication on my own.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>Teaches the Eight Principles through real cases rather than lessons.</dd>
@@ -323,10 +366,19 @@ h2 .h-anchor{display:inline}
       <dd><ul class="cites"><li>Communicators want regular updates on what works (54%) far more than training (27%) or science education (24%). <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li><li>The same survey table, unrounded: best-practice updates 53.5%, training 26.5%, science education 24.1%. <span class="cite">(<a href="#src-au">AU research report, PDF p. 17</a>)</span></li><li>Published findings rarely reach “the doctor with two dozen patients waiting.” <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li></ul></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>
 <article class="tile job anchor-target" id="j5" aria-labelledby="j5-h">
-  <p class="eyebrow">J5 · Stage 5: Create</p>
-  <h3 id="j5-h">Be a model she can borrow <a class="h-anchor" href="#j5" aria-label="Link to J5">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J5 · Stage 5: Create</span>
+      <span class="job-h" id="j5-h" role="heading" aria-level="3">Be a model she can borrow <a class="h-anchor" href="#j5" aria-label="Link to J5">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When I'm drafting a post, op-ed or handout, I want a proven model to borrow the structure and tone from, so my draft is fast, sounds like me and avoids jargon, doom and partisanship.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>Reusable structure (hook, local link, one doable step) that her AI chatbot or Canva template can follow.</dd>
@@ -343,10 +395,19 @@ h2 .h-anchor{display:inline}
       <dd><ul class="cites"><li>Sharing alarming updates about global trends raises awareness and concern but erodes efficacy, the sense that action matters. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 4</a>)</span></li><li>37.6% want customized tips for different forms of communication, such as social media and video. <span class="cite">(<a href="#src-au">AU research report, PDF p. 17</a>)</span></li><li>In our audit, both segments miss most often on P4 Doable and P8 For Everyone (partisan framing). <span class="cite">(<a href="../audit/index.html">Example audit</a>)</span></li></ul></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>
 <article class="tile job anchor-target" id="j6" aria-labelledby="j6-h">
-  <p class="eyebrow">J6 · Stage 6: Share</p>
-  <h3 id="j6-h">Provide cover <a class="h-anchor" href="#j6" aria-label="Link to J6">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J6 · Stage 6: Share</span>
+      <span class="job-h" id="j6-h" role="heading" aria-level="3">Provide cover <a class="h-anchor" href="#j6" aria-label="Link to J6">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When I'm about to publish, I want evidence that respected peers have said something similar safely, so I and my employer's comms office can approve it with confidence.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>Precedent that makes internal approval easier.</dd>
@@ -363,10 +424,19 @@ h2 .h-anchor{display:inline}
       <dd><ul class="cites"><li>Endorsing candidates is communicators’ least common goal, chosen by only 1 in 25: evidence that the field isn’t partisan. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 6</a>)</span></li><li>In our audit, the best health videos had only 20 and 55 views. Good precedent exists but few people see it. <span class="cite">(<a href="../audit/index.html">Example audit</a>)</span></li></ul><p class="gap"><span class="gap-tag">Gap</span> No TCC/AU finding on employer or comms-office approval. That need comes from the journey and persona.</p></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>
 <article class="tile job anchor-target" id="j7" aria-labelledby="j7-h">
-  <p class="eyebrow">J7 · Stage 7: Return and connect</p>
-  <h3 id="j7-h">Connect her to peers and credit her work <a class="h-anchor" href="#j7" aria-label="Link to J7">#</a></h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">J7 · Stage 7: Return and connect</span>
+      <span class="job-h" id="j7-h" role="heading" aria-level="3">Connect her to peers and credit her work <a class="h-anchor" href="#j7" aria-label="Link to J7">#</a></span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">When I've shared my piece, I want to see it make a difference and find others like me, so I keep going and don't do this alone.</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>Her piece can become an example for others, which gets it seen and gets her feedback.</dd>
@@ -383,6 +453,8 @@ h2 .h-anchor{display:inline}
       <dd><ul class="cites"><li>57% of communicators want help finding peers and collaborators, tied with “what works” as the top need after funding (AU: 57.1%, PDF p. 17). <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 7</a>)</span></li><li>Communicators mostly work alone, rarely team up or share ideas, and connect mostly with people like themselves. <span class="cite">(<a href="#src-tcc">TCC insights report, PDF p. 5</a>)</span></li><li>34% of respondents work alone; another 34% work in organizations of 10 or fewer full-time staff. <span class="cite">(<a href="#src-au">AU research report, PDF p. 4</a>)</span></li></ul></dd>
     </dl>
   </div>
+  </div>
+</details>
 </article></div>
 
     <div class="grid g2" style="margin-top:32px">
@@ -424,5 +496,9 @@ h2 .h-anchor{display:inline}
 </footer>
 <!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="../js/annotate.js"></script>
+<script>
+/* A link to #j1–#j7 opens that job's collapsed card. */
+(function(){function open(){var h=location.hash.slice(1);if(!/^j[1-7]$/.test(h))return;var a=document.getElementById(h);var d=a&&a.querySelector("details");if(d)d.open=true}open();addEventListener("hashchange",open)})();
+</script>
 </body>
 </html>

@@ -228,8 +228,15 @@ def job_card(j):
     b = j["bullets"]
     return f"""
 <article class="tile job anchor-target" id="{j["id"]}" aria-labelledby="{j["id"]}-h">
-  <p class="eyebrow">{j["label"]} · Stage {j["n"]}: {esc(j["stage"])}</p>
-  <h3 id="{j["id"]}-h">{esc(j["title"])} {anchor(j["id"], j["label"])}</h3>
+<details class="job-d">
+  <summary>
+    <span class="job-sum">
+      <span class="eyebrow">{j["label"]} · Stage {j["n"]}: {esc(j["stage"])}</span>
+      <span class="job-h" id="{j["id"]}-h" role="heading" aria-level="3">{esc(j["title"])} {anchor(j["id"], j["label"])}</span>
+    </span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="job-body">
   <blockquote class="story">{inline(j["story"])}</blockquote>
   <dl class="jobfacts">
     <dt>Practical</dt><dd>{inline(b.get("Practical", ""))}</dd>
@@ -246,6 +253,8 @@ def job_card(j):
       <dd>{res_html}</dd>
     </dl>
   </div>
+  </div>
+</details>
 </article>"""
 
 stake_html = "".join(f'<tr><th scope="row">{inline(a)}</th><td>{inline(b)}</td></tr>' for a, b in stake_rows)
@@ -268,9 +277,6 @@ jobs_html = f"""
         <p class="small muted">A Content Example is any curated piece of real climate communication TCC shows a messenger: {inline("; ".join(x[0].lower() + x[1:] for x in what_is_items))}.</p>
       </div>
     </div>
-    <nav class="jump" aria-label="Jump to a job">
-      {"".join(f'<a class="btn btn-ghost" href="#{j["id"]}">{j["label"]} {esc(j["stage"])}</a>' for j in jobs)}
-    </nav>
     <div class="jobs">{"".join(job_card(j) for j in jobs)}</div>
 
     <div class="grid g2" style="margin-top:32px">
@@ -335,7 +341,19 @@ h2 .h-anchor{display:inline}
 .core{margin-bottom:24px}
 .story{margin:8px 0 16px;padding:12px 16px;border-left:4px solid var(--tcc-pumpkin);background:var(--tcc-linen);border-radius:0 8px 8px 0;font-size:17px;line-height:1.5;color:var(--tcc-navy)}
 .jobs{display:grid;gap:24px;margin-top:24px}
-.job h3{font-size:clamp(22px,3vw,28px);margin:0 0 4px}
+/* Job cards: collapsed by default; the title row toggles the rest */
+.job-d > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.job-d > summary::-webkit-details-marker{display:none}
+.job-sum{display:flex;flex-direction:column;gap:2px}
+.job-sum .eyebrow{display:block;margin:0}
+.job-h{font-family:var(--tcc-font-head);font-weight:800;font-size:clamp(22px,3vw,28px);line-height:1.2;color:var(--tcc-navy)}
+.job-h:hover .h-anchor,.job-h .h-anchor:focus-visible{opacity:1}
+.job-h .h-anchor{font-size:.7em;font-weight:700;text-decoration:none;color:var(--tcc-cerulean-ink);opacity:0;margin-left:.2em;padding:0 .15em;transition:opacity .15s}
+.chev{flex:none;width:36px;height:36px;border-radius:50%;border:2px solid var(--tcc-sand);position:relative;transition:transform .2s}
+.chev::before{content:"";position:absolute;left:11px;top:9px;width:10px;height:10px;border-right:3px solid var(--tcc-navy);border-bottom:3px solid var(--tcc-navy);transform:rotate(45deg)}
+.job-d[open] .chev{transform:rotate(180deg)}
+.job-d > summary:focus-visible{outline:3px solid var(--tcc-cerulean-ink);outline-offset:6px;border-radius:8px}
+.job-body{margin-top:16px}
 .job:target{box-shadow:0 0 0 4px var(--tcc-pumpkin),var(--tcc-shadow)}
 .jobfacts{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0 0 16px;font-size:15px}
 .jobfacts dt{font-weight:700;color:var(--tcc-navy)}
@@ -412,6 +430,10 @@ page = f"""<!doctype html>
 </footer>
 <!-- Overnote review layer, loaded only with ?review=1. See js/annotate.js. -->
 <script type="module" src="../js/annotate.js"></script>
+<script>
+/* A link to #j1–#j7 opens that job's collapsed card. */
+(function(){{function open(){{var h=location.hash.slice(1);if(!/^j[1-7]$/.test(h))return;var a=document.getElementById(h);var d=a&&a.querySelector("details");if(d)d.open=true}}open();addEventListener("hashchange",open)}})();
+</script>
 </body>
 </html>
 """
